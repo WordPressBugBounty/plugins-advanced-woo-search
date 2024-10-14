@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.6
-Stable tag: 3.17
+Stable tag: 3.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,12 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.18 ( 2024-10-14 ) =
+* Add - Support for Jet Blocks plugin search widget
+* Update - Support for Italian language
+* Update - Admin page notices about integrations
+* Dev - Update the structure of plugin tables
 
 = 3.17 ( 2024-10-01 ) =
 * Add - Support for Shopical theme
@@ -386,9 +392,3 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 = 2.82 ( 2023-06-26 ) =
 * Add - Support for Blocksy theme
 * Update - Tested with WC 7.8
-
-= 2.81 ( 2023-06-12 ) =
-* Fix - FacetWP plugin issue with pagination
-
-= 2.80 ( 2023-05-29 ) =
-* Add - Support for WP Bottom Menu plugin
