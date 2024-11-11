@@ -574,14 +574,14 @@ if ( ! class_exists( 'AWS_Helpers' ) ) :
             // Line feeds, carriage returns, tabs
             $string = preg_replace( '/[\x00-\x1F\x80-\x9F]/u', '', $string );
 
-            // Diacritical marks
-            $string = strtr( $string, AWS_Helpers::get_diacritic_chars() );
-
             if ( function_exists( 'mb_strtolower' ) ) {
                 $string = mb_strtolower( $string );
             } else {
                 $string = strtolower( $string );
             }
+
+            // Diacritical marks
+            $string = strtr( $string, AWS_Helpers::get_diacritic_chars() );
 
             /**
              * Filters normalized string
