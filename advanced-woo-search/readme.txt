@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.20
+Stable tag: 3.21
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,12 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.21 ( 2024-11-26 ) =
+* Update - Tested with WC 9.4
+* Update - Improve search speed and update index table structure
+* Update - Structure of cache table
+* Dev - Update conditions for table check
 
 = 3.20 ( 2024-11-11 ) =
 * Update - Integration with YITH WooCommerce Ajax Product Filter plugin
