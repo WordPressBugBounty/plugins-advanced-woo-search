@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.22
+Stable tag: 3.23
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,11 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.23 ( 2024-12-16 ) =
+* Add - New shortcodes for similar terms, search terms
+* Fix - Integration with Yoast Premium plugin. Allow additional parameters for permalinks
+* Dev - Update forceNewSearch method to use additional parameters
 
 = 3.22 ( 2024-11-29 ) =
 * Update - Settings page descriptions
@@ -390,7 +395,3 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 * Fix - Attributes filters for search results
 * Fix - Search terms tracking for GA4. Update tracking code
 * Dev - Update aws_reindex_product action. Allow to use array of IDs as parameter
-
-= 2.85 ( 2023-08-07 ) =
-* Update - Special characters scrapping. Replace comma char with space
-* Fix - Bug with search form inside WCFM plugin vendor shop page
