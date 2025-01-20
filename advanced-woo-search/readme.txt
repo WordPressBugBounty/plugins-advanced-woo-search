@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.24
+Stable tag: 3.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,9 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.25 ( 2024-01-20 ) =
+* Dev - Add filter for search form shortcode parameters
 
 = 3.24 ( 2024-12-30 ) =
 * Update - Tested with WC 9.5
