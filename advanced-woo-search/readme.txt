@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.25
+Stable tag: 3.26
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,10 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.26 ( 2024-02-03 ) =
+* Update - Enable gutenberg search block for navigation section
+* Update - Tested with WC 9.6
 
 = 3.25 ( 2024-01-20 ) =
 * Dev - Add filter for search form shortcode parameters
@@ -387,11 +391,3 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 * Fix - Fix label search form styles for mobile devices
 * Dev - Fix php notice with dynamically created child_theme property
 * Dev - Add aws_relevance_parameters filter
-
-= 2.87 ( 2023-09-04 ) =
-* Add - Support for WooCommerce Products Visibility plugin
-* Update - Support for BeRocket WooCommerce AJAX Products Filter plugin. Fix filters when nice URLs is enabled
-* Update - Support for HUSKY plugin. Fix filtering issue for custom taxonomies
-* Fix - Display On backorder product stock status when needed
-* Dev - Update aws_results_html js hook. Add new property - translate
-* Dev - Add aws_search_tax_result_item filter
