@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.26
+Stable tag: 3.27
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,9 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.27 ( 2024-02-17 ) =
+* Fix - Highlight synonyms words for search results
 
 = 3.26 ( 2024-02-03 ) =
 * Update - Enable gutenberg search block for navigation section
@@ -384,10 +387,3 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 = 2.89 ( 2023-09-29 ) =
 * Add - Support for Sinatra theme. Enable seamless integration for search form in the header
 * Update - Add taxonomies class names inside search results blocks
-
-= 2.88 ( 2023-09-18 ) =
-* Add - Support for Kapee theme
-* Update - Tested with WC 8.1
-* Fix - Fix label search form styles for mobile devices
-* Dev - Fix php notice with dynamically created child_theme property
-* Dev - Add aws_relevance_parameters filter
