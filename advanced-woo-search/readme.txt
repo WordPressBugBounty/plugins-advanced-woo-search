@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.28
+Stable tag: 3.29
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -173,18 +173,23 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
-= 3.28 ( 2024-03-03 ) =
+= 3.29 ( 2025-03-17 ) =
+* Update - Integration for Elementor search form widget
+* Fix - aws_search_terms parameters escaping
+* Dev - Add aws_index_scraped_data filter
+
+= 3.28 ( 2025-03-03 ) =
 * Update - Tested with WC 9.7
 * Fix - Bug with additional slashed for text options
 
-= 3.27 ( 2024-02-17 ) =
+= 3.27 ( 2025-02-17 ) =
 * Fix - Highlight synonyms words for search results
 
-= 3.26 ( 2024-02-03 ) =
+= 3.26 ( 2025-02-03 ) =
 * Update - Enable gutenberg search block for navigation section
 * Update - Tested with WC 9.6
 
-= 3.25 ( 2024-01-20 ) =
+= 3.25 ( 2025-01-20 ) =
 * Dev - Add filter for search form shortcode parameters
 
 = 3.24 ( 2024-12-30 ) =
@@ -383,7 +388,3 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 
 = 2.91 ( 2023-10-30 ) =
 * Update - Support for Astra theme. Fix broken search form in the header
-
-= 2.90 ( 2023-10-16 ) =
-* Update - Tested with WC 8.2
-* Fix - Pricing filter for default WooCommerce widgets
