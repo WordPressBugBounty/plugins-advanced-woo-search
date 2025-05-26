@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 3.33
+Stable tag: 3.34
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -173,6 +173,11 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.34 ( 2025-05-26 ) =
+* Add - New option to highlight search terms inside results page
+* Update - Settings page text
+* Fix - Bug with search words highlight
 
 = 3.33 ( 2025-05-12 ) =
 * Add - Integration for Customify theme
@@ -380,9 +385,3 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 
 = 2.98 ( 2024-01-22 ) =
 * Update - Remove plugin options during uninstall
-
-= 2.97 ( 2024-01-10 ) =
-* Update - Notices about plugin integrations
-* Update - Tested with WC 8.5
-* Update - Integration with Dynamic Content for Elementor plugin
-* Fix - FacetWP plugin issue with pagination
