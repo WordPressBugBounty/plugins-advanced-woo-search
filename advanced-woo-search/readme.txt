@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 3.34
+Stable tag: 3.35
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -173,6 +173,9 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.35 ( 2025-05-29 ) =
+* Fix - Bug with products title highlighting inside search results page
 
 = 3.34 ( 2025-05-26 ) =
 * Add - New option to highlight search terms inside results page
@@ -382,6 +385,3 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 * Update - Plugin settings page. Set minimal values for some options
 * Update - Support for Elessi theme. Fix shop filters
 * Dev - Add aws_admin_capability filter
-
-= 2.98 ( 2024-01-22 ) =
-* Update - Remove plugin options during uninstall

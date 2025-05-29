@@ -627,7 +627,15 @@ if ( ! class_exists( 'AWS_Search_Page' ) ) :
         /*
          * Highlight search terms in product title
          */
-        public function highlight_title( $title, $post_id ) {
+        public function highlight_title( $title = '', $post_id = 0 ) {
+
+            if ( ! $title ) {
+                return $title;
+            }
+
+            if ( ! $post_id ) {
+                return $title;
+            }
 
             $data = isset( $this->data['current_search_data'] ) ? $this->data['current_search_data'] : array();
 
@@ -644,7 +652,11 @@ if ( ! class_exists( 'AWS_Search_Page' ) ) :
         /*
          * Highlight search terms in product excerpt
          */
-        public function highlight_excerpt( $excerpt, $post ) {
+        public function highlight_excerpt( $excerpt, $post = null ) {
+
+            if ( ! $post instanceof WP_Post ) {
+                return $excerpt;
+            }
 
             $data = isset( $this->data['current_search_data'] ) ? $this->data['current_search_data'] : array();
 
