@@ -22,7 +22,9 @@ if ( ! class_exists( 'AWS_Helpers' ) ) :
                 '@<style[^>]*?>.*?</style>@siU',
                 '@<![\s\S]*?--[ \t\n\r]*>@'
             );
-            $str = preg_replace( $search, '', $str );
+            $str = preg_replace( $search, ' ', $str );
+
+            $str = preg_replace('/\s+/', ' ', $str);
 
             $str = esc_attr( $str );
             $str = stripslashes( $str );
@@ -244,7 +246,7 @@ if ( ! class_exists( 'AWS_Helpers' ) ) :
                 }
 
             }
-
+            
             return $str_new_array;
 
         }
