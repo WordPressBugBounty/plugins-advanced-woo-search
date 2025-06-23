@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.36
+Stable tag: 3.37
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -277,6 +277,11 @@ Please ask your question via the [support forum](https://wordpress.org/support/p
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.37 ( 2025-06-23 ) =
+* Update - Admin page notices
+* Dev - Add aws_pre_normalized_search_string filter
+* Dev - Admin page settings page update. Add default values for options
+
 = 3.36 ( 2025-06-10 ) =
 * Update - Tested with WC 9.9
 * Fix - Update products data extraction. Fix markup issues
@@ -484,6 +489,3 @@ Please ask your question via the [support forum](https://wordpress.org/support/p
 * Update - Tested with WC 8.6
 * Update - Indexation for synonyms phrases
 * Fix - Bug with search results page integration with Elementor
-
-= 3.00 ( 2024-02-12 ) =
-* Add - New option to limit maximal number of search words
