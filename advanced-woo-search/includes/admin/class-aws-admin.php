@@ -121,7 +121,7 @@ class AWS_Admin {
 
         echo $tabs_html;
 
-        echo '<form action="" name="aws_form" id="aws_form" method="post">';
+        echo '<form data-tab="'. esc_attr( $current_tab ) .'" action="" name="aws_form" id="aws_form" method="post">';
 
         switch ($current_tab) {
             case('performance'):
@@ -132,6 +132,9 @@ class AWS_Admin {
                 break;
             case('results'):
                 new AWS_Admin_Fields( 'results' );
+                break;
+            case('suggestions'):
+                new AWS_Admin_Fields( 'suggestions' );
                 break;
             case('premium'):
                 new AWS_Admin_Page_Premium();

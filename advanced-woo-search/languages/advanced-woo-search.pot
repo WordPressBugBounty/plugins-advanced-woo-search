@@ -905,3 +905,180 @@ msgstr ""
 
 msgid "Taxonomy"
 msgstr ""
+
+msgid "(Pro)"
+msgstr ""
+
+msgid "GTIN, UPC, EAN, ISBN"
+msgstr ""
+
+msgid "Brand"
+msgstr ""
+
+msgid "Attributes"
+msgstr ""
+
+msgid "Taxonomies"
+msgstr ""
+
+msgid "Custom Fields"
+msgstr ""
+
+msgid "Search logic"
+msgstr ""
+
+msgid "Search rules."
+msgstr ""
+
+msgid "OR. Show result if at least one word exists in product."
+msgstr ""
+
+msgid "AND. Show result if only all words exists in product."
+msgstr ""
+
+msgid "Exact match"
+msgstr ""
+
+msgid "Search only for full word matching or display results even if they match only part of word."
+msgstr ""
+
+msgid "Yes. Search only for full words matching."
+msgstr ""
+
+msgid "No. Partial words match search."
+msgstr ""
+
+msgid "Open product in new tab"
+msgstr ""
+
+msgid "When user clicks on one of the search result new window will be opened."
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Set style for search results output."
+msgstr ""
+
+msgid "Inline Style"
+msgstr ""
+
+msgid "Grid Style"
+msgstr ""
+
+msgid "Big Grid Style"
+msgstr ""
+
+msgid "Variable products"
+msgstr ""
+
+msgid "How to show variable products."
+msgstr ""
+
+msgid "Show only parent products"
+msgstr ""
+
+msgid "Show parent and child products"
+msgstr ""
+
+msgid "Show only child products"
+msgstr ""
+
+msgid "Products sale status"
+msgstr ""
+
+msgid "Search only for products with selected sale status"
+msgstr ""
+
+msgid "Show on-sale and not on-sale products"
+msgstr ""
+
+msgid "Show only on-sale products"
+msgstr ""
+
+msgid "Show only not on-sale products"
+msgstr ""
+
+msgid "Products visibility"
+msgstr ""
+
+msgid "Search only products with this visibilities."
+msgstr ""
+
+msgid "Catalog/search"
+msgstr ""
+
+msgid "Catalog"
+msgstr ""
+
+msgid "Hidden"
+msgstr ""
+
+msgid "Show rating"
+msgstr ""
+
+msgid "Show product rating."
+msgstr ""
+
+msgid "Show product brand"
+msgstr ""
+
+msgid "Show product brand values in search results."
+msgstr ""
+
+msgid "Show product GTIN, UPC, EAN or ISBN"
+msgstr ""
+
+msgid "Show product global unique id."
+msgstr ""
+
+msgid "Show 'Add to cart'"
+msgstr ""
+
+msgid "Show 'Add to cart' button for each search result."
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "Show with quantity box"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Filter Results"
+msgstr ""
+
+msgid "Filter search results. You can include/exclude search results based on different rules."
+msgstr ""
+
+msgid "Combine filter rules to AND or OR logical blocks to create advanced filter logic."
+msgstr ""
+
+msgid "Please try not to use too many filters overwise this can impact on search speed."
+msgstr ""
+
+msgid "Products results"
+msgstr ""
+
+msgid "Filter products search results"
+msgstr ""
+
+msgid "Terms results"
+msgstr ""
+
+msgid "Filter taxonomies archive pages results"
+msgstr ""
+
+msgid "Users results"
+msgstr ""
+
+msgid "Filter users archive pages search results"
+msgstr ""
+
+msgid "Show automatic suggested search terms based on the current search query - right inside the search results list."
+msgstr ""
+
+msgid "Allows search suggestions to appear for both live search results and search results pages."
+msgstr ""

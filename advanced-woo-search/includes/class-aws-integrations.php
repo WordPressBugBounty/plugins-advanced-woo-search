@@ -256,6 +256,10 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
                     add_action( 'wp_head', array( $this, 'customify_wp_head' ) );
                 }
 
+                if ( 'eCommerce Star' === $this->current_theme ) {
+                    add_action( 'wp_head', array( $this, 'ecommerce_star_wp_head' ) );
+                }
+
                 // WP Bottom Menu
                 if ( defined( 'WP_BOTTOM_MENU_VERSION' ) ) {
                     add_action( 'wp_head', array( $this, 'wp_bottom_menu_wp_head' ) );
@@ -1851,6 +1855,17 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
         <?php }
 
         /*
+         * Add custom styles for eCommerce Star theme
+         */
+        public function ecommerce_star_wp_head() { ?>
+            <style>
+                #masthead #search-category form.search-box {
+                    visibility: hidden;
+                }
+            </style>
+        <?php }
+
+        /*
          * WP Bottom Menu
          */
         public function wp_bottom_menu_wp_head() { ?>
@@ -2049,6 +2064,10 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
             if ( 'Customify' === $this->current_theme ) {
                 $selectors[] = '.header-search-modal-wrapper form.header-search-form';
                 $selectors[] = '#header-menu-sidebar-inner form.header-search-form ';
+            }
+
+            if ( 'eCommerce Star' === $this->current_theme ) {
+                $selectors[] = '#masthead #search-category form.search-box';
             }
 
             // WCFM - WooCommerce Multivendor Marketplace

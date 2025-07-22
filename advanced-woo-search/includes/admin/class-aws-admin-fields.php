@@ -58,12 +58,13 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                 }
 
                 $disabled = isset( $value['disabled'] ) && $value['disabled'] ? 'disabled' : '';
+                $disabled_row_class = $disabled ? ' class="aws-disabled"' : '';
 
                 switch ( $value['type'] ) {
 
                     case 'text': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <input <?php echo $disabled; ?> type="text" name="<?php echo esc_attr( $value['id'] ); ?>" class="regular-text" value="<?php echo esc_attr( stripslashes( $opt_value ) ); ?>">
                                 <br><span class="description"><?php echo wp_kses_post( $value['desc'] ); ?></span>
@@ -72,8 +73,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         <?php break;
 
                     case 'image': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <input <?php echo $disabled; ?> type="text" name="<?php echo esc_attr( $value['id'] ); ?>" class="regular-text" value="<?php echo esc_attr( stripslashes( $opt_value ) ); ?>">
                                 <br><span class="description"><?php echo wp_kses_post( $value['desc'] ); ?></span>
@@ -91,8 +92,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         $params .= isset( $value['max'] ) ? ' max="' . $value['max'] . '"' : '';
                         ?>
 
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <input <?php echo $disabled; ?> type="number" <?php echo $params; ?> name="<?php echo esc_attr( $value['id'] ); ?>" class="regular-text" value="<?php echo esc_attr( stripslashes($opt_value ) ); ?>">
                                 <br><span class="description"><?php echo wp_kses_post( $value['desc'] ); ?></span>
@@ -101,8 +102,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         <?php break;
 
                     case 'textarea': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <?php $textarea_cols = isset( $value['cols'] ) ? $value['cols'] : "55"; ?>
                                 <?php $textarea_rows = isset( $value['rows'] ) ? $value['rows'] : "4"; ?>
@@ -114,8 +115,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         <?php break;
 
                     case 'checkbox': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <?php $checkbox_options = $opt_value; ?>
                                 <?php foreach ( $value['choices'] as $val => $label ) { ?>
@@ -127,8 +128,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         <?php break;
 
                     case 'radio': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <?php foreach ( $value['choices'] as $val => $label ) { ?>
                                     <input <?php echo $disabled; ?> class="radio" type="radio" name="<?php echo esc_attr( $value['id'] ); ?>" id="<?php echo esc_attr( $value['id'].$val ); ?>" value="<?php echo esc_attr( $val ); ?>" <?php checked( $opt_value, $val ); ?>> <label for="<?php echo esc_attr( $value['id'].$val ); ?>"><?php echo esc_html( $label ); ?></label><br>
@@ -139,8 +140,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         <?php break;
 
                     case 'select': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <select <?php echo $disabled; ?> name="<?php echo esc_attr( $value['id'] ); ?>">
                                     <?php foreach ( $value['choices'] as $val => $label ) { ?>
@@ -153,8 +154,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         <?php break;
 
                     case 'select_advanced': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <select <?php echo $disabled; ?> name="<?php echo esc_attr( $value['id'].'[]' ); ?>" multiple class="chosen-select">
                                     <?php $values = $opt_value; ?>
@@ -181,8 +182,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         <?php break;
 
                     case 'radio-image': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <ul class="img-select">
                                     <?php foreach ( $value['choices'] as $val => $img ) { ?>
@@ -201,8 +202,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         <?php break;
 
                     case 'sortable': ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
 
                                 <script>
@@ -285,9 +286,9 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         $table_head = isset( $value['table_head'] ) && $value['table_head'] ? $value['table_head'] : '';
                         ?>
 
-                        <tr valign="top">
+                        <tr<?php echo $disabled_row_class; ?>>
 
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
 
                             <td>
 
@@ -313,14 +314,19 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
 
                                             <?php
                                             $active_class = isset( $table_options[$val] ) && $table_options[$val] ? 'active' : '';
+                                            $name_class = '';
                                             $label = is_array( $fchoices ) ? $fchoices['label'] : $fchoices;
                                             if ( strpos( $label, 'index disabled' ) !== false ) {
                                                 $active_class = 'disabled';
                                             }
+                                            if ( strpos( $val, ':disabled' ) !== false ) {
+                                                $active_class = 'disabled';
+                                                $name_class = ' aws-disabled';
+                                            }
                                             ?>
 
                                             <tr>
-                                                <td class="aws-name"><?php echo $label; ?></td>
+                                                <td class="aws-name<?php echo $name_class; ?>"><?php echo $label; ?></td>
                                                 <td class="aws-actions"></td>
                                                 <td class="aws-active <?php echo $active_class; ?>">
                                                     <span data-change-state="1" data-setting="<?php echo esc_attr( $value['id'] ); ?>" data-name="<?php echo esc_attr( $val ); ?>" class="aws-yes" title="<?php echo esc_attr__( 'Disable this source', 'advanced-woo-search' ); ?>"><?php echo esc_html__( 'Yes', 'advanced-woo-search' ); ?></span>
@@ -349,8 +355,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         $id = isset($value['id']) && $value['id'] ? 'id="' . $value['id'] . '"' : '';
                         ?>
 
-                        <tr valign="top">
-                            <th scope="row"><<?php echo $heading_tag; ?> <?php echo $id; ?> class="aws-heading"><?php echo esc_html( $value['name'] ); ?></<?php echo $heading_tag; ?>></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><<?php echo $heading_tag; ?> <?php echo $id; ?> class="aws-heading"><?php echo wp_kses_post( $value['name'] ); ?></<?php echo $heading_tag; ?>></th>
 
                             <?php if ( $heading_description ): ?>
                                 <td>
@@ -364,8 +370,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                         $custom_html = isset( $value['html'] ) ? $value['html'] : '';
                         $description = isset( $value['desc'] ) ? $value['desc'] : '';
                         ?>
-                        <tr valign="top">
-                            <th scope="row"><?php echo esc_html( $value['name'] ); ?></th>
+                        <tr<?php echo $disabled_row_class; ?>>
+                            <th scope="row"><?php echo wp_kses_post( $value['name'] ); ?></th>
                             <td>
                                 <?php echo $value['html']; ?>
                                 <?php if ( $description ): ?>

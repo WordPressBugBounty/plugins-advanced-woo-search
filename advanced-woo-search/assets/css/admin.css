@@ -61,6 +61,17 @@
     background: #fff;
 }
 
+.nav-tab .aws-pro-badge {
+    color: #50575e;
+    background: #FFF7C7;
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-size: 10px;
+    vertical-align: baseline;
+    margin-left: 2px;
+    border: 1px solid #50575e;
+}
+
 .wp-submenu .current a[href*="page=aws-options&tab=premium"] span,
 .wp-submenu a[href*="page=aws-options&tab=premium"]:hover span {
     color: rgb(255, 255, 91) !important;
@@ -168,6 +179,9 @@
     border-color: rgba(0,0,0,0.6);
 }
 
+#aws_form .img-select .option input:disabled + .ico {
+    opacity: 0.5;
+}
 
 /* Premium tab */
 #aws_form .b-compare .column {
@@ -191,6 +205,14 @@
     padding-top: 2px;
 }
 
+#aws_form .aws-disabled td label,
+#aws_form .aws-disabled td .description {
+    color: rgba(44, 51, 56, 0.5);
+}
+
+#aws_form[data-tab="suggestions"] .submit {
+    display: none;
+}
 
 h1.aws-instance-name {
     position: relative;
@@ -451,6 +473,10 @@ h1.aws-instance-name {
 
 .aws-table.aws-table-sources td.aws-name {
     font-weight: 400;
+}
+
+.aws-table.aws-table-sources td.aws-name.aws-disabled {
+    color: rgba(44, 51, 56, 0.5);
 }
 
 /* Premium tab */
