@@ -21,6 +21,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
          */
         private $plugin_options;
 
+        private $tab_name;
+
         /*
          * Constructor
          */
@@ -29,6 +31,7 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
             $options = AWS_Admin_Options::options_array( $tab_name );
             $this->options_array = $options[$tab_name];
             $this->plugin_options = AWS_Admin_Options::get_settings();
+            $this->tab_name = $tab_name;
 
             $this->generate_fields();
 
@@ -44,6 +47,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
             }
 
             $plugin_options = $this->plugin_options;
+
+            echo '<div data-tab="'. esc_attr( $this->tab_name  ) .'">';
 
             echo '<table class="form-table">';
             echo '<tbody>';
@@ -390,6 +395,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
             echo '</table>';
 
             echo '<p class="submit"><input name="Submit" type="submit" class="button-primary" value="' . esc_attr__( 'Save Changes', 'advanced-woo-search' ) . '" /></p>';
+
+            echo '</div>';
 
         }
 

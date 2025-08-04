@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.39
+Stable tag: 3.40
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.40 ( 2025-08-04 ) =
+* Update - Styles and structure of plugin settings page
+* Fix - Add additional check for variations inside search results page to prevent errors
+
 = 3.39 ( 2025-07-22 ) =
 * Add - Integration for eCommerce Star theme
 * Update - Plugin settings page update. Add new pro options
@@ -494,9 +498,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 = 3.04 ( 2024-04-08 ) =
 * Add - Support for WooCommerce Product Search plugin
 * Update - Values for search page filters
-
-= 3.03 ( 2024-03-25 ) =
-* Update - Tested with WC 8.7
-* Update - Add loading icon for clear cache button inside settings page
-* Update - New values for orderby for better integration with themes
-* Fix - Bug with adding new products during index process

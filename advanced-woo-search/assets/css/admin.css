@@ -1,3 +1,7 @@
+.wrap h1 {
+    padding: 0;
+}
+
 .sortable-container {
     width: 200px;
     padding: 0;
@@ -49,27 +53,6 @@
     height: 36px;
     padding: 0;
     border: 1px dotted #ccc;
-}
-
-.nav-tab.premium-tab,
-.nav-tab[href*="page=aws-options&tab=premium"]{
-    background: #FFF7C7;
-}
-
-.nav-tab.premium-tab:hover,
-.nav-tab[href*="page=aws-options&tab=premium"]:hover {
-    background: #fff;
-}
-
-.nav-tab .aws-pro-badge {
-    color: #50575e;
-    background: #FFF7C7;
-    border-radius: 3px;
-    padding: 1px 4px;
-    font-size: 10px;
-    vertical-align: baseline;
-    margin-left: 2px;
-    border: 1px solid #50575e;
 }
 
 .wp-submenu .current a[href*="page=aws-options&tab=premium"] span,
@@ -125,7 +108,7 @@
 }
 
 #aws_form .aws-heading {
-    margin-right: -40px;
+    margin-right: -100px;
 }
 
 #aws_form select {
@@ -210,7 +193,7 @@
     color: rgba(44, 51, 56, 0.5);
 }
 
-#aws_form[data-tab="suggestions"] .submit {
+#aws_form [data-tab="suggestions"] .submit {
     display: none;
 }
 
@@ -235,10 +218,10 @@ h1.aws-instance-name {
 
 /* Admin header */
 #aws-admin-header {
-    margin: 0 0 20px -20px;
+    margin: 0 0 0 -20px;
     padding: 0;
-    border-bottom: 1px solid #c3c4c7;
     background: #fff;
+    border-bottom: 1px solid #c3c4c7;
 }
 
 #aws-admin-header .inner {
@@ -256,13 +239,20 @@ h1.aws-instance-name {
 }
 
 #aws-admin-header .inner .logo img {
-    width: 32px;
+    width: 250px;
     margin-right: 6px;
     vertical-align: middle;
 }
 
+#aws-admin-header .inner .logo .separator {
+    opacity: 0.25;
+    padding-right: 8px;
+}
+
 #aws-admin-header .inner .logo .title {
     vertical-align: middle;
+    top: -2px;
+    position: relative;
 }
 
 #aws-admin-header .inner .logo .version {
@@ -289,7 +279,8 @@ h1.aws-instance-name {
     margin-left: 5px;
 }
 
-#aws-admin-header .inner .btns a:before {
+#aws-admin-header .inner .btns a:before,
+#aws-admin-header .inner .btns a:after{
     speak: none;
     font-weight: 400;
     font-variant: normal;
@@ -311,10 +302,98 @@ h1.aws-instance-name {
     content: "\f466";
 }
 
+#aws-admin-header .inner .btns a.button-docs:after,
+#aws-admin-header .inner .btns a.button-support:after {
+    content: "\f504";
+    font-size: 12px;
+    vertical-align: bottom;
+    margin-left: 2px;
+    margin-right: 0;
+}
+
+#aws-admin-header .inner .btns a.button-pro:before {
+    content: "\f155";
+}
+
+#aws-admin-header .inner .btns a.button-pro {
+    color: #50575e;
+    background: #FFF7C7;
+    border: 1px solid #50575e;
+}
+
+#aws-admin-header .inner .btns a.button-pro:hover {
+    background: #fae9a1;
+}
+
 @media screen and (max-width: 782px) {
     #aws-admin-header .inner .btns {
         display: none;
     }
+}
+
+#aws-admin-subheader {
+    padding: 0;
+    border-top: 1px solid #eee;
+    background: #fff;
+}
+
+#aws-admin-subheader .inner {
+    display: flex;
+    position: relative;
+    padding: 0 22px;
+    margin: 0 auto;
+    justify-content: space-between
+}
+
+#aws-admin-subheader .inner .title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#aws-admin-subheader .inner .aws-tabs {
+    display: flex;
+}
+
+#aws-admin-subheader .inner .aws-tabs .aws-nav-tab {
+    margin-left: 0;
+    border: 0;
+    background: 0 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 0;
+    margin-right: 24px;
+    text-decoration: none;
+    color: #505050;
+    margin-bottom: -1px;
+    border-bottom: 3px solid transparent;
+}
+
+#aws-admin-subheader .inner .aws-tabs .aws-nav-tab.aws-nav-tab-active,
+#aws-admin-subheader .inner .aws-tabs .aws-nav-tab.aws-nav-tab-active:hover {
+    border-color: #007cba;
+    color: #070707;
+}
+
+#aws-admin-subheader .inner .aws-tabs .aws-nav-tab:hover {
+    color: #007cba;
+    border-color: #ccc;
+}
+
+#aws-admin-subheader .inner .aws-tabs .aws-nav-tab:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+#aws-admin-subheader .inner .aws-tabs .aws-pro-badge {
+    color: #50575e;
+    background: #FFF7C7;
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-size: 10px;
+    vertical-align: baseline;
+    margin-left: 2px;
+    border: 1px solid #50575e;
 }
 
 /* Table */

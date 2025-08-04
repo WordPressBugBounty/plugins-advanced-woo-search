@@ -792,7 +792,7 @@ msgstr ""
 msgid "Execute or not any shortcodes inside product content."
 msgstr ""
 
-msgid "Search results page"
+msgid "Search Results Page"
 msgstr ""
 
 msgid "Enable results page"
@@ -1081,4 +1081,22 @@ msgid "Show automatic suggested search terms based on the current search query -
 msgstr ""
 
 msgid "Allows search suggestions to appear for both live search results and search results pages."
+msgstr ""
+
+msgid "Search Engine"
+msgstr ""
+
+msgid "Search Bar Settings"
+msgstr ""
+
+msgid "Live Results Settings"
+msgstr ""
+
+msgid "Results View"
+msgstr ""
+
+msgid "Search Query Suggestions"
+msgstr ""
+
+msgid "Search Config"
 msgstr ""
