@@ -41,16 +41,19 @@ if ( ! class_exists( 'AWS_Admin_Meta_Boxes' ) ) :
                 $html .= '</tr>';
         
                 $html .= '<tr>';
-        
-                    $html .= '<th>' . esc_html__( 'Reindex table', 'advanced-woo-search' ) . '</th>';
+
+                    $html .='<th>';
+                        $html .= esc_html__( 'Reindex table', 'advanced-woo-search' ) ;
+                        $html .=' <span class="aws-help-tip aws-tip" data-tip="'. esc_attr( sprintf( esc_html__( 'This action only need for %s one time %s - after you activate this plugin. After this all products changes will be re-indexed automatically.', 'advanced-woo-search' ), '<strong>', '</strong>' ) ) .'"></span>';
+                    $html .='</th>';
+
                     $html .= '<td>';
-                        $html .= '<div id="aws-reindex"><input class="button" type="button" value="' . esc_attr__( 'Reindex table', 'advanced-woo-search' ) . '"><span class="loader"></span><span class="reindex-progress">0%</span><span class="reindex-notice">' . __( 'Please do not close the page.', 'advanced-woo-search' ) . '</span></div><br><br>';
-                        $html .= '<span class="description">' .
-                            sprintf( esc_html__( 'This action only need for %s one time %s - after you activate this plugin. After this all products changes will be re-indexed automatically.', 'advanced-woo-search' ), '<strong>', '</strong>' ) . '<br>' .
+                        $html .= '<div id="aws-reindex"><input class="button" type="button" value="' . esc_attr__( 'Reindex table', 'advanced-woo-search' ) . '"><span class="loader"></span><span class="reindex-progress">0%</span><span class="reindex-notice">' . __( 'Please do not close the page.', 'advanced-woo-search' ) . '</span></div>';
+                        $html .= '<p class="description">' .
                             __( 'Update all data in plugins index table. Index table - table with products data where plugin is searching all typed terms.<br>Use this button if you think that plugin not shows last actual data in its search results.<br>' .
-                            '<strong>CAUTION:</strong> this can take large amount of time.', 'advanced-woo-search' ) . sprintf( __( 'Index table options can be found inside %s section.', 'advanced-woo-search' ), '<a href="'.esc_url( admin_url('admin.php?page=aws-performance') ).'">' . __( 'Performance', 'advanced-woo-search' ) . '</a>' ) . '<br><br>' .
+                            '<strong>CAUTION:</strong> this can take large amount of time.', 'advanced-woo-search' ) . sprintf( __( 'Index table options can be found inside %s section.', 'advanced-woo-search' ), '<a href="'.esc_url( admin_url('admin.php?page=aws-performance') ).'">' . __( 'Index Config', 'advanced-woo-search' ) . '</a>' ) . '<br><br>' .
                             esc_html__( 'Products in index:', 'advanced-woo-search' ) . '<span id="aws-reindex-count"> <strong>' . AWS_Helpers::get_indexed_products_count() . '</strong></span>';
-                        $html .= '</span>';
+                        $html .= '</p>';
                     $html .= '</td>';
         
                 $html .= '</tr>';
@@ -145,7 +148,7 @@ if ( ! class_exists( 'AWS_Admin_Meta_Boxes' ) ) :
 
             switch ( $current_page ) {
                 case 'aws-performance':
-                    $submenu = __( 'Performance', 'advanced-woo-search' );
+                    $submenu = __( 'Index Config', 'advanced-woo-search' );
                     break;
                 case 'aws-premium':
                     $submenu = __( 'Premium', 'advanced-woo-search' );

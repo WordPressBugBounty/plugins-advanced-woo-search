@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.40
+Stable tag: 3.41
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,12 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.41 ( 2025-08-18 ) =
+* Add - Integration for TechStore theme
+* Update - Styles for admin settings page. Add togglers
+* Update - Move Stop Words and Synonyms settings to Index tab
+* Update - Admin settings page. Rename settings tabs
+
 = 3.40 ( 2025-08-04 ) =
 * Update - Styles and structure of plugin settings page
 * Fix - Add additional check for variations inside search results page to prevent errors
@@ -494,7 +500,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Add - Support for Advance Product Search by themehunk
 * Update - Tested with WC 8.8
 * Fix - Search results sorting inside results page when using custom filters
-
-= 3.04 ( 2024-04-08 ) =
-* Add - Support for WooCommerce Product Search plugin
-* Update - Values for search page filters

@@ -260,6 +260,10 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
                     add_action( 'wp_head', array( $this, 'ecommerce_star_wp_head' ) );
                 }
 
+                if ( 'TechStore' === $this->current_theme ) {
+                    add_action( 'wp_head', array( $this, 'techstore_wp_head' ) );
+                }
+
                 // WP Bottom Menu
                 if ( defined( 'WP_BOTTOM_MENU_VERSION' ) ) {
                     add_action( 'wp_head', array( $this, 'wp_bottom_menu_wp_head' ) );
@@ -1866,6 +1870,17 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
         <?php }
 
         /*
+         * Add custom styles for TechStore Star theme
+         */
+        public function techstore_wp_head( ) { ?>
+            <style>
+                .hw-nav-search form.hw-search {
+                    visibility: hidden;
+                }
+            </style>
+        <?php }
+
+        /*
          * WP Bottom Menu
          */
         public function wp_bottom_menu_wp_head() { ?>
@@ -2068,6 +2083,10 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
 
             if ( 'eCommerce Star' === $this->current_theme ) {
                 $selectors[] = '#masthead #search-category form.search-box';
+            }
+
+            if ( 'TechStore' === $this->current_theme ) {
+                $selectors[] = '.hw-nav-search form.hw-search';
             }
 
             // WCFM - WooCommerce Multivendor Marketplace

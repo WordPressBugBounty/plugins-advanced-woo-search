@@ -66,7 +66,7 @@ class AWS_Admin {
     public function add_admin_page() {
         add_menu_page( esc_html__( 'Adv. Woo Search', 'advanced-woo-search' ), esc_html__( 'Adv. Woo Search', 'advanced-woo-search' ), AWS_Helpers::user_admin_capability(), 'aws-options', array( &$this, 'display_admin_page' ), 'dashicons-search', 70 );
         add_submenu_page( 'aws-options', __( 'Settings', 'advanced-woo-search' ), __( 'Settings', 'advanced-woo-search'), AWS_Helpers::user_admin_capability(), 'aws-options', array( $this, 'display_admin_page' ) );
-        add_submenu_page( 'aws-options', __( 'Performance', 'advanced-woo-search' ), __( 'Performance', 'advanced-woo-search'), AWS_Helpers::user_admin_capability(), 'aws-performance', array( $this, 'display_admin_page' ) );
+        add_submenu_page( 'aws-options', __( 'Index Config', 'advanced-woo-search' ), __( 'Index Config', 'advanced-woo-search'), AWS_Helpers::user_admin_capability(), 'aws-performance', array( $this, 'display_admin_page' ) );
         add_submenu_page( 'aws-options', __( 'Premium', 'advanced-woo-search' ),  '<span style="color:rgba(255, 255, 91, 0.8);">' . __( 'Premium', 'advanced-woo-search' ) . '</span>', AWS_Helpers::user_admin_capability(), 'aws-premium', array( $this, 'display_admin_page' ) );
     }
 
@@ -157,7 +157,10 @@ class AWS_Admin {
             wp_enqueue_style( 'plugin-admin-style', AWS_URL . 'assets/css/admin' . $suffix . '.css', array(), AWS_VERSION );
             wp_enqueue_script( 'jquery' );
             wp_enqueue_script( 'jquery-ui-sortable' );
+
+            wp_enqueue_script( 'jquery-tiptip', AWS_URL . '/assets/js/jquery.tipTip.js', array( 'jquery' ), AWS_VERSION );
             wp_enqueue_script( 'plugin-admin-scripts', AWS_URL . 'assets/js/admin' . $suffix . '.js', array('jquery', 'jquery-ui-sortable'), AWS_VERSION );
+
             wp_localize_script( 'plugin-admin-scripts', 'aws_vars', array(
                 'ajaxurl' => admin_url( 'admin-ajax.php', 'relative' ),
                 'ajax_nonce' => wp_create_nonce( 'aws_admin_ajax_nonce' ),
