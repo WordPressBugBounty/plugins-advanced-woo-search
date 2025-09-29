@@ -1178,3 +1178,15 @@ msgstr ""
 
 msgid "selected"
 msgstr ""
+
+msgid "This field is not in the index. Do you want to enable indexing for it?"
+msgstr ""
+
+msgid "Note: Please re-index the plugin table after enabling all needed fields."
+msgstr ""
+
+msgid "Disabling the index for this field will turn off searching by this field across all search forms ( if enabled )."
+msgstr ""
+
+msgid "Continue?"
+msgstr ""

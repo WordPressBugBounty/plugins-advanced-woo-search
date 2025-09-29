@@ -527,6 +527,74 @@ if ( ! class_exists( 'AWS_Versions' ) ) :
 
                 }
 
+                if ( version_compare( $current_version, '3.45', '<' ) ) {
+
+                    $settings = get_option( 'aws_settings' );
+
+                    if ( $settings ) {
+
+                        $update = false;
+
+                        $search_in_new = array();
+                        $index_new = array();
+
+                        // Search In options update
+                        if ( isset( $settings['search_in'] )  ) {
+
+                            $available_search_in = array( 'title', 'content', 'sku', 'excerpt',  'category', 'tag', 'id' );
+
+                            foreach ( $available_search_in as $search_in_name ) {
+
+                                $val = '0';
+                                if ( isset( $settings['search_in'][$search_in_name] ) && $settings['search_in'][$search_in_name] ) {
+                                    if ( is_array( $settings['search_in'][$search_in_name] ) && isset( $settings['search_in'][$search_in_name]['value'] ) ) {
+                                        break;
+                                    }
+                                    $val = '1';
+                                }
+
+                                $update = true;
+
+                                $search_in_new[$search_in_name]['value'] = $val;
+
+                            }
+
+                        }
+
+                        // Index Sources options update
+                        if ( isset( $settings['index_sources'] )  ) {
+
+                            $available_index_sources = array( 'title', 'content', 'sku', 'excerpt', 'category', 'tag', 'id' );
+
+                            foreach ( $available_index_sources as $search_source_name ) {
+
+                                $val = '0';
+                                if ( isset( $settings['index_sources'][$search_source_name] ) && $settings['index_sources'][$search_source_name] ) {
+                                    if ( is_array( $settings['index_sources'][$search_source_name] ) && isset( $settings['index_sources'][$search_source_name]['value'] ) ) {
+                                        break;
+                                    }
+                                    $val = '1';
+                                }
+
+                                $update = true;
+
+                                $index_new[$search_source_name]['value'] = $val;
+
+                            }
+
+                        }
+
+                        $settings['search_in'] = $search_in_new;
+                        $settings['index_sources'] = $index_new;
+
+                        if ( $update ) {
+                            update_option( 'aws_settings', $settings );
+                        }
+
+                    }
+
+                }
+
             }
 
             update_option( 'aws_plugin_ver', AWS_VERSION );

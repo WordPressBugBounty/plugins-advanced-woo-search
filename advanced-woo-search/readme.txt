@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.44
+Stable tag: 3.45
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.45 ( 2025-09-29 ) =
+* Update - Tested with WC 10.2
+* Update - Admin view for Index Sources and Search In options
+
 = 3.44 ( 2025-09-12 ) =
 * Update - Fix diacritic chars highlighting
 * Fix - Plugin search form init inside Elementor popups
@@ -500,6 +504,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Dev - Replace aws_products_search_page_filtered and aws_products_order hooks
 * Dev - Add show_wcfm_badge filter
 * Dev - Update aws_searchpage_enabled function
-
-= 3.07 ( 2024-05-20 ) =
-* Add - Header for plugin admin page

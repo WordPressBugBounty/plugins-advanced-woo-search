@@ -20,6 +20,79 @@ jQuery(document).ready(function ($) {
 
     var $clearCacheBtn = $('#aws-clear-cache .button');
 
+
+    // If search field is not in index - ask and add it
+    $(document).on('change', '.aws-table-sources-item .aws-name input[name*="search_in"][name*="[value]"]', function(e) {
+        if ( $(this).closest('.aws-name').find('[data-index-disabled]').length > 0 ) {
+            if ( confirm( aws_vars.index_text ) ) {
+                // ajax to enable index
+                enableIndexField( $(this).data('field') );
+                $(this).closest('.aws-name').find('[data-index-disabled]').remove();
+            } else {
+                $(this).prop('checked', false);
+            }
+        }
+    });
+
+    // If index disabled - disable appropriate search source
+    $(document).on('change', '.aws-table-sources-item .aws-name input[name*="index_sources"][name*="[value]"]', function(e) {
+        if ( ! $(this).is(':checked') ) {
+            if ( confirm( aws_vars.index_disable_text ) ) {
+                disableIndexField( $(this).data('field') );
+            } else {
+                $(this).prop('checked', true);
+            }
+        }
+    });
+
+    // enable needed index fields
+    function enableIndexField( field, subField ) {
+
+        var data = {
+            action: 'aws-indexEnable',
+            field: field,
+            _ajax_nonce: aws_vars.ajax_nonce
+        };
+
+        if ( typeof subField !== 'undefined' ) {
+            data.subField = subField;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: aws_vars.ajaxurl,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+            }
+        });
+
+    }
+
+    // enable needed index fields
+    function disableIndexField( field, subField ) {
+
+        var data = {
+            action: 'aws-indexDisabled',
+            field: field,
+            _ajax_nonce: aws_vars.ajax_nonce
+        };
+
+        if ( typeof subField !== 'undefined' ) {
+            data.subField = subField;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: aws_vars.ajaxurl,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+            }
+        });
+
+    }
+
     // Edit source tables items
     var editButton = $('.aws-table-sources .aws-actions [data-edit]');
     editButton.on( 'click', function(e){
@@ -145,49 +218,6 @@ jQuery(document).ready(function ($) {
             success: function (data) {
                 $clearCacheBlock.removeClass('loading');
                 alert('Cache cleared!');
-            }
-        });
-
-    });
-
-
-    // Change option state
-
-    var changingState = false;
-
-    $('[data-change-state]').on( 'click', function(e) {
-
-        e.preventDefault();
-
-        if ( changingState ) {
-            return;
-        } else {
-            changingState = true;
-        }
-
-        var self = $(this);
-        var $parent = self.closest('td');
-        var setting = self.data('setting');
-        var option = self.data('name');
-        var state = self.data('change-state');
-
-        $parent.addClass('loading');
-
-        $.ajax({
-            type: 'POST',
-            url: aws_vars.ajaxurl,
-            data: {
-                action: 'aws-changeState',
-                setting: setting,
-                option: option,
-                state: state,
-                _ajax_nonce: aws_vars.ajax_nonce
-            },
-            dataType: "json",
-            success: function (data) {
-                $parent.removeClass('loading');
-                $parent.toggleClass('active');
-                changingState = false;
             }
         });
 

@@ -398,80 +398,10 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
         }
 
         /*
-         * Table field type html markup
-         * @return string
-         */
-        private function get_field_table( $field ) {
-
-            $table_head = isset( $field['table_head'] ) && $field['table_head'] ? $field['table_head'] : __( 'Search Source', 'advanced-woo-search' );
-            $table_options = isset( $this->plugin_options[ $field['id'] ] ) ? $this->plugin_options[ $field['id'] ] : array();
-
-            $html = '';
-
-            $html .= '<table class="aws-table aws-table-sources widefat" cellspacing="0">';
-
-                $html .= '<thead>';
-                    $html .= '<tr>';
-                        $html .= '<th class="aws-name">'. esc_html( $table_head ) .'</th>';
-                        $html .= '<th class="aws-actions"></th>';
-                        $html .= '<th class="aws-active"></th>';
-                    $html .= '</tr>';
-                $html .= '</thead>';
-
-                $html .= '<tbody>';
-
-                if ( is_array( $table_options ) ) {
-                    foreach ( $field['choices'] as $val => $fchoices ) {
-
-                        $active_class = isset( $table_options[$val] ) && $table_options[$val] ? 'active' : '';
-                        $name_class = '';
-                        $label = is_array( $fchoices ) ? $fchoices['label'] : $fchoices;
-                        if ( ! $active_class && ! isset( $table_options[$val] ) && $field['id'] === 'index_sources' ) {
-                            $active_class = 'active';
-                        }
-                        if ( strpos( $label, 'index disabled' ) !== false ) {
-                            $active_class = 'disabled';
-                        }
-                        if ( strpos( $val, ':disabled' ) !== false ) {
-                            $active_class = 'disabled';
-                            $name_class = ' aws-disabled';
-                        }
-                        $setting = is_array( $fchoices ) ? $fchoices['option'] : false;
-
-                        $html .= '<tr>';
-
-                            $html .= '<td class="aws-name'. $name_class .'">'. $label .'</td>';
-
-                            $html .= '<td class="aws-actions">';
-                                if ( $setting ) {
-                                     $html .= '<a class="button alignright tips edit" title="'. esc_attr__( 'Edit', 'advanced-woo-search' ) .'" href="'. esc_url( AWS_Helpers::get_settings_instance_page_url('&section=' . $val) ) .'">'. esc_attr__( 'Edit', 'advanced-woo-search' ) .'</a>';
-                                }
-                            $html .= '</td>';
-
-                            $html .= '<td class="aws-active '. $active_class .'">';
-                                $html .= '<span data-change-state="1" data-setting="'. esc_attr( $field['id'] ) .'" data-name="'. esc_attr( $val ) .'" class="aws-yes" title="'. esc_attr__( 'Disable this source', 'advanced-woo-search' ) .'">'. esc_html__( 'Yes', 'advanced-woo-search' ) .'</span>';
-                                $html .= '<span data-change-state="0" data-setting="'. esc_attr( $field['id'] ) .'" data-name="'. esc_attr( $val ) .'" class="aws-no" title="'. esc_attr__( 'Enable this source', 'advanced-woo-search' ) .'">'. esc_html__( 'No', 'advanced-woo-search' ) .'</span>';
-                                $html .= '<span style="display: none;" class="aws-disabled" title="'. esc_attr__( 'Source index disabled', 'advanced-woo-search' ) .'">'. esc_html__( 'No', 'advanced-woo-search' ) .'</span>';
-                            $html .= '</td>';
-
-                        $html .= '</tr>';
-
-                    }
-                }
-
-                $html .= '</tbody>';
-
-            $html .= '</table>';
-
-            return $html;
-
-        }
-
-        /*
          * Table Search For field type html markup
          * @return string
          */
-        private function get_field_table_search_for( $field ) {
+        private function get_field_table( $field ) {
 
             $table_head = isset( $field['table_head'] ) && $field['table_head'] ? $field['table_head'] : __( 'Search Source', 'advanced-woo-search' );
             $table_options = isset( $this->plugin_options[ $field['id'] ] ) ? $this->plugin_options[ $field['id'] ] : array();
@@ -516,8 +446,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                             $html .= '<div class="aws-name">';
 
                                 $html .= '<label class="aws-toggle-label aws-toggler-field">';
-                                    $html .= '<input value="0" type="hidden" name="'. $field_name .'[value]">';
-                                    $html .= '<input class="aws-toggler" value="1" type="checkbox" name="'. $field_name .'[value]" '. checked( $current_val, '1', false ) .'>';
+                                    $html .= '<input data-field="'.$val.'" value="0" type="hidden" name="'. $field_name .'[value]">';
+                                    $html .= '<input data-field="'.$val.'" class="aws-toggler" value="1" type="checkbox" name="'. $field_name .'[value]" '. checked( $current_val, '1', false ) .'>';
                                 $html .= '</label>';
 
                                 $html .= $label;
