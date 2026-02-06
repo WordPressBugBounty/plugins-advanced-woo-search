@@ -14,6 +14,7 @@ AwsHooks.filters = AwsHooks.filters || {};
         showmore  : aws_vars.showmore,
         noresults : aws_vars.noresults
     };
+    var awsData = new Array();
 
     AwsHooks.add_filter = function( tag, callback, priority ) {
 
@@ -149,13 +150,11 @@ AwsHooks.filters = AwsHooks.filters || {};
                         dataType: 'json',
                         success: function( response ) {
 
-                            methods.analytics( searchFor, false );
-
-                            cachedResponse[searchFor] = response;
-
                             methods.showResults( response );
 
                             methods.showResultsBlock();
+
+                            cachedResponse[searchFor] = response;
 
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
@@ -350,6 +349,11 @@ AwsHooks.filters = AwsHooks.filters || {};
                     self[0].dispatchEvent( eShowResults );
                 }
 
+                // send analytics event
+                if ( ! cachedResponse.hasOwnProperty( searchFor ) ) {
+                    methods.analytics( searchFor, false, resultNum !== 0 );
+                }
+
             },
 
             showResultsBlock: function() {
@@ -516,13 +520,18 @@ AwsHooks.filters = AwsHooks.filters || {};
                 return isFixed;
             },
 
-            analytics: function( label, submit ) {
+            getUrlParam: function( name ) {
+                const url = new URL (window.location.href );
+                return url.searchParams.get( name );
+            },
+
+            analytics: function( label, submit, hasResults ) {
 
                 /* from 2.95 */
                 methods.createAndDispatchEvent( document, 'awsAnalytics', { term: label, instance: instance, form: self, data: d } );
 
                 if ( d.useAnalytics ) {
-
+                    
                     try {
                         var sPage = submit ? '' : '/?s=' + encodeURIComponent( 'ajax-search:' + label );
 
@@ -542,8 +551,16 @@ AwsHooks.filters = AwsHooks.filters || {};
                             });
 
                             tagF('event', 'aws_search', {
-                                'aws_search_term': label
+                                'aws_search_term': label,
+                                'aws_has_results': hasResults
                             });
+
+                            if ( hasResults === false ) {
+                                tagF('event', 'aws_search_no_results', {
+                                    'aws_search_term': label,
+                                    'event_label': label
+                                });
+                            }
 
                             if ( sPage ) {
                                 tagF('event', 'page_view', {
@@ -556,6 +573,9 @@ AwsHooks.filters = AwsHooks.filters || {};
 
                         if ( typeof ga !== 'undefined' && ga !== null ) {
                             ga('send', 'event', 'AWS search', 'AWS Search Term', label);
+                            if ( hasResults === false ) {
+                                ga('send', 'event', 'AWS search no results', 'AWS Search Term', label);
+                            }
                             if ( sPage ) {
                                 ga( 'send', 'pageview', sPage );
                             }
@@ -565,10 +585,16 @@ AwsHooks.filters = AwsHooks.filters || {};
                             if ( sPage ) {
                                 pageTracker._trackPageview( sPage );
                             }
-                            pageTracker._trackEvent( 'AWS search', 'AWS search', 'AWS Search Term', label )
+                            pageTracker._trackEvent( 'AWS search', 'AWS search', 'AWS Search Term', label );
+                            if ( hasResults === false ) {
+                                pageTracker._trackEvent( 'AWS search no results', 'AWS search no results', 'AWS Search Term', label );
+                            }
                         }
                         if ( typeof _gaq !== 'undefined' && _gaq !== null ) {
                             _gaq.push(['_trackEvent', 'AWS search', 'AWS Search Term', label ]);
+                            if ( hasResults === false ) {
+                                _gaq.push(['_trackEvent', 'AWS search no results', 'AWS Search Term', label ]);
+                            }
                             if ( sPage ) {
                                 _gaq.push(['_trackPageview', sPage]);
                             }
@@ -578,6 +604,9 @@ AwsHooks.filters = AwsHooks.filters || {};
                             __gaTracker( 'send', 'event', 'AWS search', 'AWS Search Term', label );
                             if ( sPage ) {
                                 __gaTracker( 'send', 'pageview', sPage );
+                            }
+                            if ( hasResults === false ) {
+                                __gaTracker( 'send', 'event', 'AWS search no results', 'AWS Search Term', label );
                             }
                         }
                     }
@@ -730,11 +759,13 @@ AwsHooks.filters = AwsHooks.filters || {};
         });
 
 
-        $searchForm.on( 'submit', function(e) {
+        var pageSearchQuery = window.location.search;
+        if ( pageSearchQuery.indexOf('type_aws=true') !== -1 && typeof awsData['pageEvent'] == 'undefined' ) {
             if ( ! d.ajaxSearch ) {
-                methods.analytics( $searchField.val(), true );
+                awsData['pageEvent'] = true;
+                methods.analytics( $searchField.val(), true, ! $('body').hasClass('aws-no-results') );
             }
-        });
+        }
 
 
         $(document).on( 'click', function (e) {
@@ -846,11 +877,51 @@ AwsHooks.filters = AwsHooks.filters || {};
 
 
     // Call plugin method
-    $(document).ready( function() {
+
+    var awsInit = false;
+    var awsInitAttempts = 0
+
+    setTimeout(function () {
+
+        if ( ! awsInit ) {
+            // if document.ready is not fired - call aws manually
+            awsInitWhenReady();
+        }
+
+    }, 2000);
+
+    // try to init plugin
+    function awsInitWhenReady() {
+
+        awsInitAttempts++;
+
+        if ( awsInit || awsInitAttempts > 10 ) {
+            return;
+        }
+
+        if ( typeof $.fn.aws_search === 'undefined' ) {
+            setTimeout( awsInitWhenReady, 1000 );
+            return;
+        }
+
+        awsInitForAll();
+
+    }
+
+    // init plugin for all search forms on the page
+    function awsInitForAll() {
 
         $(selector).each( function() {
             $(this).aws_search();
         });
+
+        awsInit = true;
+
+    }
+
+    $(document).ready( function() {
+
+        awsInitForAll();
 
         // Enfold header
         $('[data-avia-search-tooltip]').on( 'click', function() {

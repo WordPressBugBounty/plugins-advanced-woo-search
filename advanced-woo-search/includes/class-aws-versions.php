@@ -41,7 +41,9 @@ if ( ! class_exists( 'AWS_Versions' ) ) :
         public function setup() {
 
             $current_version = get_option( 'aws_plugin_ver' );
-            $reindex_version = AWS()->option_vars->get_reindex_version();
+            $reindex_version = ( function_exists('AWS') && AWS()->option_vars )
+                ? AWS()->option_vars->get_reindex_version()
+                : get_option( 'aws_reindex_version' );
 
             if ( ! ( $reindex_version ) && current_user_can( AWS_Helpers::user_admin_capability() ) ) {
                 add_action( 'admin_notices', array( $this, 'admin_notice_no_index' ) );

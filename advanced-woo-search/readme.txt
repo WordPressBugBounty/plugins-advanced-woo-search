@@ -3,9 +3,9 @@ Contributors: Mihail Barinov
 Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.45
+Stable tag: 3.53
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,42 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.53 ( 2026-02-02 ) =
+* Update - Change styles for dashboard settings page
+
+= 3.52 ( 2026-01-20 ) =
+* Add - Integration with Uncode theme
+
+= 3.51 ( 2026-01-05 ) =
+* Update - Integration for Hestia theme. Fix search bar styles
+
+= 3.50 ( 2025-12-15 ) =
+* Update - Tested with WC 10.4
+* Update - GA event parameters. Add new aws_has_results value
+* Fix - Integration with Brizy plugin. Fix search results page output
+* Fix - Search bar integration for Avada theme. Add auto focus for header search bar
+
+= 3.49 ( 2025-12-02 ) =
+* Update - Send new GA event when search returns no results
+* Dev - Update posts_ids_rewrite parameter. Dont overwrite taxonomies results
+
+= 3.48 ( 2025-11-17 ) =
+* Update - Fix admin link inside get started notice
+* Update - Add live loading for admin settings page
+* Fix - Bug with markup in seamless integration for Elementor search widget
+* Dev - Add posts_ids_rewrite parameter for third party search engines
+
+= 3.47 ( 2025-10-27 ) =
+* Add - New init method for search forms js if default document ready event is not triggered
+* Update - Tested with WC 10.3
+* Update - Add settings page options dependencies
+* Update - Integration for WCFM plugin. Add products search via vendor store name
+* Fix - Integration with Breakdance plugin. Fix js errors for search form
+
+= 3.46 ( 2025-10-13 ) =
+* Fix - Integration issue with Elementor plugin when using seamless integration on header search form
+* Dev - Fix to early call for option_vars methods
+
 = 3.45 ( 2025-09-29 ) =
 * Update - Tested with WC 10.2
 * Update - Admin view for Index Sources and Search In options
@@ -448,59 +484,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Fix - Add new parameters for orderby function
 * Fix - Automatically index products that were restored from the trash
 * Dev - Fix functions naming
-
-= 3.13 ( 2024-08-05 ) =
-* Add - Integration with EAN for WooCommerce by WPFactory plugin
-* Fix - Bug with search results filtering via third party plugins
-* Fix - Bug when filtering product variations on search results page
-* Dev - New function to get current page id
-
-= 3.12 ( 2024-07-19 ) =
-* Fix - Bug with search results page taxonomies filters
-
-= 3.11 ( 2024-07-15 ) =
-* Add - Support for Filter Everything plugin
-* Update - Tested with WC 9.1
-* Update - Integration with WooCommerce Product Filter by WooBeWoo plugin
-* Update - Integration with Product Filters for WooCommerce plugin
-* Update - Integration with YITH WooCommerce Ajax Product Filter plugin
-* Update - Integration with BeRocket WooCommerce AJAX Products Filter plugin
-* Update - Filter for search results page. Inherit tax_query parameters
-* Update - Integration with Avada theme. Move js scripts to footer
-* Update - Integration with The7 theme. Fix submit button for search forms
-* Update - Admin notice about reindex on first plugin activation
-* Fix - Bug with calling search function inside wp admin orders page
-
-= 3.10 ( 2024-07-01 ) =
-* Add - New option to show fixed terms list inside search results
-* Add - Support for Hitek theme
-* Update - Change default value for Form Styling option
-* Update - Tested with WC 9.0
-* Update - Integration with Bricks theme
-* Fix - Return content and short description for post object inside search page
-* Dev - Add aws_search_fixed_terms_suggestions_num filter
-* Dev - Add js event aws_search_force to force search with specific terms
-* Dev - Add old/new pairs for similar terms output
-* Dev - Add generate_combinations helper function
-* Dev - Add aws_search_page_posts_objects_ids filter hook
-* Dev - Add aws_search_notices filter
-
-= 3.09 ( 2024-06-17 ) =
-* Add - Support for The7 theme
-* Update - Integration with Shoptimizer theme
-* Fix - Disable misspelling fix for numeric search terms
-* Dev - Add new parameter for aws_search_results_products_ids filter
-* Dev - Add aws_search_no_results filter
-* Dev - Add aws_search_custom_results_data and aws_search_top_text filters
-
-= 3.08 ( 2024-06-05 ) =
-* Add - Integration for YITH WooCommerce Ajax Product Filter plugin
-* Update - Speed up search results page
-* Update - Integration with WOOF plugin
-* Update - Tested with WC 8.9
-* Update - Reduce the size of search results output
-* Fix - FaceWP plugin integration fix
-* Fix - Misspelling function now respect search terms sources
-* Dev - Replace aws_products_search_page_filtered and aws_products_order hooks
-* Dev - Add show_wcfm_badge filter
-* Dev - Update aws_searchpage_enabled function

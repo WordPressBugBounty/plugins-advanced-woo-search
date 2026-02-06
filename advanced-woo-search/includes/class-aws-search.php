@@ -244,7 +244,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
 
             if ( ! empty( $this->data['search_terms'] ) ) {
 
-                if ( ! empty( $this->data['search_in'] ) && $this->data['results_num'] ) {
+                if ( ! empty( $this->data['search_in'] ) && $this->data['results_num'] && ! isset( $this->data['posts_ids_rewrite'] ) ) {
 
                     $posts_ids = $this->query_index_table();
 
@@ -280,6 +280,11 @@ if ( ! class_exists( 'AWS_Search' ) ) :
 
                 }
 
+            }
+
+            // Received $posts_ids from third party source
+            if ( isset( $this->data['posts_ids_rewrite'] ) && is_array( $this->data['posts_ids_rewrite'] )  ) {
+                $posts_ids = $this->data['posts_ids_rewrite'];
             }
 
             /**

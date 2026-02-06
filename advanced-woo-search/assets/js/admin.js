@@ -2,11 +2,126 @@ jQuery(document).ready(function ($) {
     'use strict';
 
     // Tooltips
-    $( '.aws-tip' ).tipTip( {
-        'attribute': 'data-tip',
-        'fadeIn': 50,
-        'fadeOut': 50,
-        'delay': 50,
+    function awsInitTipTip() {
+
+        $( '.aws-tip' ).tipTip( {
+            'attribute': 'data-tip',
+            'fadeIn': 50,
+            'fadeOut': 50,
+            'delay': 50,
+        } );
+
+    }
+
+    awsInitTipTip();
+
+    var $tabsBtns = $('.aws-tabs .aws-nav-tab');
+    var $sectionsBtns = $('.aws-admin-sections a');
+
+    // Tabs
+    $tabsBtns.on( 'click', function(e) {
+
+        e.preventDefault();
+
+        var tabName = $(this).data('tab-name');
+
+        $('.aws-nav-tab').removeClass('aws-nav-tab-active');
+
+        $(this).addClass('aws-nav-tab-active');
+
+        // if tab has sections - reset to first active
+        var $currentTab = $('[data-tab="'+ tabName +'"]');
+
+        $('[data-tab]').hide();
+        $currentTab.fadeIn();
+
+        var newUrl = updateQueryStringParameter(window.location.href, 'tab', tabName);
+        window.history.pushState({ path: newUrl }, '', newUrl);
+
+    });
+
+    // Sections tabs
+    $sectionsBtns.on( 'click', function(e) {
+
+        e.preventDefault();
+
+        var sectionName = $(this).data('section-name');
+        var $currentTab = $(this).closest('[data-tab]');
+
+        $currentTab.find('.aws-admin-sections a').removeClass('aws-active');
+
+        $(this).addClass('aws-active');
+
+        $currentTab.find('[data-section]').hide();
+        $currentTab.find('[data-section="'+sectionName+'"]').not('[data-aws-hidden]').fadeIn();
+
+    });
+
+    function updateQueryStringParameter(uri, key, value) {
+        var re = new RegExp('([?&])' + key + '=.*?(&|#|$)', 'i');
+
+        // If value is missing or empty string -> remove param
+        if (value === undefined || value === null || value === '') {
+            if (uri.match(re)) {
+                return uri.replace(re, '$1').replace(/[?&]$/, ''); // clean trailing ? or &
+            }
+            return uri;
+        }
+
+        if (uri.match(re)) {
+            return uri.replace(re, '$1' + key + '=' + value + '$2');
+        } else {
+            var hash = '';
+            if (uri.indexOf('#') !== -1) {
+                hash = uri.replace(/.*#/, '#');
+                uri = uri.replace(/#.*/, '');
+            }
+            var separator = uri.indexOf('?') !== -1 ? '&' : '?';
+            return uri + separator + key + '=' + value + hash;
+        }
+    }
+
+    // Options dependencies toggler
+    $(document).on( 'change', '#aws_form [data-dependencies] input, #aws_form [data-dependencies] select', function ( e ) {
+
+        var $currentTable = $(this).closest('table');
+        var option_name = $(this).closest('[data-option]').data('option');
+        var dependencies = $(this).closest('[data-dependencies]').data('dependencies');
+        var newValue = $(this).val();
+
+        if ( $(this).hasClass('aws-toggler') ) {
+            var newValue = $(this).is(':checked') ? 'true' : 'false';
+        }
+
+        if ( dependencies && typeof dependencies === 'object' ) {
+
+            var optionsToHide = dependencies;
+            if ( dependencies.hasOwnProperty(newValue) ) {
+
+                $.each(dependencies[newValue], function(index, value) {
+                    $currentTable.find('[data-option="'+ value +'"]').removeAttr('data-aws-hidden').show().find('.aws-row-name').addClass('aws-opt-highlight');
+                });
+
+                optionsToHide = Object.fromEntries(
+                    Object.entries(dependencies).filter(([key]) => key !== newValue)
+                );
+
+                setTimeout(function() {
+                    $currentTable.find('.aws-opt-highlight').removeClass('aws-opt-highlight');
+                }, 700);
+
+                //aws_init_select2();
+
+            }
+
+            $.each(optionsToHide, function(index, value) {
+                $.each(value, function(i, opt_to_hide) {
+                    $currentTable.find('[data-option="'+ opt_to_hide +'"]').attr('data-aws-hidden', 'true').hide();
+                });
+            });
+
+        }
+
     } );
 
     var $reindexBlock = $('#aws-reindex');

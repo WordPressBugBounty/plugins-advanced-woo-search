@@ -27,6 +27,10 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
 
         private $current_opt_value;
 
+        private $active_section = false;
+
+        private $depends_on = array();
+
         /*
          * Constructor
          */
@@ -35,8 +39,10 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
             $options = AWS_Admin_Options::options_array( $tab_name );
 
             $this->options_array = $options[$tab_name];
-            $this->plugin_options = AWS_Admin_Options::get_settings();;
+            $this->plugin_options = AWS_Admin_Options::get_settings();
             $this->tab_name = $tab_name;
+
+            $this->generate_dependencies_array();
 
             $this->generate_fields();
 
@@ -52,6 +58,8 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
             }
 
             echo '<div data-tab="'. esc_attr( $this->tab_name  ) .'">';
+
+            $this->generate_sections_tabs();
 
             echo '<table class="form-table">';
 
@@ -86,42 +94,68 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
 
             $plugin_options = $this->plugin_options;
 
+            $id = isset( $field['id'] ) && $field['id'] ? $field['id'] : '';
+            $parent_id = isset( $field['parent_id'] ) && $field['parent_id'] ? $field['parent_id'] : $id;
+            $is_child_opt = isset( $field['is_child_opt'] ) && $field['is_child_opt'] ? $field['is_child_opt'] : false;
+
             $this->current_opt_value = '';
             if ( isset( $field['current_opt_value'] ) && $field['current_opt_value'] ) {
                 $this->current_opt_value = $field['current_opt_value'];
-            } elseif ( isset( $field['id'] ) && isset( $plugin_options[$field['id']] ) ) {
-                $this->current_opt_value = $plugin_options[$field['id']];
+            } elseif ( $id && isset( $plugin_options[$id] ) ) {
+                $this->current_opt_value = $plugin_options[$id];
             } elseif ( isset( $field['value'] ) ) {
                 $this->current_opt_value = $field['value'];
             }
 
+            $section = '';
+            $is_hidden = '';
+
+            if ( ! $is_child_opt ) {
+                $section = isset( $field['section'] ) && $field['section'] ? ' data-section="'. esc_attr( $field['section'] ) .'"' : ' data-section="main"';
+                $is_hidden = isset( $field['section'] ) && $this->active_section && $this->active_section !== $field['section'] ? ' style="display:none;"' : '';
+            }
+
             $this->is_disabled = isset( $field['disabled'] ) && $field['disabled'] ? 'disabled' : '';
             $disabled_row_class = $this->is_disabled ? ' class="aws-disabled"' : '';
+
+            // is field is hidden because of dependencies
+            $hidden_by_dependency = $this->is_field_depends( $field ) || $field['type'] === 'hidden' ? ' data-aws-hidden="true"' : '';
+
+            $this->is_disabled = isset( $field['disabled'] ) && $field['disabled'] ? 'disabled' : '';
+
+            $depends_on = '';
+            if ( $parent_id && isset( $this->depends_on[$parent_id] ) ) {
+                $depends_on = ' data-dependencies="'. esc_attr( json_encode( $this->depends_on[$parent_id] ) ) .'"';
+            }
 
             $heading_before = '';
             $heading_after = '';
 
             if ( $field['type'] === 'heading' ) {
                 $heading_tag = isset( $field['heading_type'] ) && $field['heading_type'] === 'text' ? 'span' : 'h3';
-                $id = isset( $field['id'] ) && $field['id'] ? 'id="' . $field['id'] . '"' : '';
-                $heading_before = '<'. $heading_tag .' '. $id .' class="aws-heading">';
+                $idval = $id ? 'id="' . $id . '"' : '';
+                $heading_before = '<'. $heading_tag .' '. $idval .' class="aws-heading">';
                 $heading_after = '</'. $heading_tag .'>';
             }
 
+            $td_colspan = isset( $field['colspan'] ) && $field['colspan'] ? ' colspan="'.esc_attr( $field['colspan'] ).'"' : '';
+
             $html = '';
 
-            $html .= '<tr'.$disabled_row_class.'>';
+            $html .= '<tr'. $section .' data-option="'. esc_attr( $parent_id ) .'"' . $depends_on . $disabled_row_class . $is_hidden . $hidden_by_dependency . '>';
 
                 $html .= '<th scope="row">';
                     $html .= $heading_before;
-                    $html .= wp_kses_post( $field['name'] );
+                    $html .= '<span class="aws-row-name">';
+                        $html .= wp_kses_post( $field['name'] );
+                    $html .= '</span>';
                     if ( isset( $field['tip'] ) && $field['tip'] ) {
-                        $html .= '<span class="aws-help-tip aws-tip" data-tip="'. esc_attr( $field['tip'] ) .'"></span>';
+                        $html .= '<span class="aws-help-tip aws-tip" data-tip-text="'. esc_attr( $field['tip'] ) .'" data-tip="'. esc_attr( $field['tip'] ) .'"></span>';
                     }
                     $html .= $heading_after;
                 $html .= '</th>';
 
-                $html .= '<td>';
+                $html .= '<td'.$td_colspan.'>';
 
                     // html for specific field type
                     $html .= $this->call_field( $field );
@@ -162,6 +196,20 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
             $html = '';
 
             $html .= '<input ' . $this->is_disabled . ' type="text" name="'. esc_attr( $field['id'] ) .'" class="regular-text" value="'. esc_attr( stripslashes( $this->current_opt_value ) ) .'">';
+
+            return $html;
+
+        }
+
+        /*
+         * Hidden field type html markup
+         * @return string
+         */
+        private function get_field_hidden( $field ) {
+
+            $html = '';
+
+            $html .= '<input ' . $this->is_disabled . ' type="hidden" name="'. esc_attr( $field['id'] ) .'" class="regular-text" value="'. esc_attr( stripslashes( $this->current_opt_value ) ) .'">';
 
             return $html;
 
@@ -277,7 +325,7 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
             $html = '';
 
             $html .= '<label class="aws-toggle-label aws-toggler-field">';
-                $html .= '<input class="aws-toggler" type="checkbox" name="'. esc_attr( $field['id'] ) .'" '. $active .'>';
+                $html .= '<input '. $this->is_disabled .' class="aws-toggler" type="checkbox" name="'. esc_attr( $field['id'] ) .'" '. $active .'>';
             $html .= '</label>';
 
             return $html;
@@ -290,19 +338,27 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
          */
         private function get_field_radio_image( $field ) {
 
+            $direction = isset( $field['direction'] ) && $field['direction'] === 'horizontal' ? 'flex-direction: row;' : '';
+            $style = isset( $field['styles'] ) ? ' style="' . $field['styles'] . ';'.$direction.'"' : ' style="'.$direction.'"';
+
             $html = '';
 
-            $html .= '<ul class="img-select">';
+            $html .= '<ul class="img-select"'. $style .'>';
 
-                foreach ( $field['choices'] as $val => $img ) {
+                foreach ( $field['choices'] as $val => $params ) {
 
-                    $style = isset( $field['styles'] ) &&  isset( $field['styles'][$val] ) ? 'style="' . $field['styles'][$val] . ';"' : '';
+                    $img = is_array( $params) && isset( $params['img'] ) ? $params['img'] : $params;
+                    $desc = is_array( $params) && isset( $params['desc'] ) ? $params['desc'] : '';
 
-                    $html .= '<li class="option" '. $style .'>';
+                    $html .= '<li class="option">';
 
-                        $html .= '<input '. $this->is_disabled .' class="radio" type="radio" name="'. esc_attr( $field['id'] ) .'" id="'. esc_attr( $field['id'] . $val ) .'" value="'. esc_attr( $val ) .'" '. checked( $this->current_opt_value, $val, false ) .'>';
+                        $html .= '<input '. $this->is_disabled .' class="radio" type="radio" name="'. esc_attr( $field['id'] ) .'" value="'. esc_attr( $val ) .'" '. checked( $this->current_opt_value, $val, false ) .'>';
 
-                        $html .= '<span class="ico" style="background: url(\''. esc_url( AWS_URL . 'assets/img/' . $img ) .'\') no-repeat 50% 50%;"></span>';
+                        $html .= '<img src="'.  esc_url( AWS_URL . 'assets/img/' . $img ) .'">';
+
+                        if ( $desc ) {
+                            $html .= '<span class="caption">'. $desc .'</span>';
+                        }
 
                     $html .= '</li>';
 
@@ -398,7 +454,7 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
         }
 
         /*
-         * Table Search For field type html markup
+         * Table field type html markup
          * @return string
          */
         private function get_field_table( $field ) {
@@ -460,7 +516,7 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
 
                                 if ( $show_selected_column ) {
                                     $html .= '<span class="aws-field-weight aws-field-selected-num">';
-                                        $html .= esc_html__( 'selected', 'advanced-woo-search' )  . ': ' . '<span data-item-count>' . esc_html( $selected_column_val ) . '</span>';
+                                        $html .= esc_html__( 'selected', 'advanced-woo-search' ) . ': ' . '<span data-item-count>' . esc_html( $selected_column_val ) . '</span>';
                                     $html .= '</span>';
                                 }
 
@@ -486,9 +542,11 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
                                         $html .= '<tbody>';
 
                                             foreach ( $suboptions as $suboption ) {
-                                                $suboption['current_opt_value'] = isset( $table_options[$val] ) && isset( $table_options[$val][$suboption['id']] ) ? $table_options[$val][$suboption['id']] : '';
-                                                $suboption['id'] = $field_name . '[' . $suboption['id'] . ']';
-                                                $suboption['parent_id'] = $field['id'];
+                                                $subid = $suboption['id'];
+                                                $suboption['current_opt_value'] = isset( $table_options[$val] ) && isset( $table_options[$val][$subid] ) ? $table_options[$val][$subid] : '';
+                                                $suboption['id'] = $field_name . '[' . $subid . ']';
+                                                $suboption['parent_id'] = $field_name . '[' . $subid . ']';
+                                                $suboption['is_child_opt'] = true;
                                                 $html .= $this->generate_field( $suboption );
                                             }
 
@@ -524,6 +582,178 @@ if ( ! class_exists( 'AWS_Admin_Fields' ) ) :
             $html .= $field['html'];
 
             return $html;
+
+        }
+
+        /*
+         * Grab all options dependencies
+         * @return void
+         */
+        public function generate_dependencies_array() {
+
+            // grab all options dependencies
+            foreach (  $this->options_array as $field ) {
+
+                if ( isset( $field['depends_on'] ) && is_array( $field['depends_on'] ) ) {
+                    foreach ( $field['depends_on'] as $name => $value ) {
+                        $this->depends_on[$name][$value][] = $field['id'];
+                    }
+                }
+
+                if ( isset( $field['opts'] ) && is_array( $field['opts'] ) ) {
+                    foreach ( $field['opts'] as $name => $suboption ) {
+                        if ( isset( $suboption['depends_on'] ) && is_array( $suboption['depends_on'] ) ) {
+                            foreach ( $suboption['depends_on'] as $name => $value ) {
+                                $subname = $field['id'] . '[' . $name . ']';
+                                $this->depends_on[$subname][$value][] = $field['id'] . '[' . $suboption['id'] . ']';
+                            }
+                        }
+                    }
+                }
+
+                if ( isset( $field['type'] ) && $field['type'] === 'table' && isset( $field['choices'] ) ) {
+                    foreach ( $field['choices'] as $choices_name => $suboption ) {
+                        if ( $suboption && is_array( $suboption ) && isset( $suboption['suboptions'] ) ) {
+                            foreach ( $suboption['suboptions'] as $name => $suboption ) {
+                                if ( isset( $suboption['depends_on'] ) && is_array( $suboption['depends_on'] ) ) {
+                                    foreach ( $suboption['depends_on'] as $name => $value ) {
+                                        $subname = $field['id'] . '[' . $choices_name . '][' . $name . ']';
+                                        $this->depends_on[$subname][$value][] = $field['id'] . '['.$choices_name.'][' . $suboption['id'] . ']';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        /*
+         * Check if current field is hidden due to dependincies
+         * @return bool
+         */
+        public function is_field_depends( $field ) {
+
+            $plugin_options = $this->plugin_options;
+
+            $is_hidden = false;
+            if ( isset( $field['depends_on'] ) && $field['depends_on'] ) {
+
+                $is_hidden = true;
+
+                $check_options = $plugin_options;
+
+                // if it is subfield
+                if ( strpos( $field['id'], '[' ) !== false ) {
+                    preg_match_all('/[^\[\]]+/', $field['id'], $matches);
+                    if ( $matches ) {
+                        $array_path = $matches[0];
+                        if ( $array_path && count( $array_path ) > 1 ) {
+                            array_pop($array_path );
+                            foreach ($array_path as $key) {
+                                if (is_array($check_options) && array_key_exists($key, $check_options)) {
+                                    $check_options = $check_options[$key];
+                                } else {
+                                    $check_options = false;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                foreach ( $field['depends_on'] as $name => $value ) {
+                    $opt_value = '';
+                    if ( $check_options && is_array( $check_options ) && isset( $check_options[$name] ) ) {
+                        $opt_value = $check_options[$name];
+                    } elseif ( $this->options_array ) {
+                        // get default option array if no option found
+                        foreach ( $this->options_array as $option_item ) {
+                            if ( isset( $option_item['id'] ) && $option_item['id'] === $name && isset( $option_item['value'] ) ) {
+                                $opt_value = $option_item['value'];
+                                break;
+                            }
+                            if ( isset( $option_item['opts'] ) && $option_item['opts'] ) {
+                                foreach ( $option_item['opts'] as $subopt_value ) {
+                                    if ( isset( $subopt_value['id'] ) && $subopt_value['id'] === $name && isset( $subopt_value['value'] ) ) {
+                                        $opt_value = $subopt_value['value'];
+                                        break;
+                                    }
+                                }
+                            }
+                            if ( isset( $option_item['type'] ) && $option_item['type'] === 'table' && isset( $option_item['choices'] ) ) {
+                                foreach ( $option_item['choices'] as $choices_name => $subopt_value ) {
+                                    if ( is_array( $subopt_value ) && isset( $subopt_value['suboptions'] ) ) {
+                                        foreach ( $subopt_value['suboptions'] as $subopt_value ) {
+                                            if ( isset( $subopt_value['id'] ) && $subopt_value['id'] === $name && isset( $subopt_value['value'] ) ) {
+                                                $opt_value = $subopt_value['value'];
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    if ( $opt_value === $value ) {
+                        $is_hidden = false;
+                    }
+                }
+            }
+
+            return $is_hidden;
+
+        }
+
+        /*
+         * Generate sections tabs and print
+         */
+        private function generate_sections_tabs() {
+
+            $section_names = AWS_Admin_Options::get_sections_names();
+
+            $sections = array();
+            foreach ( $this->options_array as $k => $field ) {
+                if ( isset( $field['section'] ) && $field['section'] ) {
+                    $section_id = $field['section'];
+                    if ( ! isset( $sections[$section_id] ) ) {
+                        $section_name = isset( $section_names[$section_id] ) ? $section_names[$section_id] : $section_id;
+                        $sections[$section_id] = $section_name;
+                    }
+                }
+            }
+
+            if ( $sections && count( $sections ) > 1 ) {
+
+                echo '<ul class="aws-admin-sections">';
+
+                $num = 0;
+
+                foreach ( $sections as $section_id => $section_name ) {
+
+                    if ( ! $this->active_section ) {
+                        $this->active_section = $section_id;
+                    }
+
+                    $is_active = '';
+
+                    if ( ! $num ) {
+                        $is_active = ' class="aws-active"';
+                    }
+
+                    echo '<li>';
+                        echo '<a'. $is_active .' href="#" data-section-name="'. $section_id .'">'. $section_name .'</a>';
+                    echo '</li>';
+
+                    $num++;
+
+                }
+
+                echo '</ul>';
+
+            }
 
         }
 
