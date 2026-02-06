@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.53
+Stable tag: 3.54
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -287,6 +287,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.54 ( 2026-02-06 ) =
+* Update - Tested with WC 10.5
+* Update - Plugin header details. Add homepage link
 
 = 3.53 ( 2026-02-02 ) =
 * Update - Change styles for dashboard settings page
