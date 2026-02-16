@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.54
+Stable tag: 3.55
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.55 ( 2026-02-16 ) =
+* Update - Admin page styles for integration notices
+
 = 3.54 ( 2026-02-06 ) =
 * Update - Tested with WC 10.5
 * Update - Plugin header details. Add homepage link
@@ -481,10 +484,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Update - Settings page text
 * Fix - Filter by attributes for the search page. Fix filtering by slugs with integers inside
 * Dev - Add additional check for product IDs inside search page
-
-= 3.14 ( 2024-08-12 ) =
-* Update - Integration with Oxygen theme
-* Fix - Filtering for search results page when using slugs with numbers inside URL for terms
-* Fix - Add new parameters for orderby function
-* Fix - Automatically index products that were restored from the trash
-* Dev - Fix functions naming
