@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.55
+Stable tag: 3.56
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.56 ( 2026-03-09 ) =
+* Dev - Add aws_new_plugin_version_released hook
+
 = 3.55 ( 2026-02-16 ) =
 * Update - Admin page styles for integration notices
 
@@ -477,10 +480,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Update - Tested with WC 9.3
 * Update - On page stock status and sale filters
 * Fix - Show clear button on first search when ajax is disabled
-
-= 3.15 ( 2024-09-02 ) =
-* Update - Tested with WC 9.2
-* Update - Add new parameters for orderby
-* Update - Settings page text
-* Fix - Filter by attributes for the search page. Fix filtering by slugs with integers inside
-* Dev - Add additional check for product IDs inside search page

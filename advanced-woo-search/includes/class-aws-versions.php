@@ -599,6 +599,10 @@ if ( ! class_exists( 'AWS_Versions' ) ) :
 
             }
 
+            if ( $current_version && $current_version !== AWS_VERSION ) {
+                do_action( 'aws_new_plugin_version_released', AWS_VERSION );
+            }
+
             update_option( 'aws_plugin_ver', AWS_VERSION );
 
         }
