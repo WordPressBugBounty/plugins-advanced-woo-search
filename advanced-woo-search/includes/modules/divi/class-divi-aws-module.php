@@ -36,6 +36,13 @@ function aws_divi_remove_from_third_party_modules() {
 }
 
 function aws_divi5_register_modules( $dependency_tree ) {
+    if (
+        ! interface_exists( '\ET\Builder\Framework\DependencyManagement\Interfaces\DependencyInterface' ) ||
+        ! class_exists( '\ET\Builder\Packages\ModuleLibrary\ModuleRegistration' )
+    ) {
+        return;
+    }
+
     if ( ! class_exists( '\AWS\Divi5\Modules\AwsSearch\AwsSearch' ) ) {
         require_once AWS_DIR . '/includes/modules/divi/divi-5/server/Modules/AwsSearch/AwsSearch.php';
     }

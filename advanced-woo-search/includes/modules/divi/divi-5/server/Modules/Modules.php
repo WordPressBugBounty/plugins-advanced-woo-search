@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once __DIR__ . '/AwsSearch/AwsSearch.php';
 
 use AWS\Divi5\Modules\AwsSearch\AwsSearch;
+use ET\Builder\Framework\DependencyManagement\Interfaces\DependencyInterface;
+use ET\Builder\Packages\ModuleLibrary\ModuleRegistration;
 
 /**
  * Register AWS Divi 5 module dependency.
@@ -20,6 +22,14 @@ use AWS\Divi5\Modules\AwsSearch\AwsSearch;
  * @return void
  */
 function aws_pro_divi5_register_modules( $dependency_tree ) {
+	if ( ! interface_exists( DependencyInterface::class ) || ! class_exists( ModuleRegistration::class ) ) {
+		return;
+	}
+
+	if ( ! class_exists( AwsSearch::class ) ) {
+		return;
+	}
+
 	$dependency_tree->add_dependency( new AwsSearch() );
 }
 

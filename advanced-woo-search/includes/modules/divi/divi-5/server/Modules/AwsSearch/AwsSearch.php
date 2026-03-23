@@ -12,6 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 use ET\Builder\Framework\DependencyManagement\Interfaces\DependencyInterface;
 use ET\Builder\Packages\ModuleLibrary\ModuleRegistration;
 
+if ( ! interface_exists( DependencyInterface::class ) || ! class_exists( ModuleRegistration::class ) ) {
+	return;
+}
+
 class AwsSearch implements DependencyInterface {
 
 	/**
