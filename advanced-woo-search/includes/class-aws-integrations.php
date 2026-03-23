@@ -391,6 +391,7 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
             if ( defined( 'ET_BUILDER_PLUGIN_DIR' ) || function_exists( 'et_setup_theme' ) ) {
                 include_once( AWS_DIR . '/includes/modules/divi/class-aws-divi.php' );
                 include_once( AWS_DIR . '/includes/modules/divi/class-divi-aws-module.php' );
+                include_once( AWS_DIR . '/includes/modules/divi/divi-5/server/Modules/Modules.php' );
             }
 
             // Beaver builder module

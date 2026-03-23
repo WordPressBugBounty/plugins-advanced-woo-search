@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.56
+Stable tag: 3.57
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.57 ( 2026-03-23 ) =
+* Update - Add support for Divi 5 theme
+* Update - Tested with WC 10.6
+* Dev - Update functions for tables exists check
+
 = 3.56 ( 2026-03-09 ) =
 * Dev - Add aws_new_plugin_version_released hook
 
@@ -472,11 +477,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Fix - Index duplicated products when using WPML plugin
 * Fix - Bug with quick edit feature when using WPML plugin
 * Dev - New check for currently active plugins
-
-= 3.16 ( 2024-09-16 ) =
-* Add - Greek to latin characters replace
-* Add - Plurals support for different languages
-* Add - Support for Breakdance plugin
-* Update - Tested with WC 9.3
-* Update - On page stock status and sale filters
-* Fix - Show clear button on first search when ajax is disabled
