@@ -124,6 +124,11 @@ jQuery(document).ready(function ($) {
 
     } );
 
+    // On Weight suboption field change - update counter inside table
+    $(document).on('change', '.aws-settings-inner-table input[name*="[weight]"]:not(.aws-term-weight)', function(e) {
+        $(this).closest('.aws-table-sources-item').find('[data-item-weight]').text( $(this).val() );
+    });
+
     var $reindexBlock = $('#aws-reindex');
     var $reindexBtn = $('#aws-reindex .button');
     var $reindexProgress = $('#aws-reindex .reindex-progress');

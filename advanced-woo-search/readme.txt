@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.58
+Stable tag: 3.59
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.59 ( 2026-04-06 ) =
+* Add - New options for non-products search results
+* Add - Options to set relevance weight for search fields
+
 = 3.58 ( 2026-03-23 ) =
 * Update - Fix support for Divi 5 theme
 
@@ -473,10 +477,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Update - Support for Italian language
 * Update - Admin page notices about integrations
 * Dev - Update the structure of plugin tables
-
-= 3.17 ( 2024-10-01 ) =
-* Add - Support for Shopical theme
-* Add - Support for WooCommerce Product Table by Barn2 plugin
-* Fix - Index duplicated products when using WPML plugin
-* Fix - Bug with quick edit feature when using WPML plugin
-* Dev - New check for currently active plugins

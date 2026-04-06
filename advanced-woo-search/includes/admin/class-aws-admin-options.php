@@ -181,31 +181,108 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                 "choices" => array(
                     "title"    => array(
                         'label'      => __( "Title", "advanced-woo-search" ),
-                        'suboptions' => array(),
+                        'suboptions' => array(
+                            'weight' => array(
+                                "name"  => __( "Weight", "advanced-woo-search" ),
+                                "desc"  => '',
+                                "tip"   => __( "Weight of this search source. The higher the value, the more impact it has on product ranking. Range 1 - 999.", "advanced-woo-search" ),
+                                "id"    => "weight",
+                                "value" => 350,
+                                "min" => 1,
+                                "max" => 999,
+                                "type"  => "number"
+                            ),
+                        ),
                     ),
                     "content"  => array(
                         'label'      => __( "Content", "advanced-woo-search" ),
-                        'suboptions' => array(),
+                        'suboptions' => array(
+                            'weight' => array(
+                                "name"  => __( "Weight", "advanced-woo-search" ),
+                                "desc"  => '',
+                                "tip"   => __( "Weight of this search source. The higher the value, the more impact it has on product ranking. Range 1 - 999.", "advanced-woo-search" ),
+                                "id"    => "weight",
+                                "value" => 100,
+                                "min" => 1,
+                                "max" => 999,
+                                "type"  => "number"
+                            ),
+                        ),
                     ),
                     "sku"      => array(
                         'label'      => __( "SKU", "advanced-woo-search" ),
-                        'suboptions' => array(),
+                        'suboptions' => array(
+                            'weight' => array(
+                                "name"  => __( "Weight", "advanced-woo-search" ),
+                                "desc"  => '',
+                                "tip"   => __( "Weight of this search source. The higher the value, the more impact it has on product ranking. Range 1 - 999.", "advanced-woo-search" ),
+                                "id"    => "weight",
+                                "value" => 300,
+                                "min" => 1,
+                                "max" => 999,
+                                "type"  => "number"
+                            ),
+                        ),
                     ),
                     "excerpt"  => array(
                         'label'      => __( "Short description", "advanced-woo-search" ),
-                        'suboptions' => array(),
+                        'suboptions' => array(
+                            'weight' => array(
+                                "name"  => __( "Weight", "advanced-woo-search" ),
+                                "desc"  => '',
+                                "tip"   => __( "Weight of this search source. The higher the value, the more impact it has on product ranking. Range 1 - 999.", "advanced-woo-search" ),
+                                "id"    => "weight",
+                                "value" => 100,
+                                "min" => 1,
+                                "max" => 999,
+                                "type"  => "number"
+                            ),
+                        ),
                     ),
                     "category"     => array(
                         'label'      => __( "Category", "advanced-woo-search" ),
-                        'suboptions' => array(),
+                        'suboptions' => array(
+                            'weight' => array(
+                                "name"  => __( "Weight", "advanced-woo-search" ),
+                                "desc"  => '',
+                                "tip"   => __( "Weight of this search source. The higher the value, the more impact it has on product ranking. Range 1 - 999.", "advanced-woo-search" ),
+                                "id"    => "weight",
+                                "value" => 35,
+                                "min" => 1,
+                                "max" => 999,
+                                "type"  => "number"
+                            ),
+                        ),
                     ),
                     "tag"     => array(
                         'label'      => __( "Tag", "advanced-woo-search" ),
-                        'suboptions' => array(),
+                        'suboptions' => array(
+                            'weight' => array(
+                                "name"  => __( "Weight", "advanced-woo-search" ),
+                                "desc"  => '',
+                                "tip"   => __( "Weight of this search source. The higher the value, the more impact it has on product ranking. Range 1 - 999.", "advanced-woo-search" ),
+                                "id"    => "weight",
+                                "value" => 35,
+                                "min" => 1,
+                                "max" => 999,
+                                "type"  => "number"
+                            ),
+                        ),
                     ),
                     "id"     => array(
                         'label'      => __( "ID", "advanced-woo-search" ),
-                        'suboptions' => array(),
+                        'suboptions' => array(
+                            'weight' => array(
+                                "name"  => __( "Weight", "advanced-woo-search" ),
+                                "desc"  => '',
+                                "tip"   => __( "Weight of this search source. The higher the value, the more impact it has on product ranking. Range 1 - 999.", "advanced-woo-search" ),
+                                "id"    => "weight",
+                                "value" => 300,
+                                "min" => 1,
+                                "max" => 999,
+                                "type"  => "number"
+                            ),
+                        ),
                     ),
                     "gtin:disabled"     => array(
                         'label'      => __( "GTIN, UPC, EAN, ISBN", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
@@ -548,7 +625,6 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                 "desc"  => __( "Execute shortcodes inside product content.", "advanced-woo-search" ),
                 "id"    => "index_shortcodes",
                 "value" => 'true',
-                "inherit" => "true",
                 "type"  => "toggler",
             );
 
@@ -841,7 +917,6 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                 "tip"    => __( "Search for taxonomies and displayed their archive pages in search results.", "advanced-woo-search" ),
                 "table_head" => __( 'Archive Pages', 'advanced-woo-search' ),
                 "id"      => "search_archives",
-                "inherit" => "true",
                 "value" => array(
                     'archive_category' => 0,
                     'archive_tag'      => 0,
@@ -876,7 +951,6 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                 "section" => "non_products",
             );
 
-
             $options['results'][] = array(
                 "name"  => __( "Archive pages number", "advanced-woo-search" ),
                 "desc"  => __( "Maximum displayed archive search results.", "advanced-woo-search" ),
@@ -884,6 +958,52 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                 "value" => 10,
                 "min" => 0,
                 "type"  => "number",
+                "section" => "non_products",
+            );
+
+            $options['results'][] = array(
+                "name"    => __( "Show taxonomy name", "advanced-woo-search" ),
+                "desc"    => __( "Show the taxonomy name next to each result.", "advanced-woo-search" ),
+                "id"      => "search_archives_heading",
+                "value" => 'true',
+                "type"  => "toggler",
+                "section" => "non_products",
+            );
+
+            $options['results'][] = array(
+                "name"    => __( "Show hierarchy", "advanced-woo-search" ),
+                "desc"    => __( "Show parent terms for hierarchical taxonomies.", "advanced-woo-search" ),
+                "id"      => "search_archives_hierarchy",
+                "value" => 'false',
+                "type"  => "toggler",
+                "section" => "non_products",
+            );
+
+            $options['results'][] = array(
+                "name"  => __( "Show count", "advanced-woo-search" ),
+                "desc"  => __( "Show the number of products next to each item.", "advanced-woo-search" ),
+                "id"    => "search_archives_count",
+                "value" => 'true',
+                "type"  => "toggler",
+                "section" => "non_products",
+            );
+
+            $options['results'][] = array(
+                "name"  => __( "Show empty", "advanced-woo-search" ),
+                "desc"  => __( "Show archive pages that do not contain any products.", "advanced-woo-search" ),
+                "id"    => "search_archives_empty",
+                "value" => 'false',
+                "type"  => "toggler",
+                "section" => "non_products",
+            );
+
+            $options['results'][] = array(
+                "name"  => __( "Show images", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_rating">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "desc"  => __( "Show images for archive page results, if available.", "advanced-woo-search" ),
+                "id"    => "search_archives_images",
+                "value" => 'false',
+                "type"  => "toggler",
+                "disabled" => true,
                 "section" => "non_products",
             );
 

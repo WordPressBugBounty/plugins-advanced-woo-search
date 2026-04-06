@@ -203,6 +203,9 @@ AwsHooks.filters = AwsHooks.filters || {};
                                             html += '<a class="aws_result_link_top" ' + linkData + ' href="' + topResult.link + '">' + topResult.name + '</a>';
                                             html += '<span class="aws_result_content">';
                                                 html += '<span class="aws_result_title">';
+                                                    if ( ( typeof taxitem.heading !== 'undefined' ) && taxitem.heading ) {
+                                                        html += '<span class="aws_result_heading">' + taxitem.heading + '</span>';
+                                                    }
                                                     html += topResult.name;
                                                 html += '</span>';
                                                 if ( ( typeof topResult.content !== 'undefined' ) && topResult.content ) {
@@ -238,9 +241,15 @@ AwsHooks.filters = AwsHooks.filters || {};
                                         html += '<a class="aws_result_link_top" href="' + taxitem.link + '">' + taxitem.name + '</a>';
                                         html += '<span class="aws_result_content">';
                                             html += '<span class="aws_result_title">';
+                                                if ( ( typeof taxitem.heading !== 'undefined' ) && taxitem.heading ) {
+                                                    html += '<span class="aws_result_heading">' + taxitem.heading + '</span>';
+                                                }
                                                 html += taxitem.name;
                                                 if ( taxitem.count ) {
                                                     html += '<span class="aws_result_count">&nbsp;(' + taxitem.count + ')</span>';
+                                                }
+                                                if ( ( typeof taxitem.hierarchy !== 'undefined' ) && taxitem.hierarchy ) {
+                                                    html += '<span class="aws_result_hierarchy">' + taxitem.hierarchy + '</span>';
                                                 }
                                             html += '</span>';
                                             if ( ( typeof taxitem.excerpt !== 'undefined' ) && taxitem.excerpt ) {
