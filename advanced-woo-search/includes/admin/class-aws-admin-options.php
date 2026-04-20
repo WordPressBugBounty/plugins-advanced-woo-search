@@ -1042,6 +1042,15 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
             );
 
             $options['results'][] = array(
+                "name"  => __( "Show categories", "advanced-woo-search" ),
+                "desc"  => __( "Include categories in products search results.", "advanced-woo-search" ),
+                "id"    => "show_result_cats",
+                "value" => 'true',
+                "type"  => "toggler",
+                "section" => "content",
+            );
+
+            $options['results'][] = array(
                 "name"  => __( "Show price", "advanced-woo-search" ),
                 "desc"  => __( "Show product price for each search result.", "advanced-woo-search" ),
                 "id"    => "show_price",

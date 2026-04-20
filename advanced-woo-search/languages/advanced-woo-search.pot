@@ -1262,3 +1262,9 @@ msgstr ""
 
 msgid "Show parent terms for hierarchical taxonomies."
 msgstr ""
+
+msgid "Show categories"
+msgstr ""
+
+msgid "Include categories in products search results."
+msgstr ""

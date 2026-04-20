@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.59
+Stable tag: 3.60
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,13 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.60 ( 2026-04-20 ) =
+* Add - New option to show product categories inside search results
+* Update - Tested with WC 10.7
+* Update - Integration with flatsome theme. Fix search form styles inside header
+* Update - Refine html structure for live search results
+* Fix - Bug with stripping part of product title with html markup inside search results output
+
 = 3.59 ( 2026-04-06 ) =
 * Add - New options for non-products search results
 * Add - Options to set relevance weight for search fields
@@ -471,9 +478,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Update - Add different search rules for taxonomies search
 * Update - Styles for search form. Fix min height for input
 * Dev - Add aws_search_custom_top_results filter
-
-= 3.18 ( 2024-10-14 ) =
-* Add - Support for Jet Blocks plugin search widget
-* Update - Support for Italian language
-* Update - Admin page notices about integrations
-* Dev - Update the structure of plugin tables

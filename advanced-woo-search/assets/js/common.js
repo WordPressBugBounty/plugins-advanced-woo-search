@@ -74,7 +74,7 @@ AwsHooks.filters = AwsHooks.filters || {};
                 searchFor = $searchField.val();
                 searchFor = searchFor.trim();
                 searchFor = searchFor.replace( /<>\{\}\[\]\\\/]/gi, '' );
-                searchFor = searchFor.replace( /\s\s+/g, ' ' );
+                searchFor = searchFor.replace( /<[^>]*>/g, ' ' );
 
                 for ( var i = 0; i < requests.length; i++ ) {
                     requests[i].abort();
@@ -172,7 +172,10 @@ AwsHooks.filters = AwsHooks.filters || {};
                 var resultNum = 0;
                 var taxName = '';
 
-                var html = '<ul>';
+                var html = '<div class="aws_result_scroll">';
+
+                html += '<div class="aws_result_inner">';
+                html += '<div class="aws_results style-inline">';
 
                 if ( typeof response.data !== 'undefined' ) {
 
@@ -198,22 +201,22 @@ AwsHooks.filters = AwsHooks.filters || {};
 
                                     var linkData = ( typeof topResult.link_data !== 'undefined' ) ? topResult.link_data : '';
 
-                                    html += '<li class="aws_result_item aws_result_top_custom_item aws_result_top_custom_item_' + topResultsName + '" style="position:relative;">';
-                                        html += '<div class="aws_result_link">';
-                                            html += '<a class="aws_result_link_top" ' + linkData + ' href="' + topResult.link + '">' + topResult.name + '</a>';
-                                            html += '<span class="aws_result_content">';
-                                                html += '<span class="aws_result_title">';
-                                                    if ( ( typeof taxitem.heading !== 'undefined' ) && taxitem.heading ) {
-                                                        html += '<span class="aws_result_heading">' + taxitem.heading + '</span>';
+                                    html += '<div class="aws_result_item aws_result_top_custom_item aws_result_top_custom_item_' + topResultsName + '" style="position:relative;">';
+                                        html += '<a class="aws_result_link_top" ' + linkData + ' href="' + topResult.link + '">' + topResult.name + '</a>';
+                                        html += '<span class="aws_result_content">';
+                                            html += '<span class="aws_result_head">';
+                                                html += '<span class="aws_result_top_custom_item_title">';
+                                                    if ( ( typeof topResult.heading !== 'undefined' ) && topResult.heading ) {
+                                                        html += '<span class="aws_result_heading">' + topResult.heading + '</span>';
                                                     }
                                                     html += topResult.name;
                                                 html += '</span>';
-                                                if ( ( typeof topResult.content !== 'undefined' ) && topResult.content ) {
-                                                    html += '<span class="aws_result_excerpt">' + topResult.content + '</span>';
-                                                }
                                             html += '</span>';
-                                        html += '</div>';
-                                    html += '</li>';
+                                            if ( ( typeof topResult.content !== 'undefined' ) && topResult.content ) {
+                                                html += '<span class="aws_result_excerpt">' + topResult.content + '</span>';
+                                            }
+                                        html += '</span>';
+                                    html += '</div>';
 
                                 });
 
@@ -236,11 +239,11 @@ AwsHooks.filters = AwsHooks.filters || {};
 
                                 resultNum++;
 
-                                html += '<li class="aws_result_item aws_result_tag aws_result_tax_' + taxName + '" style="position:relative;">';
-                                    html += '<div class="aws_result_link">';
-                                        html += '<a class="aws_result_link_top" href="' + taxitem.link + '">' + taxitem.name + '</a>';
-                                        html += '<span class="aws_result_content">';
-                                            html += '<span class="aws_result_title">';
+                                html += '<div class="aws_result_item aws_result_tag aws_result_tax_' + taxName + '" style="position:relative;">';
+                                    html += '<a class="aws_result_link_top" href="' + taxitem.link + '">' + taxitem.name + '</a>';
+                                    html += '<span class="aws_result_content">';
+                                        html += '<span class="aws_result_head">';
+                                            html += '<span class="aws_result_tax_title">';
                                                 if ( ( typeof taxitem.heading !== 'undefined' ) && taxitem.heading ) {
                                                     html += '<span class="aws_result_heading">' + taxitem.heading + '</span>';
                                                 }
@@ -252,12 +255,12 @@ AwsHooks.filters = AwsHooks.filters || {};
                                                     html += '<span class="aws_result_hierarchy">' + taxitem.hierarchy + '</span>';
                                                 }
                                             html += '</span>';
-                                            if ( ( typeof taxitem.excerpt !== 'undefined' ) && taxitem.excerpt ) {
-                                                html += '<span class="aws_result_excerpt">' + taxitem.excerpt + '</span>';
-                                            }
                                         html += '</span>';
-                                    html += '</div>';
-                                html += '</li>';
+                                        if ( ( typeof taxitem.excerpt !== 'undefined' ) && taxitem.excerpt ) {
+                                            html += '<span class="aws_result_excerpt">' + taxitem.excerpt + '</span>';
+                                        }
+                                    html += '</span>';
+                                html += '</div>';
 
                             });
                         }
@@ -272,63 +275,69 @@ AwsHooks.filters = AwsHooks.filters || {};
 
                         resultNum++;
 
-                        html += '<li class="aws_result_item" style="position:relative;">';
-                        html += '<div class="aws_result_link">';
+                        var isOnSale = result.on_sale ? ' on-sale' : '';
 
-                        html += '<a class="aws_result_link_top" href="' + result.link + '">' + result.title.replace(/(<[\s\S]*>)/gm, '') + '</a>';
+                        html += '<div class="aws_result_item' + isOnSale + '">';
 
-                        if ( result.image ) {
-                            html += '<span class="aws_result_image">';
-                            html += '<img src="' + result.image + '">';
-                            html += '</span>';
-                        }
+                            html += '<a class="aws_result_link_top" href="' + result.link + '">' + result.title.replace(/<[^>]*>/g, '') + '</a>';
 
-                        html += '<span class="aws_result_content">';
-
-                        html += '<span class="aws_result_title">';
-                            html += result.title;
-                            if ( result.featured ) {
-                                html += '<span class="aws_result_featured" title="Featured"><svg version="1.1" viewBox="0 0 20 21" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill-rule="evenodd" stroke="none" stroke-width="1"><g transform="translate(-296.000000, -422.000000)"><g transform="translate(296.000000, 422.500000)"><path d="M10,15.273 L16.18,19 L14.545,11.971 L20,7.244 L12.809,6.627 L10,0 L7.191,6.627 L0,7.244 L5.455,11.971 L3.82,19 L10,15.273 Z"/></g></g></g></svg></span>';
+                            if ( result.image ) {
+                                html += '<span class="aws_result_image">';
+                                    html += '<img src="' + result.image + '">';
+                                html += '</span>';
                             }
-                        html += '</span>';
 
-                        if ( result.stock_status ) {
-                            var statusClass = result.stock_status.status ? 'in' : 'out';
-                            html += '<span class="aws_result_stock ' + statusClass + '">';
-                                html += result.stock_status.text;
+                            html += '<span class="aws_result_content">';
+
+                                html += '<span class="aws_result_head">';
+
+                                    html += '<span class="aws_result_title">';
+                                    html += result.title;
+                                    if ( result.featured ) {
+                                        html += '<span class="aws_result_featured" title="Featured"><svg version="1.1" viewBox="0 0 20 21" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill-rule="evenodd" stroke="none" stroke-width="1"><g transform="translate(-296.000000, -422.000000)"><g transform="translate(296.000000, 422.500000)"><path d="M10,15.273 L16.18,19 L14.545,11.971 L20,7.244 L12.809,6.627 L10,0 L7.191,6.627 L0,7.244 L5.455,11.971 L3.82,19 L10,15.273 Z"/></g></g></g></svg></span>';
+                                    }
+                                    html += '</span>';
+
+                                    if ( result.price ) {
+                                        html += '<span class="aws_result_price">' + result.price + '</span>';
+                                    }
+
+                                html += '</span>';
+
+                                if ( result.stock_status ) {
+                                    var statusClass = result.stock_status.status ? 'in' : 'out';
+                                    html += '<span class="aws_result_stock ' + statusClass + '">';
+                                        html += result.stock_status.text;
+                                    html += '</span>';
+                                }
+
+                                if ( result.sku ) {
+                                    html += '<span class="aws_result_sku">' + translate.sku +  result.sku + '</span>';
+                                }
+
+                                if ( result.excerpt ) {
+                                    html += '<span class="aws_result_excerpt">' + result.excerpt + '</span>';
+                                }
+
+                                if ( typeof result.categories !== 'undefined' && result.categories ) {
+                                    html += '<span class="aws_result_term">' + result.categories + '</span>';
+                                }
+
                             html += '</span>';
-                        }
 
-                        if ( result.sku ) {
-                            html += '<span class="aws_result_sku">' + translate.sku +  result.sku + '</span>';
-                        }
-
-                        if ( result.excerpt ) {
-                            html += '<span class="aws_result_excerpt">' + result.excerpt + '</span>';
-                        }
-
-                        if ( result.price ) {
-                            html += '<span class="aws_result_price">' + result.price + '</span>';
-                        }
-
-                        html += '</span>';
-
-                        if ( result.on_sale ) {
-                            html += '<span class="aws_result_sale">';
-                            html += '<span class="aws_onsale">' + translate.sale + '</span>';
-                            html += '</span>';
-                        }
+                            if ( result.on_sale ) {
+                                html += '<span class="aws_result_sale">';
+                                    html += '<span class="aws_onsale">' + translate.sale + '</span>';
+                                html += '</span>';
+                            }
 
                         html += '</div>';
-                        html += '</li>';
 
                     });
 
                     if ( d.showMore && d.showPage ) {
-                        html += '<li class="aws_result_item aws_search_more"><a href="#">' + translate.showmore + '</a></li>';
+                        html += '<a class="aws_result_item aws_search_more" href="#">' + translate.showmore + '</a>';
                     }
-
-                    //html += '<li class="aws_result_item"><a href="#">Next Page</a></li>';
 
                 }
 
@@ -337,12 +346,11 @@ AwsHooks.filters = AwsHooks.filters || {};
                     /* from 3.32 */
                     methods.createAndDispatchEvent( document, 'awsNoResults', { term: searchFor, instance: instance, form: self, data: d } );
 
-                    html += '<li class="aws_result_item aws_no_result">' + translate.noresults + '</li>';
+                    html += '<span class="aws_result_item aws_no_result">' + translate.noresults + '</span>';
 
                 }
 
-
-                html += '</ul>';
+                html += '</div></div></div>';
 
                 // @since 2.05
                 html = AwsHooks.apply_filters( 'aws_results_html', html, { response: response, data: d, translate: translate } );
@@ -351,6 +359,7 @@ AwsHooks.filters = AwsHooks.filters || {};
                 methods.hideLoader();
 
                 $(d.resultBlock).html( html );
+                methods.addTemporaryLegacyResultStyles();
 
                 methods.showResultsBlock();
 
@@ -376,6 +385,44 @@ AwsHooks.filters = AwsHooks.filters || {};
 
             hideLoader: function() {
                 $searchForm.removeClass('aws-processing');
+            },
+
+            // Temporary legacy fallback for old plugin versions until migration is complete.
+            addTemporaryLegacyResultStyles: function() {
+
+                var styleId = 'aws-temporary-legacy-result-styles';
+                var $firstResultItem = $(d.resultBlock).find('.aws_results .aws_result_item').first();
+
+                if ( ! $firstResultItem.length || document.getElementById( styleId ) ) {
+                    return;
+                }
+
+                var borderBottomWidth = $firstResultItem.css('border-bottom-width');
+                var borderBottomStyle = $firstResultItem.css('border-bottom-style');
+
+                if ( borderBottomStyle !== 'none' && borderBottomWidth !== '0px' ) {
+                    return;
+                }
+
+                $('<style>', {
+                    id: styleId,
+                    text: '.aws-search-result .aws_results .aws_result_item {' +
+                        'display:block;' +
+                        'border-bottom:1px solid #ccc;' +
+                        'overflow:hidden;' +
+                        'margin:0 !important;' +
+                        'position:relative;' +
+                        'cursor:pointer;' +
+                        'padding:10px;' +
+                        'text-decoration:none;' +
+                    '}' +
+                    '.aws_result_scroll {' +
+                        'max-height:500px;' +
+                        'overflow-y:auto;' +
+                        'overflow-x:hidden;' +
+                    '}'
+                }).appendTo('head');
+
             },
 
             resultsShow: function() {
@@ -438,6 +485,12 @@ AwsHooks.filters = AwsHooks.filters || {};
                         top : 0,
                         left: 0
                     };
+
+                    if ( styles.width <= 500 ) {
+                        $resultsBlock.addClass('less500');
+                    } else {
+                        $resultsBlock.removeClass('less500');
+                    }
 
                     if ( bodyPosition === 'relative' || bodyPosition === 'absolute' || bodyPosition === 'fixed' ) {
                         styles.top = offset.top + $(self).innerHeight() - bodyOffset.top;
@@ -845,7 +898,7 @@ AwsHooks.filters = AwsHooks.filters || {};
 
                     var $item = $( d.resultBlock ).find('.aws_result_item');
                     var $hoveredItem = $( d.resultBlock ).find('.aws_result_item.hovered');
-                    var $itemsList = $( d.resultBlock ).find('ul');
+                    var $itemsList = $( d.resultBlock ).find('.aws_result_scroll');
 
                     if ( e.keyCode == 40 ) {
 

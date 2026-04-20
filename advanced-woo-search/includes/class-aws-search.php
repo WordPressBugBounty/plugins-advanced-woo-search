@@ -642,6 +642,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                 $show_sku             = AWS()->get_settings( 'show_sku' );
                 $show_stock_status    = AWS()->get_settings( 'show_stock' );
                 $show_featured        = AWS()->get_settings( 'show_featured' );
+                $show_pr_cats         = AWS()->get_settings( 'show_result_cats' );
 
                 $posts_items = $posts_ids;
 
@@ -683,6 +684,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                     $sku          = '';
                     $stock_status = '';
                     $featured     = '';
+                    $categories   = '';
 
 
                     if ( $show_excerpt === 'true' ) {
@@ -743,6 +745,10 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                         $featured = $product->is_featured();
                     }
 
+                    if ( $show_pr_cats === 'true' ) {
+                        $categories = $this->get_terms_list( $parent_id, 'product_cat' );
+                    }
+
                     if ( method_exists( $product, 'get_stock_status' ) ) {
                         $product_stock_status = $product->get_stock_status();
                     } else {
@@ -778,13 +784,11 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                     $f_stock = $product->is_in_stock();
                     $f_sale  = $product->is_on_sale();
 
-//                    $categories = $product->get_categories( ',' );
-//                    $tags = $product->get_tags( ',' );
-
                     if ( $highlight_words === 'true'  ) {
-                        $title   = $this->highlight_words( $title );
-                        $excerpt = $this->highlight_words( $excerpt );
-                        $sku     = $this->highlight_words( $sku );
+                        $title      = $this->highlight_words( $title );
+                        $excerpt    = $this->highlight_words( $excerpt );
+                        $sku        = $this->highlight_words( $sku );
+                        $categories = $this->highlight_words( $categories );
                     }
 
                     $title   = apply_filters( 'aws_title_search_result', $title, $post_id, $product );
@@ -805,6 +809,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                         'price'        => $price,
                         'on_sale'      => $on_sale,
                         'sku'          => $sku,
+                        'categories'   => $categories,
                         'stock_status' => $stock_status,
                         'featured'     => $featured,
                         'f_price'      => $f_price,
@@ -972,6 +977,34 @@ if ( ! class_exists( 'AWS_Search' ) ) :
          */
         private function sort_by_length( $a, $b ) {
             return strlen( $b ) - strlen( $a );
+        }
+
+        /*
+         * Get string with current product terms
+         * @return string List of terms
+         */
+        private function get_terms_list( $id, $taxonomy ) {
+
+            $terms = get_the_terms( $id, $taxonomy );
+
+            if ( is_wp_error( $terms ) ) {
+                return '';
+            }
+
+            if ( empty( $terms ) ) {
+                return '';
+            }
+
+            $cats_array_temp = array();
+
+            foreach ( $terms as $term ) {
+                if ( is_object( $term ) && property_exists( $term, 'name' ) ) {
+                    $cats_array_temp[] = $term->name;
+                }
+            }
+
+            return implode( ', ', $cats_array_temp );
+
         }
 
     }

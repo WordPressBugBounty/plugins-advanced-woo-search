@@ -646,6 +646,27 @@ if ( ! class_exists( 'AWS_Versions' ) ) :
 
                 }
 
+                if ( version_compare( $current_version, '3.60', '<' ) ) {
+
+                    $settings = get_option( 'aws_settings' );
+
+                    if ( $settings ) {
+
+                        $update = false;
+
+                        if ( ! isset( $settings['show_result_cats'] ) ) {
+                            $settings['show_result_cats'] = 'false';
+                            $update = true;
+                        }
+
+                        if ( $update ) {
+                            update_option( 'aws_settings', $settings );
+                        }
+
+                    }
+
+                }
+
             }
 
             if ( $current_version && $current_version !== AWS_VERSION ) {
