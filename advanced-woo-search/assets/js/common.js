@@ -433,6 +433,7 @@ AwsHooks.filters = AwsHooks.filters || {};
             resultsHide: function() {
                 $(d.resultBlock).hide();
                 $searchForm.removeClass('aws-form-active');
+                methods.createAndDispatchEvent( document, 'awsResultsHidden', { instance: instance, form: self, data: d } );
             },
 
             onFocus: function( event ) {
