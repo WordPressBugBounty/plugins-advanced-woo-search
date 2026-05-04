@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.61
+Stable tag: 3.62
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ Use a powerful plugin search engine with features like **relevance score for sea
 
 Customize search results via adding or removing any products data. Change results view with custom styles.
 
-[Plugin Home Page](https://advanced-woo-search.com/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Features List](https://advanced-woo-search.com/features/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Documentation](https://advanced-woo-search.com/guide/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Get PRO](https://advanced-woo-search.com/pricing/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+[Plugin Home Page](https://advanced-woo-search.com/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Features List](https://advanced-woo-search.com/features/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Documentation](https://advanced-woo-search.com/guide/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [View demo](https://demo.advanced-woo-search.com/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Get PRO](https://advanced-woo-search.com/pricing/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
 ## &#9889; Main Features
 
@@ -287,6 +287,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 == Changelog ==
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+
+= 3.62 ( 2026-05-04 ) =
+* Dev - Update handler for custom search terms buttons
 
 = 3.61 ( 2026-04-23 ) =
 * Dev - Add awsResultsHidden js event

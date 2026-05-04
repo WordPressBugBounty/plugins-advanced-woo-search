@@ -1013,7 +1013,7 @@ AwsHooks.filters = AwsHooks.filters || {};
         }
 
         // Buttons to force certain terms search
-        $('[data-aws-term-submit]').on( 'click', function(e) {
+        $(document).on( 'click', '[data-aws-term-submit]', function(e) {
             e.preventDefault();
 
             var $btn = $(this);
