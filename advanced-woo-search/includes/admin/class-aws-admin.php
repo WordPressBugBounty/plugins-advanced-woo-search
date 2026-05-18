@@ -55,6 +55,8 @@ class AWS_Admin {
 
         add_filter( 'aws_admin_page_options_current', array( $this, 'check_sources_in_index' ), 1 );
 
+        add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
+
     }
 
     /**
@@ -184,6 +186,21 @@ class AWS_Admin {
 
         return $options;
 
+    }
+
+    /*
+     * Add body class for plugin admin pages
+     */
+    public function admin_body_class( $classes ) {
+        if ( isset( $_GET['page'] ) && in_array( $_GET['page'], array( 'aws-options', 'aws-performance' ) ) ) {
+            $raw_version   = get_bloginfo( 'version' );
+            $version_parts = explode( '-', $raw_version );
+            $version       = count( $version_parts ) > 1 ? $version_parts[0] : $raw_version;
+            if ( version_compare( $version, '7.0', '>=' ) ) {
+                $classes .= ' aws-wp-min-70';
+            }
+        }
+        return $classes;
     }
 
 }

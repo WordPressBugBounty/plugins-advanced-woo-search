@@ -460,7 +460,14 @@ if ( ! class_exists( 'AWS_Table' ) ) :
 				              VALUES $values
                     ";
 
-                $wpdb->query( $query );
+                $max_retries = 3;
+                for ( $i = 0; $i < $max_retries; $i++ ) {
+                    $wpdb->query( $query );
+                    if ( ! $wpdb->last_error || strpos( $wpdb->last_error, 'Deadlock' ) === false ) {
+                        break;
+                    }
+                    usleep( rand( 100000, 300000 ) );
+                }
 
             }
 
