@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 3.63
+Stable tag: 3.64
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.64 ( 2026-06-01 ) =
+* Add - New feature to add search bar as menu item
+* Update - Tested with WC 10.8
+* Fix - Bug with aborted ajax search requests
+
 = 3.63 ( 2026-05-18 ) =
 * Update - Change settings page styles related to WP7 styles changes
 * Fix - Add additional checks for deadlocks during table reindex
@@ -478,8 +483,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Update - Improve search speed and update index table structure
 * Update - Structure of cache table
 * Dev - Update conditions for table check
-
-= 3.20 ( 2024-11-11 ) =
-* Update - Integration with YITH WooCommerce Ajax Product Filter plugin
-* Update - Taxonomies search when using Begins search logic
-* Fix - Bug with diacritical characters replacement

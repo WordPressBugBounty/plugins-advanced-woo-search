@@ -76,8 +76,22 @@ AwsHooks.filters = AwsHooks.filters || {};
                 searchFor = searchFor.replace( /<>\{\}\[\]\\\/]/gi, '' );
                 searchFor = searchFor.replace( /<[^>]*>/g, ' ' );
 
+                // Bail when the value hasn't actually changed - a trailing
+                // keyup that produces the same searchFor must not reset the
+                // debounce or abort the request scheduled by the preceding
+                // input event.
+                if ( searchFor === lastSearchFor ) {
+                    return;
+                }
+                lastSearchFor = searchFor;
+
+                // Skip XHRs whose response has already started arriving - a
+                // late-firing keyup must not kill a request that is about to
+                // deliver results. Stale responses are filtered in success().
                 for ( var i = 0; i < requests.length; i++ ) {
-                    requests[i].abort();
+                    if ( requests[i].readyState < 2 ) {
+                        requests[i].abort();
+                    }
                 }
 
                 methods.searchRequest();
@@ -126,9 +140,11 @@ AwsHooks.filters = AwsHooks.filters || {};
 
             ajaxRequest: function() {
 
+                var requestKeyword = searchFor;
+
                 var data = {
                     action: 'aws_action',
-                    keyword : searchFor,
+                    keyword : requestKeyword,
                     aws_page: d.pageId,
                     aws_tax: d.tax,
                     lang: d.lang,
@@ -150,14 +166,22 @@ AwsHooks.filters = AwsHooks.filters || {};
                         dataType: 'json',
                         success: function( response ) {
 
+                            cachedResponse[requestKeyword] = response;
+
+                            // Drop stale responses - the user has typed more since this request was sent.
+                            if ( requestKeyword !== searchFor ) {
+                                return;
+                            }
+
                             methods.showResults( response );
 
                             methods.showResultsBlock();
 
-                            cachedResponse[searchFor] = response;
-
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
+                            if ( textStatus === 'abort' ) {
+                                return;
+                            }
                             console.log( "Request failed: " + textStatus );
                             methods.hideLoader();
                         }
@@ -729,6 +753,7 @@ AwsHooks.filters = AwsHooks.filters || {};
             eShowResults    = false,
             requests        = Array(),
             searchFor       = '',
+            lastSearchFor   = null,
             keyupTimeout,
             cachedResponse = new Array();
 

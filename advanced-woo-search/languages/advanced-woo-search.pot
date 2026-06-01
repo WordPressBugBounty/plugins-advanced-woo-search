@@ -177,9 +177,6 @@ msgstr ""
 msgid "Widgets Screen"
 msgstr ""
 
-msgid "Add PHP code to the necessary files of your theme: %s"
-msgstr ""
-
 msgid "Cache search results to increase search speed."
 msgstr ""
 
@@ -1267,4 +1264,19 @@ msgid "Show categories"
 msgstr ""
 
 msgid "Include categories in products search results."
+msgstr ""
+
+msgid "Add to Menu"
+msgstr ""
+
+msgid "Click the %s to add Advanced Woo Search to the menu."
+msgstr ""
+
+msgid "This menu item will be replaced with the Advanced Woo Search form on the front end."
+msgstr ""
+
+msgid "Add search form to a menu. Go to %s and use the 'Advanced Woo Search' box"
+msgstr ""
+
+msgid "Menus Screen"
 msgstr ""

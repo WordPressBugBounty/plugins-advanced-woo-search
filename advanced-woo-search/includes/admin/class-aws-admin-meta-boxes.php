@@ -35,7 +35,7 @@ if ( ! class_exists( 'AWS_Admin_Meta_Boxes' ) ) :
                                     $html .='2. ' . sprintf( esc_html__( 'Using shortcode %s', 'advanced-woo-search' ), '<code>[aws_search_form]</code>' ) . '<br>';
                                     $html .='3. ' . esc_html__( 'Using a page builder - locate the built-in search form widget and add it to the desired location on the page.', 'advanced-woo-search' ). '<br>';
                                     $html .='4. ' . sprintf( esc_html__( "Add search form as a widget. Go to %s and drag&drop 'AWS Widget' to one of your widget areas", 'advanced-woo-search' ), '<a href="' . admin_url( 'widgets.php' ) . '" target="_blank">' . __( 'Widgets Screen', 'advanced-woo-search' ) . '</a>' ) . '<br>';
-                                    $html .='5. ' . sprintf( esc_html__( 'Add PHP code to the necessary files of your theme: %s', 'advanced-woo-search' ), "<code>&lt;?php aws_get_search_form( true ); ?&gt;</code>" ) . '<br>';
+                                    $html .='5. ' . sprintf( esc_html__( "Add search form to a menu. Go to %s and use the 'Advanced Woo Search' box", 'advanced-woo-search' ), '<a href="' . admin_url( 'nav-menus.php' ) . '" target="_blank">' . __( 'Menus Screen', 'advanced-woo-search' ) . '</a>' ) . '<br>';
                                 $html .='</div>';
                             $html .='</div>';
                         $html .='</td>';
