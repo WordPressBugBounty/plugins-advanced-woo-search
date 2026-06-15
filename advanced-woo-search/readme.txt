@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 3.64
+Stable tag: 3.65
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.65 ( 2026-06-15 ) =
+* Update - Integration with WooCommerce Memberships plugin
+* Update - Remove legacy styles and scripts
+
 = 3.64 ( 2026-06-01 ) =
 * Add - New feature to add search bar as menu item
 * Update - Tested with WC 10.8
@@ -477,9 +481,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 3.22 ( 2024-11-29 ) =
 * Update - Settings page descriptions
-
-= 3.21 ( 2024-11-26 ) =
-* Update - Tested with WC 9.4
-* Update - Improve search speed and update index table structure
-* Update - Structure of cache table
-* Dev - Update conditions for table check

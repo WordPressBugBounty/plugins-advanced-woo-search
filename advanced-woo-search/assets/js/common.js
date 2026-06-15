@@ -383,7 +383,6 @@ AwsHooks.filters = AwsHooks.filters || {};
                 methods.hideLoader();
 
                 $(d.resultBlock).html( html );
-                methods.addTemporaryLegacyResultStyles();
 
                 methods.showResultsBlock();
 
@@ -409,44 +408,6 @@ AwsHooks.filters = AwsHooks.filters || {};
 
             hideLoader: function() {
                 $searchForm.removeClass('aws-processing');
-            },
-
-            // Temporary legacy fallback for old plugin versions until migration is complete.
-            addTemporaryLegacyResultStyles: function() {
-
-                var styleId = 'aws-temporary-legacy-result-styles';
-                var $firstResultItem = $(d.resultBlock).find('.aws_results .aws_result_item').first();
-
-                if ( ! $firstResultItem.length || document.getElementById( styleId ) ) {
-                    return;
-                }
-
-                var borderBottomWidth = $firstResultItem.css('border-bottom-width');
-                var borderBottomStyle = $firstResultItem.css('border-bottom-style');
-
-                if ( borderBottomStyle !== 'none' && borderBottomWidth !== '0px' ) {
-                    return;
-                }
-
-                $('<style>', {
-                    id: styleId,
-                    text: '.aws-search-result .aws_results .aws_result_item {' +
-                        'display:block;' +
-                        'border-bottom:1px solid #ccc;' +
-                        'overflow:hidden;' +
-                        'margin:0 !important;' +
-                        'position:relative;' +
-                        'cursor:pointer;' +
-                        'padding:10px;' +
-                        'text-decoration:none;' +
-                    '}' +
-                    '.aws_result_scroll {' +
-                        'max-height:500px;' +
-                        'overflow-y:auto;' +
-                        'overflow-x:hidden;' +
-                    '}'
-                }).appendTo('head');
-
             },
 
             resultsShow: function() {

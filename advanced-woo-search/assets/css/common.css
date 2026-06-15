@@ -657,35 +657,6 @@ body.aws-overlay {
     opacity: 1;
 }
 
-/* Legacy styles to be removed later */
-.aws-search-result ul {
-    list-style: none;
-    padding: 0 !important;
-    margin: 0 !important;
-    max-height: 400px;
-    overflow-y: auto;
-}
-.aws-search-result ul li {
-    list-style: none;
-    border-bottom: 1px solid #ccc;
-    overflow: hidden;
-    margin: 0 !important;
-    position: relative;
-}
-.aws-search-result ul li .aws_result_title {
-    color: #000;
-    font-weight: bold;
-}
-.aws-search-result ul li .aws_result_heading,
-.aws-search-result ul li .aws_result_hierarchy {
-    font-weight: normal;
-    color: #ccc;
-    display: block;
-}
-.aws-search-result ul li .aws_result_price {
-    text-align: left;
-}
-
 /* Integrations */
 
 .et_search_outer .aws-container {
