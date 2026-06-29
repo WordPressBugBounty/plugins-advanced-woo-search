@@ -162,7 +162,7 @@ if ( ! class_exists( 'AWS_Admin_Meta_Boxes' ) ) :
             echo '<div id="aws-admin-header">';
                 echo '<div class="inner">';
                     echo '<div class="logo">';
-                        echo '<img src="' . AWS_URL . '/assets/img/logo.png' . '" alt="' . esc_html( 'logo', 'advanced-woo-search' ) . '">';
+                        echo '<img src="' . AWS_URL . '/assets/img/logo-kramakit.png' . '" alt="' . esc_html( 'logo', 'advanced-woo-search' ) . '">';
                         echo '<span class="title">';
                             echo '<span class="separator">/</span>';
                             echo esc_html( $submenu );

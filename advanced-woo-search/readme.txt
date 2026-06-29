@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 3.65
+Stable tag: 3.66
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.66 ( 2026-06-29 ) =
+* Update - New plugin logo for settings page
+* Update - Tested with WC 10.9
+* Fix - Bug with sql error with empty relevance array
+
 = 3.65 ( 2026-06-15 ) =
 * Update - Integration with WooCommerce Memberships plugin
 * Update - Remove legacy styles and scripts
@@ -478,6 +483,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Add - New shortcodes for similar terms, search terms
 * Fix - Integration with Yoast Premium plugin. Allow additional parameters for permalinks
 * Dev - Update forceNewSearch method to use additional parameters
-
-= 3.22 ( 2024-11-29 ) =
-* Update - Settings page descriptions

@@ -174,8 +174,13 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                 }
             } else {
                 // depricated
-                $search_in_arr = explode( ',',  $search_in );
+                $search_in_arr = $search_in ? explode( ',',  $search_in ) : array();
             }
+
+            // Drop empty entries so a misconfigured/deprecated 'search_in' setting
+            // cannot leave a source list of only empty strings (e.g. explode( ',', '' )
+            // returns array( '' ) ), which would yield an empty relevance SUM().
+            $search_in_arr = array_values( array_filter( $search_in_arr, 'strlen' ) );
 
             $products_array = array();
             $tax_to_display = array();
@@ -492,6 +497,11 @@ if ( ! class_exists( 'AWS_Search' ) ) :
             }
 
             $query['select'] = ' distinct ID';
+            // Guard against an empty relevance list, which would produce an
+            // invalid 'SUM(  )' expression and a fatal SQL syntax error.
+            if ( empty( $new_relevance_array ) ) {
+                $new_relevance_array[] = '0';
+            }
             $query['relevance'] = sprintf( ' (SUM( %s )) ', implode( ' + ', $new_relevance_array ) );
             $query['search'] = sprintf( ' AND ( %s )', implode( ' OR ', $search_array ) );
 
