@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 3.66
+Stable tag: 3.67
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.67 ( 2026-07-13 ) =
+* Update - Integration with Astra theme. Add search bar widget for header builder
+* Fix - Bug with empty sql query
+
 = 3.66 ( 2026-06-29 ) =
 * Update - New plugin logo for settings page
 * Update - Tested with WC 10.9
@@ -478,8 +482,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 = 3.24 ( 2024-12-30 ) =
 * Update - Tested with WC 9.5
 * Update - Settings page pro block description
-
-= 3.23 ( 2024-12-16 ) =
-* Add - New shortcodes for similar terms, search terms
-* Fix - Integration with Yoast Premium plugin. Allow additional parameters for permalinks
-* Dev - Update forceNewSearch method to use additional parameters

@@ -53,6 +53,150 @@ if ( ! class_exists( 'AWS_Astra' ) ) :
                 add_action( 'wp_head', array( $this, 'astra_head_action' ) );
             }
 
+            /*
+             * Register AWS search as a first-class element in the Astra Header Builder,
+             * so it can be dragged into any header row/column alongside the built-in
+             * elements ( Search, HTML, Widget, etc. ). Available regardless of the
+             * "Seamless Integration" setting.
+             */
+            if ( class_exists( 'Astra_Builder_Helper' ) ) {
+                add_filter( 'astra_header_desktop_items', array( $this, 'add_header_builder_item' ) );
+                add_filter( 'astra_header_mobile_items', array( $this, 'add_header_builder_item' ) );
+                add_action( 'astra_render_header_components', array( $this, 'render_header_builder_item' ), 10, 2 );
+                add_filter( 'astra_customizer_configurations', array( $this, 'header_builder_configs' ), 30, 2 );
+                add_action( 'wp_head', array( $this, 'header_builder_styles' ) );
+            }
+
+        }
+
+        /*
+         * Add the "AWS Search" element to the Astra Header Builder palette
+         */
+        public function add_header_builder_item( $items ) {
+            $items['aws-search'] = array(
+                'name'    => __( 'AWS Search', 'advanced-woo-search' ),
+                'icon'    => 'search',
+                'section' => 'section-header-aws-search',
+            );
+            return $items;
+        }
+
+        /*
+         * Render the AWS search form for the header builder element.
+         * Fires from the builder's `default` component dispatch for custom slugs.
+         */
+        public function render_header_builder_item( $slug, $device ) {
+
+            if ( 'aws-search' !== $slug || ! function_exists( 'aws_get_search_form' ) ) {
+                return;
+            }
+
+            $placeholder = function_exists( 'astra_get_option' ) ? astra_get_option( 'aws-header-search-placeholder' ) : '';
+
+            /**
+             * Filter the placeholder text used by the Astra header builder element
+             * @since 3.67
+             * @param string $placeholder Placeholder text ( empty to use the form's own setting )
+             */
+            $placeholder = apply_filters( 'aws_astra_header_builder_placeholder', $placeholder );
+
+            $args = array();
+
+            if ( $placeholder ) {
+                $args['placeholder'] = $placeholder;
+            }
+
+            echo '<div class="ast-builder-layout-element ast-flex site-header-focus-item ast-header-aws-search" data-section="section-header-aws-search">';
+
+            if ( is_customize_preview() && class_exists( 'Astra_Builder_UI_Controller' ) && method_exists( 'Astra_Builder_UI_Controller', 'render_customizer_edit_button' ) ) {
+                Astra_Builder_UI_Controller::render_customizer_edit_button();
+            }
+
+            echo aws_get_search_form( false, $args );
+
+            echo '</div>';
+
+        }
+
+        /*
+         * Register the customizer settings for the header builder element through
+         * Astra's own configuration pipeline, so the section and its controls show up
+         * inside the header builder ( opened by the element's edit button ).
+         */
+        public function header_builder_configs( $configurations, $wp_customize ) {
+
+            if ( ! defined( 'ASTRA_THEME_SETTINGS' ) || ! function_exists( 'astra_get_option' )
+                 || ! class_exists( 'Astra_Builder_Helper' ) || ! property_exists( 'Astra_Builder_Helper', 'general_tab' ) ) {
+                return $configurations;
+            }
+
+            $section     = 'section-header-aws-search';
+            $general_tab = Astra_Builder_Helper::$general_tab;
+
+            $configs = array(
+
+                // Section
+                array(
+                    'name'     => $section,
+                    'type'     => 'section',
+                    'priority' => 80,
+                    'title'    => __( 'AWS Search', 'advanced-woo-search' ),
+                    'panel'    => 'panel-header-builder-group',
+                ),
+
+                // Builder context tabs ( General / Design / ... )
+                array(
+                    'name'        => $section . '-ast-context-tabs',
+                    'section'     => $section,
+                    'type'        => 'control',
+                    'control'     => 'ast-builder-header-control',
+                    'priority'    => 0,
+                    'description' => '',
+                ),
+
+                // Option: placeholder text override
+                array(
+                    'name'      => ASTRA_THEME_SETTINGS . '[aws-header-search-placeholder]',
+                    'default'   => astra_get_option( 'aws-header-search-placeholder' ),
+                    'section'   => $section,
+                    'type'      => 'control',
+                    'control'   => 'text',
+                    'priority'  => 20,
+                    'title'     => __( 'Placeholder', 'advanced-woo-search' ),
+                    'context'   => $general_tab,
+                    'transport' => 'refresh',
+                ),
+
+            );
+
+            return array_merge( $configurations, $configs );
+
+        }
+
+        /*
+         * Minimal front-end styles for the header builder element
+         */
+        public function header_builder_styles() {
+
+            if ( ! method_exists( 'Astra_Builder_Helper', 'is_component_loaded' ) || ! Astra_Builder_Helper::is_component_loaded( 'aws-search', 'header' ) ) {
+                return;
+            }
+            ?>
+            <style>
+                .ast-header-aws-search {
+                    width: 100%;
+                }
+                .ast-header-aws-search .aws-container {
+                    width: 100%;
+                    max-width: 400px;
+                    margin: 0;
+                }
+                .ast-header-aws-search .aws-wrapper {
+                    margin-bottom: 0;
+                }
+            </style>
+            <?php
+
         }
 
         /*

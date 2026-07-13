@@ -423,9 +423,11 @@ if ( ! class_exists( 'AWS_Search_Page' ) ) :
                 return $query;
             }
 
-            $search = ' AND ' . WC_Query::get_main_search_query_sql();
+            $search_sql = WC_Query::get_main_search_query_sql();
 
-            $query['where'] = str_replace( $search, '', $query['where'] );
+            if ( $search_sql ) {
+                $query['where'] = str_replace( ' AND ' . $search_sql, '', $query['where'] );
+            }
 
             if ( isset( $this->data['ids'] ) && $this->data['ids'] ) {
                 global $wpdb;
