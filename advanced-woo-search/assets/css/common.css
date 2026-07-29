@@ -723,3 +723,8 @@ body.aws-overlay {
 .theme-flatsome .searchform-wrapper .aws-container .aws-show-clear .aws-search-field {
     color: #313131 !important;
 }
+
+.theme-avanam #search-drawer .aws-container {
+    max-width: 800px;
+    width: 100%;
+}

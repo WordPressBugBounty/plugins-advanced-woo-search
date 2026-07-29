@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 3.67
+Stable tag: 3.68
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.68 ( 2026-07-29 ) =
+* Update - Integration with Avanam theme
+
 = 3.67 ( 2026-07-13 ) =
 * Update - Integration with Astra theme. Add search bar widget for header builder
 * Fix - Bug with empty sql query
@@ -478,7 +481,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 3.25 ( 2025-01-20 ) =
 * Dev - Add filter for search form shortcode parameters
-
-= 3.24 ( 2024-12-30 ) =
-* Update - Tested with WC 9.5
-* Update - Settings page pro block description
