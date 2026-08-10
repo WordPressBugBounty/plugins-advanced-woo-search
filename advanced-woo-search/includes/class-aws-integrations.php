@@ -268,6 +268,10 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
                     add_action( 'wp_head', array( $this, 'uncode_wp_head' ) );
                 }
 
+                if ( 'Angro' === $this->current_theme ) {
+                    add_action( 'wp_head', array( $this, 'angro_wp_head' ) );
+                }
+
                 // WP Bottom Menu
                 if ( defined( 'WP_BOTTOM_MENU_VERSION' ) ) {
                     add_action( 'wp_head', array( $this, 'wp_bottom_menu_wp_head' ) );
@@ -1947,6 +1951,17 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
         <?php }
 
         /*
+         * Add custom styles for Angro theme
+         */
+        public function angro_wp_head() { ?>
+            <style>
+                .angro-header-searchform .woocommerce-product-search {
+                    visibility: hidden;
+                }
+            </style>
+        <?php }
+
+        /*
          * WP Bottom Menu
          */
         public function wp_bottom_menu_wp_head() { ?>
@@ -2153,6 +2168,11 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
 
             if ( 'TechStore' === $this->current_theme ) {
                 $selectors[] = '.hw-nav-search form.hw-search';
+            }
+
+            if ( 'Angro' === $this->current_theme ) {
+                $selectors[] = '.angro-header-searchform form';
+                $selectors[] = '.fixed-search-inside .search-form';
             }
 
             // WCFM - WooCommerce Multivendor Marketplace

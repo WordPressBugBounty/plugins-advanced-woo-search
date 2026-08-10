@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.0
 Requires PHP: 7.0
-Stable tag: 3.68
+Stable tag: 3.69
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.69 ( 2026-08-10 ) =
+* Add - Support for Angro theme
+* Update - Tested with WC 11.0
+
 = 3.68 ( 2026-07-29 ) =
 * Update - Integration with Avanam theme
 
@@ -478,6 +482,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 = 3.26 ( 2025-02-03 ) =
 * Update - Enable gutenberg search block for navigation section
 * Update - Tested with WC 9.6
-
-= 3.25 ( 2025-01-20 ) =
-* Dev - Add filter for search form shortcode parameters
