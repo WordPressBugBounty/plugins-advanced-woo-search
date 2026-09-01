@@ -91,67 +91,67 @@ if ( ! class_exists( 'AWS_Admin_Notices' ) ) :
             $notice_id = '';
 
             if ( class_exists( 'WCFMmp' ) && ( ! $hide_option || array_search( 'wcfm', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'WCFM Multivendor Marketplace plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/wcfm-plugin-support/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=wcfm">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'WCFM Multivendor Marketplace plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/wcfm-multivendor-marketplace/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=wcfm">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'wcfm|';
             }
 
             if ( class_exists('ACF') && ( ! $hide_option || array_search( 'acf', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'Advanced Custom Fields ( ACF ) plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/acf-plugin-support/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=acf">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'Advanced Custom Fields ( ACF ) plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/acf-support/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=acf">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'acf|';
             }
 
             if ( class_exists( 'YITH_WCWL' ) && ( ! $hide_option || array_search( 'yithwish', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'YITH WooCommerce Wishlist plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/yith-woocommerce-wishlist/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=yithwish">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'YITH WooCommerce Wishlist plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/yith-woocommerce-wishlist/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=yithwish">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'yithwish|';
             }
 
             if ( class_exists( 'WooCommerceWholeSalePrices' ) && ( ! $hide_option || array_search( 'wholesaleprices', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'Wholesale Prices plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/wholesale-prices/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=wholesaleprices">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'Wholesale Prices plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/wholesale-prices/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=wholesaleprices">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'wholesaleprices|';
             }
 
             if ( class_exists( 'UM_Functions' ) && ( ! $hide_option || array_search( 'um', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'Ultimate Member plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/ultimate-member/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=um">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'Ultimate Member plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/ultimate-member/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=um">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'um|';
             }
 
             if ( defined( 'PWB_PLUGIN_VERSION' ) && ( ! $hide_option || array_search( 'pwb', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'Perfect Brands for WooCommerce plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/perfect-brands-for-woocommerce/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=pwb">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'Perfect Brands for WooCommerce plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/perfect-brands-for-woocommerce/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=pwb">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'pwb|';
             }
 
             if ( defined( 'TINVWL_FVERSION' ) && ( ! $hide_option || array_search( 'tinvwl', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'TI WooCommerce Wishlist plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/ti-woocommerce-wishlist/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=tinvwl">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'TI WooCommerce Wishlist plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/ti-woocommerce-wishlist/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=tinvwl">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'tinvwl|';
             }
 
             if ( class_exists( 'WeDevs_Dokan' ) && ( ! $hide_option || array_search( 'dokan', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'Dokan – WooCommerce Multivendor Marketplace Solution plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/dokan-woocommerce-multivendor-marketplace/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=dokan">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'Dokan – WooCommerce Multivendor Marketplace Solution plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/dokan-woocommerce-multivendor-marketplace/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=dokan">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'dokan|';
             }
 
             if ( ( defined( 'WCMp_PLUGIN_VERSION' ) || defined( 'MVX_PLUGIN_VERSION' ) ) && ( ! $hide_option || array_search( 'multivendorx', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'MultiVendorX – WooCommerce Multivendor Marketplace plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/multivendorx/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=multivendorx">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'MultiVendorX – WooCommerce Multivendor Marketplace plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/multivendorx/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=multivendorx">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'multivendorx|';
             }
 
             if ( class_exists( 'WC_Memberships' ) && ( ! $hide_option || array_search( 'wcmember', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'WooCommerce Memberships plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/woocommerce-memberships/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=wcmember">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'WooCommerce Memberships plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/woocommerce-memberships/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=wcmember">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'wcmember|';
             }
 
             if ( ( class_exists('Iconic_WSSV') || class_exists('JCK_WSSV') ) && ( ! $hide_option || array_search( 'singlevar', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'WooCommerce Show Single Variations by Iconic plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/woocommerce-show-single-variations-by-iconic/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=singlevar">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'WooCommerce Show Single Variations by Iconic plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/woocommerce-show-single-variations-by-iconic/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=singlevar">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'singlevar|';
             }
 
             if ( in_array( 'wc-vendors/class-wc-vendors.php', $this->active_plugins ) && ( ! $hide_option || array_search( 'wcvendors', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'WC Vendors plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/wc-vendors-plugin-support/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=wcvendors">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'WC Vendors plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/wc-vendors/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=wcvendors">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'wcvendors|';
             }
 
             if ( in_array( 'gtranslate/gtranslate.php', $this->active_plugins ) && ( ! $hide_option || array_search( 'gtranslate', $hide_option ) === false ) ) {
-                $notice_message .= '<li>' . __( 'GTranslate plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://advanced-woo-search.com/guide/gtranslate/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=gtranslate">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
+                $notice_message .= '<li>' . __( 'GTranslate plugin.', 'advanced-woo-search' ) . ' <a target="_blank" href="https://kramakit.com/guide/gtranslate/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=gtranslate">' . __( 'Learn more', 'advanced-woo-search' ) . '</a></li>';
                 $notice_id .= 'gtranslate|';
             }
 
@@ -177,7 +177,7 @@ if ( ! class_exists( 'AWS_Admin_Notices' ) ) :
                         $html .= '<h2>Advanced Woo Search: ' . __( 'Integrations for your plugins', 'advanced-woo-search' ) . '</h2>';
                         $html .= '<p>' . $notice_top_message. '</p>';
                         $html .= '<ul style="list-style:disc;padding-left:20px;margin:15px 0 18px;">' . $notice_message. '</ul>';
-                        $html .= '<a href="https://advanced-woo-search.com/features/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=all_pro" target="_blank" class="button button-primary">' . __( 'All PRO Features', 'advanced-woo-search' ) . '</a>&nbsp;&nbsp;<a href="https://advanced-woo-search.com/pricing/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=pricing" target="_blank" class="button button-primary">' . __( 'View Pricing', 'advanced-woo-search' ) . '</a>';
+                        $html .= '<a href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=all_pro" target="_blank" class="button button-primary">' . __( 'All PRO Features', 'advanced-woo-search' ) . '</a>&nbsp;&nbsp;<a href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=wp-plugin&utm_medium=integration_notice&utm_campaign=pricing" target="_blank" class="button button-primary">' . __( 'View Pricing', 'advanced-woo-search' ) . '</a>';
                         $html .= '<div style="margin-bottom:15px;"></div>';
                         $html .= '<a href="' . $dismiss_link . $notice_id . '" title="' . __( 'Dismiss', 'advanced-woo-search'  ) . '" style="color:#787c82;text-decoration:none;font-size:16px;position:absolute;top:0;right:1px;border:none;margin:0;padding:9px;background:0 0;cursor:pointer;"><span style="font-size:16px;" class="dashicons dashicons-dismiss"></span></a>';
                     $html .= '</div>';

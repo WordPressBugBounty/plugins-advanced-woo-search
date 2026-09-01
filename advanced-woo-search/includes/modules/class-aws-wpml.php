@@ -45,6 +45,10 @@ if (!class_exists('AWS_WPML')) :
 
             add_action( 'wp_after_insert_post', array( $this, 'wp_after_insert_post' ), 10, 4 );
 
+            add_action( 'wpml_pro_translation_completed', array( $this, 'translation_created' ), 9999, 1 );
+            add_action( 'wpml_translation_job_saved', array( $this, 'translation_created' ), 9999, 1 );
+            add_action( 'icl_make_duplicate', array( $this, 'icl_make_duplicate' ), 9999, 4 );
+
             add_filter( 'aws_indexed_data', array( $this, 'indexed_data_trans_fallback' ), 1, 2 );
 
             add_filter( 'aws_indexed_data', array( $this, 'fix_visibility_for_quick_edit' ), 1, 2 );
@@ -64,6 +68,30 @@ if (!class_exists('AWS_WPML')) :
                 do_action( 'aws_reindex_product', $post_id );
 
             }
+
+        }
+
+        /*
+         * Index new product translation
+         * Translations created with WPML translation editor are inserted with wp_insert_post()
+         * and not with WC product object save, so no other index update hooks are fired for them
+         */
+        public function translation_created( $post_id ) {
+
+            if ( $post_id && get_post_type( $post_id ) === 'product' ) {
+
+                do_action( 'aws_force_reindex_product', $post_id );
+
+            }
+
+        }
+
+        /*
+         * Index new duplicated product translation
+         */
+        public function icl_make_duplicate( $master_post_id, $lang, $post_array, $post_id ) {
+
+            $this->translation_created( $post_id );
 
         }
 

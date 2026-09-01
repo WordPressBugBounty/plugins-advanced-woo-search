@@ -285,23 +285,23 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                         ),
                     ),
                     "gtin:disabled"     => array(
-                        'label'      => __( "GTIN, UPC, EAN, ISBN", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "GTIN, UPC, EAN, ISBN", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "brand:disabled"     => array(
-                        'label'      => __( "Brand", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Brand", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "attr:disabled"     => array(
-                        'label'      => __( "Attributes", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Attributes", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "tax:disabled"     => array(
-                        'label'      => __( "Taxonomies", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Taxonomies", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "meta:disabled"     => array(
-                        'label'      => __( "Custom Fields", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Custom Fields", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_in">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                 ),
@@ -311,8 +311,8 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['search'][] = array(
-                "name"  => __( "Search logic", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
-                "desc"  => __( "Search rules.", "advanced-woo-search" ) . ' ' . __( "Choose between OR or AND search logic.", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/search-operators-and-rules/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_logic"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Search logic", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "desc"  => __( "Search rules.", "advanced-woo-search" ) . ' ' . __( "Choose between OR or AND search logic.", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/guide/search-logic/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_logic"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
                 "id"    => "search_logic",
                 "value" => 'or',
                 "type"  => "select",
@@ -326,7 +326,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['search'][] = array(
-                "name"  => __( "Exact match", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_exact">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Exact match", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=search_exact">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                 "desc"  => __( "Whole or partial search words matching.", "advanced-woo-search" ),
                 "tip" => __( "Search only for full word matching or display results even if they match only part of word.", "advanced-woo-search" ),
                 "id"    => "search_exact",
@@ -356,7 +356,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
             );
 
             $options['search'][] = array(
-                "name"  => __( "Open product in new tab", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=target_blank">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Open product in new tab", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=target_blank">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                 "desc"  => __( "Open new window on product click.", "advanced-woo-search" ),
                 "id"    => "target_blank",
                 "value" => 'false',
@@ -367,7 +367,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             $options['search'][] = array(
                 "name"  => __( "Use Google Analytics", "advanced-woo-search" ),
-                "desc"   => __( "Enable Google Analytics integration.", "advanced-woo-search" ) . ' <a href="https://advanced-woo-search.com/guide/google-analytics/" target="_blank">' . __( 'More info', 'advanced-woo-search' ) . '</a>',
+                "desc"   => __( "Enable Google Analytics integration.", "advanced-woo-search" ) . ' <a href="https://kramakit.com/guide/google-analytics/" target="_blank">' . __( 'More info', 'advanced-woo-search' ) . '</a>',
                 "tip"  => __( "Use google analytics to track searches. You need google analytics to be installed on your site.", "advanced-woo-search" ) .
                     '<br>' . __( "Data will be visible inside Google Analytics 'Site Search' report. Need to activate 'Site Search' feature inside GA.", "advanced-woo-search" ) .
                     '<br>' . __( "Also will send event with category - 'AWS search', action - 'AWS Search Form {form_id}' and label of value of search term.", "advanced-woo-search" ),
@@ -579,23 +579,23 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                         'suboptions' => array(),
                     ),
                     "gtin:disabled"    => array(
-                        'label'      => __( "GTIN, UPC, EAN, ISBN", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "GTIN, UPC, EAN, ISBN", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "brand:disabled"    => array(
-                        'label'      => __( "Brand", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Brand", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "attr:disabled"    => array(
-                        'label'      => __( "Attributes", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Attributes", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "tax:disabled"    => array(
-                        'label'      => __( "Taxonomies", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Taxonomies", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "meta:disabled"    => array(
-                        'label'      => __( "Custom Fields", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Custom Fields", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=index_sources">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                 ),
@@ -742,7 +742,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
             $options['form'][] = array(
                 "name"    => __( "Quick Filters", "advanced-woo-search" ),
                 "id"      => "quick_filters",
-                "desc"    => __( "Create pre-defined search bar filters.", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/filters-button/">'. __( "Learn more.", "advanced-woo-search" ) .'</a>',
+                "desc"    => __( "Create pre-defined search bar filters.", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/guide/filters/">'. __( "Learn more.", "advanced-woo-search" ) .'</a>',
                 "type"    => "heading",
                 "section" => "quick_filters",
             );
@@ -761,7 +761,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
             $options['form'][] = array(
                 "name"         => __( "", "advanced-woo-search" ),
                 'heading_type' => 'text',
-                "desc"         => '<a href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=quick_filters" target="_blank">' . __( "PRO plugin version feature.", "advanced-woo-search" ) . '</a>' . '<br>' .
+                "desc"         => '<a href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=quick_filters" target="_blank">' . __( "PRO plugin version feature.", "advanced-woo-search" ) . '</a>' . '<br>' .
                     __( "Show quick search filters for plugin search bar.", "advanced-woo-search" ) . '<br>' .
                     __( "Create filters manually with full control or generate them automatically from taxonomies.", "advanced-woo-search" ) .
                     '<br>',
@@ -836,8 +836,8 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"  => __( "Style", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=style">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
-                "desc"  => __( "Set style for search results output.", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/search-results-layouts/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=style"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Style", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=style">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "desc"  => __( "Set style for search results output.", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/guide/search-results-layouts/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=style"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
                 "id"    => "style",
                 "value" => 'style-inline',
                 "type"  => "select",
@@ -852,8 +852,8 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"  => __( "Variable products", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=var_rules">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
-                "desc"  => __( "How to show variable products.", "advanced-woo-search" ) . ' ' . __( "Only parent, only child, both.", "advanced-woo-search" ) .' <a target="_blank" href="https://advanced-woo-search.com/features/variable-products-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=var_rules"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Variable products", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=var_rules">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "desc"  => __( "How to show variable products.", "advanced-woo-search" ) . ' ' . __( "Only parent, only child, both.", "advanced-woo-search" ) .' <a target="_blank" href="https://kramakit.com/guide/variable-products/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=var_rules"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
                 "id"    => "var_rules",
                 "value" => 'parent',
                 "type"  => "select",
@@ -868,7 +868,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"  => __( "Products sale status", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=on_sale">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Products sale status", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=on_sale">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                 "desc"  => __( "Search only for products with selected sale status", "advanced-woo-search" ),
                 "id"    => "on_sale",
                 "value" => 'true',
@@ -884,7 +884,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"  => __( "Products visibility", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=product_visibility">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Products visibility", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=product_visibility">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                 "desc"  => __( "Search only products with this visibilities.", "advanced-woo-search" ),
                 "id"    => "product_visibility",
                 "value" => array(
@@ -931,19 +931,19 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                         'suboptions' => array(),
                     ),
                     "archive_brand:disabled"    => array(
-                        'label'      => __( "Brand", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Brand", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "archive_tax:disabled"     => array(
-                        'label'      => __( "Taxonomies", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Taxonomies", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "archive_attr:disabled"     => array(
-                        'label'      => __( "Attributes", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Attributes", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                     "archive_users:disabled"     => array(
-                        'label'      => __( "Users", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                        'label'      => __( "Users", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=logic">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                         'suboptions' => array(),
                     ),
                 ),
@@ -998,7 +998,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
             );
 
             $options['results'][] = array(
-                "name"  => __( "Show images", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_rating">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Show images", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_rating">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                 "desc"  => __( "Show images for archive page results, if available.", "advanced-woo-search" ),
                 "id"    => "search_archives_images",
                 "value" => 'false',
@@ -1106,7 +1106,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"  => __( "Show rating", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_rating">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Show rating", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_rating">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                 "desc"  => __( "Show product rating.", "advanced-woo-search" ),
                 "id"    => "show_rating",
                 "value" => 'false',
@@ -1117,8 +1117,8 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"  => __( "Show product brand", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_brand">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
-                "desc"  => __( "Show product brand values in search results.", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/search-by-brands/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_brand"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Show product brand", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_brand">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "desc"  => __( "Show product brand values in search results.", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/guide/brands-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_brand"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
                 "id"    => "show_brand",
                 "value" => 'false',
                 "type"  => "toggler",
@@ -1128,8 +1128,8 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"  => __( "Show product GTIN, UPC, EAN or ISBN", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_gtin">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
-                "desc"  => __( "Show product global unique id.", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/search-by-gtin-upc-ean-or-isbn/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_gtin"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Show product GTIN, UPC, EAN or ISBN", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_gtin">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "desc"  => __( "Show product global unique id.", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/guide/gtin-upc-ean-or-isbn-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_gtin"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
                 "id"    => "show_gtin",
                 "value" => 'false',
                 "type"  => "toggler",
@@ -1139,8 +1139,8 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"  => __( "Show 'Add to cart'", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_cart">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
-                "desc"  => __( "Show 'Add to cart' button for each search result.", "advanced-woo-search" ) . ' <a target="_blank" href="https://advanced-woo-search.com/features/add-to-cart-button/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_cart"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
+                "name"  => __( "Show 'Add to cart'", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_cart">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "desc"  => __( "Show 'Add to cart' button for each search result.", "advanced-woo-search" ) . ' <a target="_blank" href="https://kramakit.com/guide/add-to-cart/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=show_cart"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
                 "id"    => "show_cart",
                 "value" => 'false',
                 "type"  => "toggler",
@@ -1150,7 +1150,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
 
             // pro only
             $options['results'][] = array(
-                "name"    => __( "Filter Results", "advanced-woo-search" ) . ' <a style="font-size:14px;" target="_blank" href="https://advanced-woo-search.com/pricing/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=filters">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
+                "name"    => __( "Filter Results", "advanced-woo-search" ) . ' <a style="font-size:14px;" target="_blank" href="https://kramakit.com/plugins/advanced-woo-search/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=filters">' . __( "(Pro)", "advanced-woo-search" ) . '</a>',
                 "id"      => "excludeinclude",
                 "type"    => "heading",
                 "section" => "filters",
@@ -1229,7 +1229,7 @@ if ( ! class_exists( 'AWS_Admin_Options' ) ) :
                 'heading_type' => 'text',
                 "desc"         => __( "Show automatic suggested search terms based on the current search query - right inside the search results list.", "advanced-woo-search" ) . '<br>' .
                     __( "Allows search suggestions to appear for both live search results and search results pages.", "advanced-woo-search" ) . '<br>' .
-                    '<br><a class="button-primary" target="_blank" href="https://advanced-woo-search.com/features/search-suggestions/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=suggestions"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
+                    '<br><a class="button-primary" target="_blank" href="https://kramakit.com/guide/search-suggestions/?utm_source=plugin&utm_medium=pro-option-link&utm_campaign=pricing&utm_content=suggestions"> ' . __( "Learn more", "advanced-woo-search" ) . '</a>',
                 "type"         => "heading",
                 "section" => "main",
             );

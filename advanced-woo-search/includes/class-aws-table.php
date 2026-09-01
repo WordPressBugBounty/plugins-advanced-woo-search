@@ -656,7 +656,8 @@ if ( ! class_exists( 'AWS_Table' ) ) :
                 return;
             }
 
-            if ( isset( $this->data['product_to_index'] ) && array_search( $product_id, $this->data['product_to_index'] ) !== false ) {
+            // Forced re-index must always run, even if product was already indexed during current request
+            if ( ! $force && isset( $this->data['product_to_index'] ) && array_search( $product_id, $this->data['product_to_index'] ) !== false ) {
                 return;
             }
 

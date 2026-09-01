@@ -197,7 +197,7 @@ if ( ! class_exists( 'AWS_Avada' ) ) :
                     'name'       => esc_attr__( 'AWS Search', 'advanced-woo-search' ),
                     'shortcode'  => 'aws_search_form',
                     'icon'       => 'fusiona-search',
-                    'help_url'   => 'https://advanced-woo-search.com/',
+                    'help_url'   => 'https://kramakit.com/plugins/advanced-woo-search/',
                     'params'     => array(),
                 )
             );

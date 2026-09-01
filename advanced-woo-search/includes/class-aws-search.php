@@ -684,6 +684,11 @@ if ( ! class_exists( 'AWS_Search' ) ) :
 
                     $post_data = get_post( $post_id );
 
+                    if ( $post_data instanceof WP_Post ) {
+                        $post_data = clone $post_data;
+                        unset( $post_data->post_password );
+                    }
+
                     $title = $product->get_title();
                     $title = AWS_Helpers::html2txt( $title );
 

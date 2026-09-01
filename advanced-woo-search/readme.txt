@@ -3,9 +3,9 @@ Contributors: Mihail Barinov
 Donate link: https://www.paypal.com/donate/?hosted_button_id=FDRDNZE6XAKE8
 Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.69
+Stable tag: 3.70
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.70 ( 2026-09-01 ) =
+* Update - Change admin links to plugin site
+* Fix - Integration with WPML plugin. Sync new translations
+* Fix - Strip some post data parameters from responce
+
 = 3.69 ( 2026-08-10 ) =
 * Add - Support for Angro theme
 * Update - Tested with WC 11.0
@@ -478,7 +483,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 3.27 ( 2025-02-17 ) =
 * Fix - Highlight synonyms words for search results
-
-= 3.26 ( 2025-02-03 ) =
-* Update - Enable gutenberg search block for navigation section
-* Update - Tested with WC 9.6
