@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.70
+Stable tag: 3.71
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.71 ( 2026-09-15 ) =
+* Add - Integration for Milano theme
+* Update - Tested with WC 11.1
+
 = 3.70 ( 2026-09-01 ) =
 * Update - Change admin links to plugin site
 * Fix - Integration with WPML plugin. Sync new translations
@@ -480,6 +484,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 = 3.28 ( 2025-03-03 ) =
 * Update - Tested with WC 9.7
 * Fix - Bug with additional slashed for text options
-
-= 3.27 ( 2025-02-17 ) =
-* Fix - Highlight synonyms words for search results
