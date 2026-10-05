@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.71
+Stable tag: 3.72
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -288,6 +288,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.72 ( 2026-10-05 ) =
+* Fix - Code changes for latest php versions
+
 = 3.71 ( 2026-09-15 ) =
 * Add - Integration for Milano theme
 * Update - Tested with WC 11.1
@@ -480,7 +483,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Update - Integration for Elementor search form widget
 * Fix - aws_search_terms parameters escaping
 * Dev - Add aws_index_scraped_data filter
-
-= 3.28 ( 2025-03-03 ) =
-* Update - Tested with WC 9.7
-* Fix - Bug with additional slashed for text options

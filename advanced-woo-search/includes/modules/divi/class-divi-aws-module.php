@@ -23,7 +23,10 @@ function aws_divi_remove_from_third_party_modules() {
         }
 
         $property = $reflection->getProperty( '_third_party_modules' );
-        $property->setAccessible( true );
+        // PHP 8.1+ grants reflection access by default; setAccessible() is deprecated in PHP 8.5.
+        if ( PHP_VERSION_ID < 80100 ) {
+            $property->setAccessible( true );
+        }
         $modules = $property->getValue();
 
         if ( is_array( $modules ) && isset( $modules['aws'] ) ) {
