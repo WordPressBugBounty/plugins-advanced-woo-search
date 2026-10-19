@@ -100,7 +100,7 @@ if ( ! class_exists( 'AWS_Admin_Helpers' ) ) :
                     case 'textarea':
 
                         if ( isset( $field['allow_tags'] ) ) {
-                            $value = (string) addslashes( wp_kses( stripslashes( html_entity_decode( $value ) ), AWS_Helpers::get_kses( $field['allow_tags'] ) ) );
+                            $value = (string) wp_kses( stripslashes( html_entity_decode( $value ) ), AWS_Helpers::get_kses( $field['allow_tags'] ) );
                         } else {
                             if ( function_exists('sanitize_textarea_field') ) {
                                 $value = (string) sanitize_textarea_field( $value );

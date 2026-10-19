@@ -390,8 +390,9 @@ AwsHooks.filters = AwsHooks.filters || {};
                     self[0].dispatchEvent( eShowResults );
                 }
 
-                // send analytics event
-                if ( ! cachedResponse.hasOwnProperty( searchFor ) ) {
+                // send analytics event once for each search term
+                if ( analyticsSent.indexOf( searchFor ) === -1 ) {
+                    analyticsSent.push( searchFor );
                     methods.analytics( searchFor, false, resultNum !== 0 );
                 }
 
@@ -716,6 +717,7 @@ AwsHooks.filters = AwsHooks.filters || {};
             searchFor       = '',
             lastSearchFor   = null,
             keyupTimeout,
+            analyticsSent   = new Array(),
             cachedResponse = new Array();
 
         var ajaxUrl = ( self.data('url') !== undefined ) ? self.data('url') : false;
