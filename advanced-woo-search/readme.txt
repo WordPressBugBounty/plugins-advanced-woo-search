@@ -23,7 +23,7 @@ Use a powerful plugin search engine with features like **relevance score for sea
 
 Customize search results via adding or removing any products data. Change results view with custom styles.
 
-[Plugin Home Page](https://advanced-woo-search.com/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Features List](https://advanced-woo-search.com/features/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Documentation](https://advanced-woo-search.com/guide/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [View demo](https://demo.advanced-woo-search.com/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Get PRO](https://advanced-woo-search.com/pricing/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+[Plugin Home Page](https://kramakit.com/plugins/advanced-woo-search/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Documentation](https://kramakit.com/guide-category/aws/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [View demo](https://demo.advanced-woo-search.com/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) | [Get PRO](https://kramakit.com/plugins/advanced-woo-search/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo#pricing)
 
 ## &#9889; Main Features
 
@@ -62,7 +62,7 @@ Plugin comes packed with a large number of build-in features. Here are only the 
 
 ## &#127775; Premium Features
 
-Additional features that are available only in the PRO plugin version. [Get the PRO Plugin Version](https://advanced-woo-search.com/pricing/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
+Additional features that are available only in the PRO plugin version. [Get the PRO Plugin Version](https://kramakit.com/plugins/advanced-woo-search/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
 
 &#9989; **Search By Product Attributes**: Search for WooCommerce products by their **attributes values**. Include **custom attributes search**. Example: search by color, size.
 &#9989; **Search By Product Taxonomies**: Search for WooCommerce products by their **taxonomies terms**. Example: search by brand.
@@ -90,7 +90,7 @@ Additional features that are available only in the PRO plugin version. [Get the 
 &#9989; **WCFM Support**: Support for *WCFM - WooCommerce Multivendor Marketplace* plugin.
 &#9989; **Dokan Support**: Support for *Dokan – WooCommerce Multivendor Marketplace* plugin.
 &#9989; **MultiVendorX Support**: Support for *MultiVendorX – Multivendor Marketplace* plugin.
-&#9989; **More Integrations**: And the [huge list of other integrations](https://advanced-woo-search.com/guide-category/integrations/).
+&#9989; **More Integrations**: And the [huge list of other integrations](https://kramakit.com/guide-category/integrations/).
 
 ## &#9881;&#65039; Search In Any Product Field
 
@@ -137,28 +137,28 @@ Search for WooCommerce products and product taxonomies.
 
 Plugin comes packed with a large number of build-in integrations. Each integration brings a new layer of search features related to each specific plugin. Below covered only the most popular plugins that are integrated with Advanced Woo Search.
 
-* [ACF](https://advanced-woo-search.com/guide/acf-support/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Search for products and products taxonomies via Advanced Custom Field ( ACF ) fields values. Create search results filters based on these fields. Display any field values inside search results.
-* [Google Analytics](https://advanced-woo-search.com/guide/google-analytics/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Send search events right inside your GA property and analyze every user search query.
-* [WPML](https://advanced-woo-search.com/guide/wpml/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Show search results in current active site language. Translate plugin static strings with the help of WPML string translation.
-* [GTranslate](https://advanced-woo-search.com/guide/gtranslate/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Search WooCommerce products in the current site language and automatically translate all search results.
-* [Polylang](https://advanced-woo-search.com/guide/polylang/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Show results in current site languages and allows users to search via that language terms.
-* [Elementor](https://advanced-woo-search.com/guide/elementor/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Add search form via Elementor page builder, customize search results page, add taxonomies search results into search results page.
-* [Gutenberg](https://advanced-woo-search.com/guide/gutenberg/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Use build-in Gutenberg block to show plugin search form on any place of your site.
-* [Divi Builder](https://advanced-woo-search.com/guide/divi-builder/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Compose build-in widget to add plugin search form at needed place of your site. Fully customize search results page.
-* [Bricks Builder](https://advanced-woo-search.com/guide/bricks-builder/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Use built-in element for Bricks Builder to display plugin search form. Fully customize search results page.
-* [Flatsome](https://advanced-woo-search.com/guide/flatsome-theme-flatsome-ux-builder/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Integration for Flatsome theme and  Flatsome UX Builder. Display search form via built-in search module or just use special options to replace all search forms in one click.
-* [BeRocket Filters](https://advanced-woo-search.com/guide/berocket-ajax-product-filters/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Support for all BeRocket AJAX Product Filters plugin filters types. Work smoothly on WooCommerce search results page with plugin search results.
-* [FacetWP](https://advanced-woo-search.com/guide/facetwp/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Display your FacetWP filters on search results pages to create advanced products filters - all FacetWP filters types will work smoothly with Advanced Woo Search plugin search results.
-* [WOOF](https://advanced-woo-search.com/guide/woof-products-filter-for-woocommerce/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Support for filters created via WOOF – Products Filter for WooCommerce plugin.
-* [Dokan](https://advanced-woo-search.com/guide/dokan-woocommerce-multivendor-marketplace/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Support for variety of features: search for Dokan vendors, search vendors products and display vendor badge near, search for product by vendor store name, search inside vendor store, search results filters based on different Dokan specific parameters.
-* [WCFM](https://advanced-woo-search.com/guide/wcfm-multivendor-marketplace/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Includes multiple features: find WCFM vendors, browse their products with vendor labels shown, locate items by store name, search directly within a vendor’s store, and apply filters based on unique WCFM-related criteria.
-* [WCFM](https://advanced-woo-search.com/guide/wcfm-multivendor-marketplace/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Includes multiple features: find WCFM vendors, browse their products with vendor labels shown, locate items by store name, search directly within a vendor’s store, and apply filters based on unique WCFM-related criteria.
-* [MultiVendorX](https://advanced-woo-search.com/guide/multivendorx/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Includes multiple features: find MultiVendorX vendors, browse products from specific vendors with visible vendor badges, locate products by store name, search within individual vendor stores, refine results using MultiVendorX-related filters.
-* [B2BKing](https://advanced-woo-search.com/guide/b2bking/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Show/hide products/categories based on B2BKing restrictions rules. Show or hide prices for product search results.
-* [Ultimate Member](https://advanced-woo-search.com/guide/ultimate-member/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Show/hide search results based on Ultimate Member restriction rules. Search for shop users and display them inside search results with additional profile data.
-* [Max Mega Menu](https://advanced-woo-search.com/guide/max-mega-menu/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Add search form inside Max Mega Menu menus. 
+* [ACF](https://kramakit.com/guide/acf-support/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Search for products and products taxonomies via Advanced Custom Field ( ACF ) fields values. Create search results filters based on these fields. Display any field values inside search results.
+* [Google Analytics](https://kramakit.com/guide/google-analytics/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Send search events right inside your GA property and analyze every user search query.
+* [WPML](https://kramakit.com/guide/wpml/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Show search results in current active site language. Translate plugin static strings with the help of WPML string translation.
+* [GTranslate](https://kramakit.com/guide/gtranslate/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Search WooCommerce products in the current site language and automatically translate all search results.
+* [Polylang](https://kramakit.com/guide/polylang/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Show results in current site languages and allows users to search via that language terms.
+* [Elementor](https://kramakit.com/guide/elementor/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Add search form via Elementor page builder, customize search results page, add taxonomies search results into search results page.
+* [Gutenberg](https://kramakit.com/guide/gutenberg/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Use build-in Gutenberg block to show plugin search form on any place of your site.
+* [Divi Builder](https://kramakit.com/guide/divi-builder/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Compose build-in widget to add plugin search form at needed place of your site. Fully customize search results page.
+* [Bricks Builder](https://kramakit.com/guide/bricks-builder/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Use built-in element for Bricks Builder to display plugin search form. Fully customize search results page.
+* [Flatsome](https://kramakit.com/guide/flatsome-theme-flatsome-ux-builder/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Integration for Flatsome theme and  Flatsome UX Builder. Display search form via built-in search module or just use special options to replace all search forms in one click.
+* [BeRocket Filters](https://kramakit.com/guide/berocket-ajax-product-filters/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Support for all BeRocket AJAX Product Filters plugin filters types. Work smoothly on WooCommerce search results page with plugin search results.
+* [FacetWP](https://kramakit.com/guide/facetwp/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Display your FacetWP filters on search results pages to create advanced products filters - all FacetWP filters types will work smoothly with Advanced Woo Search plugin search results.
+* [WOOF](https://kramakit.com/guide/woof-products-filter-for-woocommerce/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Support for filters created via WOOF – Products Filter for WooCommerce plugin.
+* [Dokan](https://kramakit.com/guide/dokan-woocommerce-multivendor-marketplace/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Support for variety of features: search for Dokan vendors, search vendors products and display vendor badge near, search for product by vendor store name, search inside vendor store, search results filters based on different Dokan specific parameters.
+* [WCFM](https://kramakit.com/guide/wcfm-multivendor-marketplace/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Includes multiple features: find WCFM vendors, browse their products with vendor labels shown, locate items by store name, search directly within a vendor’s store, and apply filters based on unique WCFM-related criteria.
+* [WCFM](https://kramakit.com/guide/wcfm-multivendor-marketplace/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Includes multiple features: find WCFM vendors, browse their products with vendor labels shown, locate items by store name, search directly within a vendor’s store, and apply filters based on unique WCFM-related criteria.
+* [MultiVendorX](https://kramakit.com/guide/multivendorx/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Includes multiple features: find MultiVendorX vendors, browse products from specific vendors with visible vendor badges, locate products by store name, search within individual vendor stores, refine results using MultiVendorX-related filters.
+* [B2BKing](https://kramakit.com/guide/b2bking/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Show/hide products/categories based on B2BKing restrictions rules. Show or hide prices for product search results.
+* [Ultimate Member](https://kramakit.com/guide/ultimate-member/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Show/hide search results based on Ultimate Member restriction rules. Search for shop users and display them inside search results with additional profile data.
+* [Max Mega Menu](https://kramakit.com/guide/max-mega-menu/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo): Add search form inside Max Mega Menu menus. 
 
-This is only a part of available integrations. [View full list of integrations](https://advanced-woo-search.com/guide-category/integrations/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo). 
+This is only a part of available integrations. [View full list of integrations](https://kramakit.com/guide-category/integrations/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo). 
 
 ## &#128187; More Plugins From Us
 
@@ -169,12 +169,11 @@ Here are some additional plugins that were made with love.
 
 ## &#128279; More Useful Links
 
-* [Homepage](https://advanced-woo-search.com/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
-* [Documentation](https://advanced-woo-search.com/guide/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
-* [Features List](https://advanced-woo-search.com/features/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
-* [Contact Form](https://advanced-woo-search.com/contact/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
-* [Pricing](https://advanced-woo-search.com/pricing/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
-* [Twitter Account](https://twitter.com/WooSearch)
+* [Homepage](https://kramakit.com/plugins/advanced-woo-search/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+* [Documentation](https://kramakit.com/guide-category/aws/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+* [Contact Form](https://kramakit.com/contact/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+* [Pricing](https://kramakit.com/plugins/advanced-woo-search/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo#pricing)
+* [Twitter Account](https://twitter.com/kramakit)
 
 == Installation ==
 
@@ -185,7 +184,7 @@ Here are some additional plugins that were made with love.
 
 == Frequently Asked Questions ==
 
-Please visit our [Advanced Woo Search guide](https://advanced-woo-search.com/guide/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) before requesting any support.
+Please visit our [Advanced Woo Search guide](https://kramakit.com/guide-category/aws/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) before requesting any support.
 
 = What is Advanced Woo Search? =
 
@@ -216,7 +215,7 @@ Or insert this function inside php file ( often it used to insert form inside pa
 
 `echo do_shortcode( '[aws_search_form]' );`
 
-Also please read the guide article about search form placement: [Adding Search Form.](https://advanced-woo-search.com/guide/search-form/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+Also please read the guide article about search form placement: [Adding Search Form.](https://kramakit.com/guide/search-form/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
 = Can I replace existing search forms with plugin ones? =
 
@@ -226,10 +225,10 @@ Yes. The simplest way of doing this is by using **Seamless Integration** option.
 
 In order to start using the plugin search form you need to take following steps:
 
-* **Installation**. Install and activate the plugin. You can follow [these steps](https://advanced-woo-search.com/guide/installation/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) if you face any problems.
+* **Installation**. Install and activate the plugin. You can follow [these steps](https://kramakit.com/guide/installation/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo) if you face any problems.
 * **Index plugin table**. Click on the **Reindex table** button inside the plugin settings page and wait till the index process is finished.
 * **Set plugin settings**. Leave it to default values or customize some of them.
-* **Add search form**. There are several ways you can add a search form to your site. Use the **Seamless integration** option, shortcode, widget or custom php function. Read more in the guide article: [Adding Search Form](https://advanced-woo-search.com/guide/search-form/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
+* **Add search form**. There are several ways you can add a search form to your site. Use the **Seamless integration** option, shortcode, widget or custom php function. Read more in the guide article: [Adding Search Form](https://kramakit.com/guide/search-form/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
 * **Finish!** Now all is set and you can check your search form on the pages where you add it.
 
 = What is the plugin index table and why is it needed? =
@@ -239,25 +238,25 @@ In order to work, the plugin first requires to index all your WooCommerce produc
 This is a one-time action. After first indexation all other product changes will be synchronized automatically.
 Indexing helps to speed-up search and to bring more accurate search results.
 
-Read more about indexing in the guide article: [Indexing](https://advanced-woo-search.com/guide/reindex-table/).
+Read more about indexing in the guide article: [Indexing](https://kramakit.com/guide/reindex-table/).
 
 = Will this plugin work with my theme? =
 
-Plugin search will works with most of the available WordPress themes. If you faced any problems using the plugin with your theme please [contact support](https://advanced-woo-search.com/contact/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
+Plugin search will works with most of the available WordPress themes. If you faced any problems using the plugin with your theme please [contact support](https://kramakit.com/contact/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
 
 = Is it integrated with my plugin? =
 
 Advanced Woo Search works with many plugins out-of-the-box. For some of the most popular plugins we manually check proper work of integration features. It is the plugins like **Advanced Custom Fields**, **WPML**, **Polylang**, **Elementor**, **Divi Builder**, **BeRocket AJAX Product Filters**, **FacetWP** and many more.
 
-Please read some guide integrations articles: [Integrations](https://advanced-woo-search.com/guide-category/integrations/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
+Please read some guide integrations articles: [Integrations](https://kramakit.com/guide-category/integrations/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
 
-Note that if some of the plugin is not presented in the list it doesn't mean that it will not work with Advanced Woo Search. Many plugins will just work without any extra effort. But if you find any problem with your plugin and Advanced Woo Search please [contact support team](https://advanced-woo-search.com/contact/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
+Note that if some of the plugin is not presented in the list it doesn't mean that it will not work with Advanced Woo Search. Many plugins will just work without any extra effort. But if you find any problem with your plugin and Advanced Woo Search please [contact support team](https://kramakit.com/contact/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo).
 
 = How can I customize search results page? =
 
 Advanced Woo Search plugin itself doesn't create any special search results page, instead it is using your current theme search results page to inherit its results. So the plugin search results page will look the same as your default search results page.
 
-How to customize search results pages depending on your current theme and plugin. If you are using page builders like [Elementor](https://advanced-woo-search.com/guide/elementor/#how-to-customize-search-results-page-via-elementor), [Gutenberg](https://advanced-woo-search.com/guide/gutenberg/), [Divi Builder](https://advanced-woo-search.com/guide/divi-builder/#customizing-search-results-page-via-divi-builder), [Breakdance Builder](https://advanced-woo-search.com/guide/breakdance-builder/#how-to-customize-search-results-page), [Bricks Builder](https://advanced-woo-search.com/guide/bricks-builder/#how-to-customize-search-results-page) and many more - you can simply customize WooCommerce products search results page via them. In other cases it all depends on your current theme and what options for search page customizations it has.
+How to customize search results pages depending on your current theme and plugin. If you are using page builders like [Elementor](https://kramakit.com/guide/elementor/#how-to-customize-search-results-page-via-elementor), [Gutenberg](https://kramakit.com/guide/gutenberg/), [Divi Builder](https://kramakit.com/guide/divi-builder/#customizing-search-results-page-via-divi-builder), [Breakdance Builder](https://kramakit.com/guide/breakdance-builder/#how-to-customize-search-results-page), [Bricks Builder](https://kramakit.com/guide/bricks-builder/#how-to-customize-search-results-page) and many more - you can simply customize WooCommerce products search results page via them. In other cases it all depends on your current theme and what options for search page customizations it has.
 
 = Is this plugin compatible with latest version of Woocommerce? =
 
@@ -265,7 +264,7 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 
 = How can I ask a question or suggest a new feature? =
 
-Please ask your question via the [support forum](https://wordpress.org/support/plugin/advanced-woo-search/) or plugin [contact page](https://advanced-woo-search.com/contact/).
+Please ask your question via the [support forum](https://wordpress.org/support/plugin/advanced-woo-search/) or plugin [contact page](https://kramakit.com/contact/).
 
 = How can I report security bugs? =
 
@@ -286,7 +285,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 == Changelog ==
 
-[View full changelog](https://advanced-woo-search.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
+[View full changelog](https://kramakit.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
 = 3.73 ( 2026-10-19 ) =
 * Update - Tested with WC 11.2
