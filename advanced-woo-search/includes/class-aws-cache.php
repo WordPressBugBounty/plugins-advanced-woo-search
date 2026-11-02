@@ -76,10 +76,16 @@ if ( ! class_exists( 'AWS_Cache' ) ) :
 
             if ( is_user_logged_in() ) {
                 $user = wp_get_current_user();
-                $role = ( array ) $user->roles;
-                $user_role = array_values( $role )[0];
-                if ( $user_role ) {
-                    $cache_option_name = $cache_option_name . '_' . $user_role;
+                $roles = array_values( array_filter( ( array ) $user->roles ) );
+                if ( empty( $roles ) ) {
+                    // Logged in user without role on this site must not share cache with guests
+                    $cache_option_name = $cache_option_name . '_norole';
+                } elseif ( count( $roles ) === 1 ) {
+                    $cache_option_name = $cache_option_name . '_' . $roles[0];
+                } elseif ( count( $roles ) > 1 ) {
+                    // Results can depend on any of the user roles ( e.g. secondary roles added by B2B plugins ), short hash keeps the name length
+                    sort( $roles );
+                    $cache_option_name = $cache_option_name . '_' . substr( md5( implode( ',', $roles ) ), 0, 10 );
                 }
             }
 
@@ -94,6 +100,11 @@ if ( ! class_exists( 'AWS_Cache' ) ) :
              * @param string $s                 Search string
              */
             $cache_option_name = apply_filters( 'aws_cache_name', $cache_option_name, $s );
+
+            // Name column is VARCHAR(100), longer names are cut on insert and never match again
+            if ( strlen( $cache_option_name ) > 100 ) {
+                $cache_option_name = 'aws_search_term_' . md5( $cache_option_name );
+            }
 
             return $cache_option_name;
 

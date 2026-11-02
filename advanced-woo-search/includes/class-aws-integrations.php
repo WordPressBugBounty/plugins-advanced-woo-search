@@ -81,6 +81,7 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
 
             if ( class_exists( 'BM' ) ) {
                 add_action( 'aws_search_start', array( $this, 'b2b_set_filter' ) );
+                add_filter( 'aws_search_query_array', array( $this, 'b2b_search_query_array' ) );
             }
 
             if ( function_exists( 'dfrapi_currency_code_to_sign' ) ) {
@@ -605,10 +606,17 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
                 $customer_groups[$customer_group->post_name] = $customer_group->ID;
             }
 
+            // Reset values from previous search calls
+            unset( $this->data['exclude_products'], $this->data['exclude_categories'], $this->data['b2b_include_products'] );
+
             if ( is_user_logged_in() ) {
                 $user = wp_get_current_user();
-                $role = ( array ) $user->roles;
-                $user_role = $role[0];
+                // Same as B2B Market: check all user roles, the last one that is a customer group wins
+                foreach ( ( array ) $user->roles as $role ) {
+                    if ( isset( $customer_groups[$role] ) ) {
+                        $user_role = $role;
+                    }
+                }
             } else {
                 $guest_slugs = array( 'Gast', 'Gäste', 'Guest', 'Guests', 'gast', 'gäste', 'guest', 'guests' );
                 foreach( $customer_groups as $customer_group_key => $customer_group_id ) {
@@ -625,32 +633,89 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
 
                     $whitelist = get_post_meta( $curret_customer_group_id, 'bm_conditional_all_products', true );
 
-                    if ( $whitelist && $whitelist === 'off' ) {
+                    $products = $this->b2b_get_meta_ids( $curret_customer_group_id, 'bm_conditional_products' );
+                    $cats = $this->b2b_get_meta_ids( $curret_customer_group_id, 'bm_conditional_categories' );
 
-                        $products_to_exclude = get_post_meta( $curret_customer_group_id, 'bm_conditional_products', false );
-                        $cats_to_exclude = get_post_meta( $curret_customer_group_id, 'bm_conditional_categories', false );
+                    // Products from selected categories ( including child categories ), same as B2B Market
+                    if ( ! empty( $cats ) ) {
 
-                        if ( $products_to_exclude && ! empty( $products_to_exclude ) ) {
+                        $cats_products = get_posts( array(
+                            'posts_per_page'   => -1,
+                            'fields'           => 'ids',
+                            'post_type'        => 'product',
+                            'post_status'      => 'publish',
+                            'suppress_filters' => true,
+                            'lang'             => '',
+                            'tax_query'        => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'term_id',
+                                    'terms'    => $cats,
+                                ),
+                            ),
+                        ) );
 
-                            foreach( $products_to_exclude as $product_to_exclude ) {
-                                $this->data['exclude_products'][] = trim( $product_to_exclude, ',' );
-                            }
-
+                        if ( $cats_products && is_array( $cats_products ) ) {
+                            $products = array_values( array_unique( array_merge( $products, array_map( 'intval', $cats_products ) ) ) );
                         }
 
-                        if ( $cats_to_exclude && ! empty( $cats_to_exclude ) ) {
+                    }
 
-                            foreach( $cats_to_exclude as $cat_to_exclude ) {
-                                $this->data['exclude_categories'][] = trim( $cat_to_exclude, ',' );
-                            }
-
-                        }
-
+                    if ( $whitelist === 'on' ) {
+                        // Whitelist mode: show only selected products, nothing if the list is empty
+                        $this->data['b2b_include_products'] = $products;
+                    } else {
+                        // Blacklist mode
+                        $this->data['exclude_products'] = $products;
+                        $this->data['exclude_categories'] = $cats;
                     }
 
                 }
 
             }
+
+        }
+
+        /*
+         * B2B market plugin: get IDs from customer group comma separated meta field
+         */
+        private function b2b_get_meta_ids( $group_id, $meta_key ) {
+
+            $ids = array();
+            $meta_values = get_post_meta( $group_id, $meta_key, false );
+
+            if ( $meta_values && is_array( $meta_values ) ) {
+                foreach( $meta_values as $meta_value ) {
+                    if ( ! is_string( $meta_value ) && ! is_int( $meta_value ) ) {
+                        continue;
+                    }
+                    foreach( explode( ',', $meta_value ) as $id ) {
+                        $id = intval( trim( $id ) );
+                        if ( $id > 0 ) {
+                            $ids[] = $id;
+                        }
+                    }
+                }
+            }
+
+            return array_values( array_unique( $ids ) );
+
+        }
+
+        /*
+         * B2B market plugin: show only whitelisted products
+         */
+        public function b2b_search_query_array( $query ) {
+
+            if ( isset( $this->data['b2b_include_products'] ) && is_array( $this->data['b2b_include_products'] ) ) {
+                if ( ! empty( $this->data['b2b_include_products'] ) ) {
+                    $query['search'] .= sprintf( ' AND ( id IN ( %s ) )', implode( ',', array_map( 'intval', $this->data['b2b_include_products'] ) ) );
+                } else {
+                    $query['search'] .= ' AND ( 1=0 )';
+                }
+            }
+
+            return $query;
 
         }
 
@@ -2405,6 +2470,32 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
          * Product Visibility by User Role for WooCommerce plugin hide products for certain users
          */
         public function pvbur_aws_search_results_products( $products ) {
+
+            // Use plugin own check: per product and bulk rules for all user roles
+            if ( function_exists( 'alg_wc_pvbur_is_visible' ) && function_exists( 'alg_wc_pvbur_get_current_user_all_roles' ) ) {
+
+                $user_roles = ( array ) alg_wc_pvbur_get_current_user_all_roles();
+
+                // Pro version 'Hide all' bulk option is not covered by alg_wc_pvbur_is_visible
+                if ( 'yes' === apply_filters( 'alg_wc_pvbur', 'no', 'bulk_settings' ) ) {
+                    foreach( $user_roles as $user_role ) {
+                        if ( 'yes' === get_option( 'alg_wc_pvbur_bulk_hide_all_from_' . $user_role, 'no' ) ) {
+                            return array();
+                        }
+                    }
+                }
+
+                $new_products = array();
+
+                foreach( $products as $product ) {
+                    if ( alg_wc_pvbur_is_visible( $user_roles, $product['parent_id'] ) ) {
+                        $new_products[] = $product;
+                    }
+                }
+
+                return $new_products;
+
+            }
 
             $user_role = 'guest';
             if ( is_user_logged_in() ) {

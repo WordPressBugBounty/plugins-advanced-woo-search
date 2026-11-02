@@ -531,7 +531,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
             $exclude_products_filter = apply_filters( 'aws_exclude_products', array() );
 
             if ( $exclude_products_filter && is_array( $exclude_products_filter ) && ! empty( $exclude_products_filter ) ) {
-                $query['exclude_products'] = sprintf( ' AND ( id NOT IN ( %s ) )', implode( ',', $exclude_products_filter ) );
+                $query['exclude_products'] = sprintf( ' AND ( id NOT IN ( %s ) )', implode( ',', array_map( 'intval', $exclude_products_filter ) ) );
             }
 
             if ( $current_lang && $reindex_version && version_compare( $reindex_version, '1.20', '>=' ) ) {

@@ -68,12 +68,23 @@ if ( ! class_exists( 'AWS_Langs' ) ) :
 
             // Plural form of words for diff languages
             if ( ( $reindex_version && version_compare( $reindex_version, '3.16', '>=' ) ) ||
-                ( is_ajax() && isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'aws-reindex' ) )
+                ( is_ajax() && isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'aws-reindex' ) ||
+                get_transient( 'aws_index_processed' ) )
             {
-                add_filter( 'aws_plurals_singular_rules', array( $this, 'aws_plurals_singular_rules' ), 10, 2 );
-                add_filter( 'aws_diacritic_chars', array( $this, 'aws_diacritic_chars' ), 1  );
+                $this->enable_lang_rules();
+            } else {
+                // Reindex from WP-CLI or cron runs inside current request
+                add_action( 'aws_index_started', array( $this, 'enable_lang_rules' ) );
             }
 
+        }
+
+        /*
+         * Enable language specific rules for plurals and diacritics
+         */
+        public function enable_lang_rules() {
+            add_filter( 'aws_plurals_singular_rules', array( $this, 'aws_plurals_singular_rules' ), 10, 2 );
+            add_filter( 'aws_diacritic_chars', array( $this, 'aws_diacritic_chars' ), 1  );
         }
 
         /*

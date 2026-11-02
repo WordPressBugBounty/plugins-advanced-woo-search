@@ -3,7 +3,7 @@
 /*
 Plugin Name: Advanced Woo Search
 Description: Advance ajax WooCommerce product search.
-Version: 3.73
+Version: 3.74
 Author: ILLID
 Plugin URI: https://kramakit.com/
 Author URI: https://kramakit.com/
@@ -110,7 +110,7 @@ final class AWS_Main {
      */
     private function define_constants() {
 
-        $this->define( 'AWS_VERSION', '3.73' );
+        $this->define( 'AWS_VERSION', '3.74' );
 
         $this->define( 'AWS_DIR', plugin_dir_path( AWS_FILE ) );
         $this->define( 'AWS_URL', plugin_dir_url( AWS_FILE ) );

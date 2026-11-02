@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.73
+Stable tag: 3.74
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -287,6 +287,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://kramakit.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.74 ( 2026-11-02 ) =
+* Fix - Cache names and its work with third-party plugins
+* Fix - Links inside admin notices
+* Fix - Problem with plurals and diacritic chars during reindex table via wp-cli
+
 = 3.73 ( 2026-10-19 ) =
 * Update - Tested with WC 11.2
 * Fix - Bug with events sending to Google Analytics
@@ -475,10 +480,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 * Fix - Bug with running index multiply times for one product
 * Fix - Integration issue with Divi BodyCommerce plugin mini cart widget
 * Dev - Add aws_tax_search_array and aws_tax_search_relevance_array hooks
-
-= 3.30 ( 2025-03-31 ) =
-* Update - Admin loading icons
-* Update - Relevance score calculation for taxonomies search results
-* Update - PRO admin section
-* Dev - Update aws_relevance_scores filter. Add more array values
-* Dev - Add aws_disable_multilangs_hooks hook

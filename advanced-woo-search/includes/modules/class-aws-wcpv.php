@@ -56,11 +56,14 @@ if ( ! class_exists( 'AWS_WCPV' ) ) :
          * Filter products
          */
         public function aws_search_query_array( $query ) {
-            if ( isset( $query['exclude_products'] ) && class_exists( 'WCPV_FRONTEND' ) ) {
-                $wc_front = WCPV_FRONTEND::get_instance();
-                if ( method_exists( $wc_front, 'get_products_total_subquery' ) ) {
+            if ( isset( $query['exclude_products'] ) ) {
+                $wc_front = $this->get_frontend();
+                if ( $wc_front && method_exists( $wc_front, 'get_products_total_subquery' ) ) {
                     $filter_sql = str_replace("post_type='product' AND", '', $wc_front->get_products_total_subquery() );
                     $query['exclude_products'] .= ' ' . $filter_sql;
+                } else {
+                    // Visibility rules are unknown - show nothing instead of hidden products
+                    $query['exclude_products'] .= ' AND ( 1 = 0 )';
                 }
             }
             return $query;
@@ -71,15 +74,15 @@ if ( ! class_exists( 'AWS_WCPV' ) ) :
          */
         public function aws_terms_search_query( $sql ) {
 
-            if ( class_exists( 'WCPV_FRONTEND' ) ) {
+            $wc_front = $this->get_frontend();
+
+            if ( $wc_front ) {
 
                 global $wpdb;
 
                 $string = '';
                 $category_ids = array();
                 $tag_ids = array();
-
-                $wc_front = WCPV_FRONTEND::get_instance();
 
                 if ( property_exists( $wc_front, 'categoryids' ) && property_exists( $wc_front, 'categories_visibility' ) ) {
 
@@ -112,9 +115,55 @@ if ( ! class_exists( 'AWS_WCPV' ) ) :
                     $sql = str_replace( 'WHERE 1 = 1', 'WHERE 1 = 1 AND ( ' . $string . ' )', $sql );
                 }
 
+            } else {
+
+                // Visibility rules are unknown - show nothing instead of hidden terms
+                $sql = str_replace( 'WHERE 1 = 1', 'WHERE 1 = 1 AND ( 1 = 0 )', $sql );
+
             }
 
             return $sql;
+
+        }
+
+        /*
+         * Get plugin frontend instance with visibility rules for the current user
+         *
+         * On admin-ajax.php the plugin loads its frontend class only when the referer is not an admin page,
+         * so a request with forged referer skips all rules. Load it here, rules must apply to any search request.
+         */
+        private function get_frontend() {
+
+            if ( isset( $this->data['frontend'] ) ) {
+                return $this->data['frontend'];
+            }
+
+            $wc_front = false;
+            $loaded = false;
+
+            if ( ! class_exists( 'WCPV_FRONTEND' ) && class_exists( 'WooCommerce_Products_Visibility' ) && class_exists( 'WCPV_ROLES_PRIORITY' ) ) {
+                $reflector = new ReflectionClass( 'WooCommerce_Products_Visibility' );
+                $file = dirname( $reflector->getFileName() ) . '/includes/class-wcpv-frontend.php';
+                if ( file_exists( $file ) ) {
+                    include_once( $file );
+                    $loaded = class_exists( 'WCPV_FRONTEND' );
+                }
+            }
+
+            if ( class_exists( 'WCPV_FRONTEND' ) && method_exists( 'WCPV_FRONTEND', 'get_instance' ) ) {
+
+                $wc_front = WCPV_FRONTEND::get_instance();
+
+                // Plugin collects products from hidden categories/tags on 'init' hook that already fired
+                if ( $loaded && did_action( 'init' ) && method_exists( $wc_front, 'wcpv_create_excluded_items_array' ) && has_action( 'init', array( $wc_front, 'wcpv_create_excluded_items_array' ) ) ) {
+                    $wc_front->wcpv_create_excluded_items_array( null );
+                }
+
+            }
+
+            $this->data['frontend'] = $wc_front;
+
+            return $wc_front;
 
         }
 
