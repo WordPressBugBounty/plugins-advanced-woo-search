@@ -1275,6 +1275,54 @@ h1.aws-instance-name {
     line-height: 15px;
 }
 
+#aws_form .buy-premium-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto 40px;
+}
+
+#aws_form .buy-premium-row .buy-premium {
+    flex: 0 1 400px;
+    width: auto;
+    margin: 0;
+}
+
+#aws_form .buy-premium-row .buy-premium a {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 12px 58px 12px 14px;
+}
+
+#aws_form .buy-premium-row .buy-premium a:after {
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+}
+
+#aws_form .buy-premium-row .buy-premium a .desc {
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+#aws_form .buy-premium-row .buy-premium a ul {
+    margin-top: 8px;
+}
+
+#aws_form .buy-bundle a {
+    background-color: #2a2545;
+}
+
+#aws_form .buy-bundle a:hover {
+    background-color: #3d3663;
+}
+
+#aws_form .buy-bundle a:after {
+    background-image: url(../img/bundle.svg);
+}
+
 #aws_form .faq {
     text-align: center;
     max-width: 900px;
@@ -1301,79 +1349,253 @@ h1.aws-instance-name {
     font-size: 14px;
 }
 
-#aws_form .features {
-    max-width: 1050px;
+#aws_form .compare {
+    max-width: 720px;
     margin: 70px auto 90px;
 }
 
-#aws_form .features h3 {
-    margin: 0 0 70px;
+#aws_form .compare h3 {
+    margin: 0 0 14px;
     font-size: 36px;
     color: #444;
     text-align: center;
 }
 
-#aws_form .features .features-item {
+#aws_form .compare .compare-desc {
+    margin: 0 0 40px;
+    font-size: 16px;
+    color: #50575e;
+    text-align: center;
+}
+
+#aws_form .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid #d5c7ea;
+    border-radius: 14px;
+}
+
+#aws_form .compare-table thead th:first-child {
+    border-top-left-radius: 14px;
+}
+
+#aws_form .compare-table thead th:last-child {
+    border-top-right-radius: 14px;
+}
+
+#aws_form .compare-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 14px;
+}
+
+#aws_form .compare-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 14px;
+}
+
+#aws_form .compare-table thead th {
+    padding: 18px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    background: #e8ddf5;
+    text-align: left;
+    color: #0e1420;
+}
+
+#aws_form .compare-table thead th:not(:first-child) {
+    text-align: center;
+    width: 120px;
+}
+
+#aws_form .compare-table thead th.pro-col {
+    color: #7f54b3;
+}
+
+#aws_form .compare-table tbody tr td {
+    border-top: 1px solid #e3d9f0;
+}
+
+#aws_form .compare-table tbody tr:hover {
+    background: #f5effb;
+}
+
+#aws_form .compare-table td {
+    padding: 9px 24px;
+    font-size: 14px;
+    color: #1d2327;
+}
+
+#aws_form .compare-table td:not(:first-child) {
+    text-align: center;
+}
+
+#aws_form .compare-table .feat {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+#aws_form .compare-table .feat:hover {
+    color: #0e1420;
+}
+
+#aws_form .compare-table .feat-i {
+    display: inline-block;
+    vertical-align: -3px;
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+    color: #787c82;
+    transition: color .15s;
+}
+
+#aws_form .compare-table .feat-i::before {
+    display: block;
+    font-family: Dashicons;
+    font-size: 16px;
+    line-height: 1;
+    content: "\f223";
+    -webkit-font-smoothing: antialiased;
+}
+
+#aws_form .compare-table .feat:hover .feat-i {
+    color: #7f54b3;
+}
+
+#aws_form .compare-table .feat-tip {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 9px);
+    width: max-content;
+    max-width: 240px;
+    z-index: 20;
+    background: #0e1420;
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: left;
+    white-space: normal;
+    padding: 9px 12px;
+    border-radius: 9px;
+    box-shadow: 0 8px 24px rgba(14, 20, 32, .22);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity .16s, transform .16s;
+}
+
+#aws_form .compare-table .feat-tip::after {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 100%;
+    border: 6px solid transparent;
+    border-top-color: #0e1420;
+}
+
+#aws_form .compare-table .feat:hover .feat-tip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#aws_form .compare-table .check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f3eff9;
+}
+
+#aws_form .compare-table .check svg {
+    width: 12px;
+    height: 12px;
+    stroke: #7f54b3;
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+#aws_form .compare-table .dash {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fbe9e9;
+    color: #c0505a;
+    font-size: 14px;
+}
+
+#aws_form .compare .compare-ctas {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 60px;
-    padding-bottom: 60px;
-    border-bottom: 1px solid #e0e0e0;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 40px;
 }
 
-/*#aws_form .features .features-item:last-child {*/
-/*    border: none;*/
-/*    padding-bottom: 0;*/
-/*}*/
-
-#aws_form .features .features-item .column {
-    padding: 0;
-    width: 48%;
-}
-
-#aws_form .features .features-item .column .title {
-    font-size: 24px;
-    margin: 0 0 16px;
-    font-weight: 700;
-}
-
-#aws_form .features .features-item .column .desc {
+#aws_form .compare .compare-buy,
+#aws_form .compare .compare-learn {
+    display: inline-block;
+    padding: 13px 30px;
+    border: 1px solid #7f54b3;
+    border-radius: 10px;
+    background: #7f54b3;
+    color: #fff;
     font-size: 16px;
-    line-height: 1.6;
-    color: #444;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background .18s, color .18s, transform .18s;
 }
 
-#aws_form .features .features-item .column .desc a {
+#aws_form .compare .compare-buy:hover,
+#aws_form .compare .compare-buy:focus {
+    background: #6f3eb0;
+    border-color: #6f3eb0;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+#aws_form .compare .compare-learn {
+    background: #fff;
+    color: #7f54b3;
+}
+
+#aws_form .compare .compare-learn:hover,
+#aws_form .compare .compare-learn:focus {
+    background: #f3eff9;
     color: #6f3eb0;
+    transform: translateY(-1px);
 }
 
-#aws_form .features .features-item .column .img {
-    margin-bottom: 0;
-    padding: 0;
+#aws_form .compare .compare-guarantee {
+    margin: 16px 0 0;
+    font-size: 13.5px;
+    color: #50575e;
+    text-align: center;
 }
 
-#aws_form .features .features-item .column .img img {
-    height: auto;
-    vertical-align: middle;
-    max-width: 100%;
-    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+#aws_form .compare .compare-guarantee svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    vertical-align: -4px;
+    color: #7f54b3;
 }
 
-#aws_form .features .features-item:nth-child(2n) .column:first-child {
-    order: 2;
-}
+@media (max-width: 980px) {
 
-#aws_form .features .features-item .column .title,
-#aws_form .features .features-item .column .desc {
-    padding-right: 10px;
-}
+    #aws_form .compare-table td,
+    #aws_form .compare-table thead th {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
 
-#aws_form .features .features-item:nth-child(2n) .column .title,
-#aws_form .features .features-item:nth-child(2n) .column .desc {
-    padding-right: 0;
-    padding-left: 10px;
 }
 
 #aws_form .screenshots h3 {
@@ -1528,4 +1750,359 @@ h1.aws-instance-name {
 .aws-welcome-panel .aws-welcome-widgets-menus:before {
     content: "\f116";
     top: -2px;
+}
+
+/* Black Friday banner */
+.aws-admin-columns {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.aws-admin-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.aws-promo-banner {
+    /* not sticky: it has its say once, it does not follow the page */
+    position: relative;
+    flex: 0 0 260px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 22px 20px 18px;
+    border-radius: 12px;
+    background: #0e1420;
+    color: #fff;
+}
+
+.aws-promo-banner .aws-promo-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+}
+
+.aws-promo-banner .aws-promo-close:before {
+    content: "\f335";
+    font: normal 20px/28px dashicons;
+}
+
+.aws-promo-banner .aws-promo-close:hover,
+.aws-promo-banner .aws-promo-close:focus {
+    background: rgba(255, 255, 255, .09);
+    color: #fff;
+}
+
+.aws-promo-banner .aws-promo-badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #7f54b3;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.aws-promo-banner .aws-promo-title {
+    margin: 12px 0 0;
+    font-size: 18px;
+    line-height: 1.35;
+    color: #fff;
+}
+
+.aws-promo-banner .aws-promo-title b {
+    color: #f5a623;
+}
+
+.aws-promo-banner .aws-promo-list {
+    margin: 14px 0 0;
+}
+
+.aws-promo-banner .aws-promo-list li {
+    position: relative;
+    margin: 0 0 6px;
+    padding-left: 22px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, .85);
+}
+
+.aws-promo-banner .aws-promo-list li b {
+    color: #f5a623;
+    font-weight: 700;
+}
+
+.aws-promo-banner .aws-promo-list li:before {
+    content: "\f147";
+    position: absolute;
+    top: 0;
+    left: -2px;
+    font: normal 18px/1 dashicons;
+    color: #f5a623;
+}
+
+.aws-promo-banner .aws-promo-actions {
+    margin-top: 16px;
+}
+
+.aws-promo-banner .aws-promo-timer {
+    display: flex;
+    gap: 4px;
+    font-variant-numeric: tabular-nums;
+}
+
+.aws-promo-banner .aws-promo-counter {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    align-items: center;
+    min-width: 42px;
+    padding: 6px 4px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .09);
+    line-height: 1;
+}
+
+.aws-promo-banner .aws-promo-counter b {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.aws-promo-banner .aws-promo-counter span {
+    margin-top: 4px;
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .6);
+}
+
+.aws-promo-banner .aws-promo-cta {
+    display: block;
+    margin-top: 14px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #f5a623;
+    color: #0e1420;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: filter .15s ease;
+}
+
+.aws-promo-banner .aws-promo-cta:hover,
+.aws-promo-banner .aws-promo-cta:focus {
+    color: #0e1420;
+    filter: brightness(1.07);
+}
+
+.aws-promo-banner .aws-promo-note {
+    margin: 10px 0 0;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    color: rgba(255, 255, 255, .6);
+}
+
+/* Black Friday badge over each purchase box of the premium page */
+#aws_form .buy-premium a .aws-promo-deal {
+    /* table shrinks to its content and still takes a line of its own, which an inline-block
+       next to the inline .desc would not */
+    display: table;
+    margin: 0 0 10px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: #f5a623;
+    color: #0e1420;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+#aws_form .buy-premium a .aws-promo-deal b {
+    font-weight: 700;
+    text-transform: none;
+}
+
+/* on small screens banner is placed on top of settings, where height is what costs:
+   one tight row of text, one row of actions, and the note drops out since the countdown
+   next to it already says when the sale ends */
+@media screen and (max-width: 1100px) {
+
+    .aws-admin-columns {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .aws-promo-banner {
+        order: -1;
+        display: flex;
+        flex: none;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px 20px;
+        margin-top: 12px;
+        padding: 12px 40px 12px 16px;
+    }
+
+    .aws-promo-banner .aws-promo-close {
+        top: 4px;
+        right: 4px;
+    }
+
+    .aws-promo-banner .aws-promo-text {
+        flex: 1 1 280px;
+    }
+
+    .aws-promo-banner .aws-promo-badge {
+        padding: 2px 8px;
+        font-size: 11px;
+    }
+
+    .aws-promo-banner .aws-promo-title {
+        margin-top: 6px;
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
+    .aws-promo-banner .aws-promo-list {
+        margin: 5px 0 0;
+    }
+
+    .aws-promo-banner .aws-promo-list li {
+        display: inline-block;
+        margin: 0 14px 0 0;
+        padding-left: 19px;
+        font-size: 12px;
+    }
+
+    .aws-promo-banner .aws-promo-list li:before {
+        font-size: 15px;
+        line-height: 1.2;
+    }
+
+    .aws-promo-banner .aws-promo-actions {
+        flex: 0 1 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 14px;
+        margin-top: 0;
+    }
+
+    .aws-promo-banner .aws-promo-counter {
+        flex: none;
+        min-width: 36px;
+        padding: 4px 3px;
+    }
+
+    .aws-promo-banner .aws-promo-counter b {
+        font-size: 16px;
+    }
+
+    .aws-promo-banner .aws-promo-counter span {
+        margin-top: 2px;
+        font-size: 10px;
+    }
+
+    .aws-promo-banner .aws-promo-cta {
+        margin-top: 0;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .aws-promo-banner .aws-promo-note {
+        display: none;
+    }
+
+}
+
+/* phones and the mobile layout of wp-admin: text on one line, timer and button on the next */
+@media screen and (max-width: 782px) {
+
+    .aws-promo-banner {
+        gap: 8px 12px;
+        padding: 12px 36px 12px 14px;
+    }
+
+    .aws-promo-banner .aws-promo-text,
+    .aws-promo-banner .aws-promo-actions {
+        flex-basis: 100%;
+    }
+
+    .aws-promo-banner .aws-promo-title {
+        font-size: 14.5px;
+    }
+
+    .aws-promo-banner .aws-promo-actions {
+        justify-content: space-between;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    /* the countdown and the button share the last row until the screen is too narrow for
+       both, and only then does the button take a row of its own */
+    .aws-promo-banner .aws-promo-counter {
+        min-width: 30px;
+        padding: 4px 2px;
+    }
+
+    .aws-promo-banner .aws-promo-counter b {
+        font-size: 15px;
+    }
+
+    .aws-promo-banner .aws-promo-counter span {
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+
+    .aws-promo-banner .aws-promo-timer {
+        flex: 0 1 auto;
+    }
+
+    .aws-promo-banner .aws-promo-cta {
+        flex: 0 1 auto;
+        padding: 8px 11px;
+        font-size: 12.5px;
+    }
+
+    .aws-promo-banner .aws-promo-actions {
+        gap: 10px;
+    }
+
+    .aws-promo-banner .aws-promo-title {
+        font-size: 14px;
+    }
+
+    .aws-promo-banner .aws-promo-list li {
+        font-size: 11.5px;
+        line-height: 1.35;
+    }
+
+}
+
+/* narrow phones: the countdown no longer leaves room for the button beside it, so the button
+   takes the row it wrapped onto in full rather than sitting in a corner of it */
+@media screen and (max-width: 390px) {
+
+    .aws-promo-banner .aws-promo-cta {
+        flex: 1 1 100%;
+    }
+
 }

@@ -597,88 +597,10 @@ msgstr ""
 msgid "Priority support"
 msgstr ""
 
-msgid "1 year of support and updates"
-msgstr ""
-
-msgid "Premium Features"
-msgstr ""
-
-msgid "New Search Sources"
-msgstr ""
-
-msgid "Search additionally inside %sproduct attributes%s, %staxonomies%s, %scustom fields%s, %sunique number fields%s. Inside the plugin settings page it is possible to choose some specific sources that must be available for search ( for example only several product attributes ) or just search for all of them."
-msgstr ""
-
 msgid "Learn more"
 msgstr ""
 
-msgid "Product Variations Support"
-msgstr ""
-
-msgid "Search and show inside search results %svariable product%s, %sproduct variations%s or %sboth%s. With the variable products will be displayed all attributes that belong to that specific variation."
-msgstr ""
-
-msgid "Archive Pages Search"
-msgstr ""
-
-msgid "Search for WooCommerce product %scustom taxonomies%s and %sattributes archive pages%s. Display them right inside the search results list along with the product search results."
-msgstr ""
-
-msgid "Users Search"
-msgstr ""
-
-msgid "Search for website users and display them right inside the search results box. Choose what role the user must have to be available for search."
-msgstr ""
-
-msgid "Search Form Filters"
-msgstr ""
-
-msgid "For each search form you can create a unique set of tabs. These tabs have their own %sset of settings%s and work as %sfilters%s for your search results."
-msgstr ""
-
-msgid "Search Form Instances"
-msgstr ""
-
-msgid "Unlimited number of search form instances with totally different settings and products look. You can create totally different search forms for any of your needs. Each instance is %sindependent%s and has its own %sset of settings%s."
-msgstr ""
-
-msgid "Search Logic Change"
-msgstr ""
-
-msgid "Switch from %sOR%s to %sAND%s search logic. Choose from %spartial%s or %sexact match%s search."
-msgstr ""
-
-msgid "Add to Cart Button"
-msgstr ""
-
-msgid "Display %sAdd to Cart%s button right inside the search results. This makes it possible to add the product to the cart without visiting the product page. This button works perfectly also and with product variations."
-msgstr ""
-
-msgid "Search Results Layouts"
-msgstr ""
-
-msgid "Choose between several %spredefined search results layouts%s. For example you can display all products in search results in a grid or in column one by one."
-msgstr ""
-
-msgid "Exclude/Include Products Filters"
-msgstr ""
-
-msgid "Option to exclude or include products from search results by %sproduct ids%s, %staxonomies%s or %sattributes%s. Show only those products that you want. This option works great with the search form filters."
-msgstr ""
-
 msgid "Search Suggestions"
-msgstr ""
-
-msgid "Generate and show %sterms suggestions for current search query%s. Such suggestions will be visible at the top of the search results list."
-msgstr ""
-
-msgid "ACF Plugin Support"
-msgstr ""
-
-msgid "All fields that were created with the help of %sAdvanced Custom Fields%s plugin are available for search. Also use a special built-in filter to display any ACF field value right inside the search results list."
-msgstr ""
-
-msgid "You will benefit from our full support for any issues you have with this plugin."
 msgstr ""
 
 msgid "Frequently Asked Questions"
@@ -691,9 +613,6 @@ msgid "If you\'re not completely happy with your purchase and we\'re unable to r
 msgstr ""
 
 msgid "What payment methods do you accept?"
-msgstr ""
-
-msgid "Checkout is powered FastSpring company. They supports major credit and debit cards, PayPal, and a variety of other mainstream payment methods, so there’s plenty to pick from."
 msgstr ""
 
 msgid "Do you offer support if I need help?"
@@ -1282,4 +1201,205 @@ msgid "Menus Screen"
 msgstr ""
 
 msgid "AWS Search"
+msgstr ""
+
+msgid "OR get the"
+msgstr ""
+
+msgid "KramaKit Bundle"
+msgstr ""
+
+msgid "and save 30% on all our plugins!"
+msgstr ""
+
+msgid "All 3 plugins"
+msgstr ""
+
+msgid "All future plugins"
+msgstr ""
+
+msgid "Free vs. Pro"
+msgstr ""
+
+msgid "Everything in the free version, plus powerful Pro features for growing stores."
+msgstr ""
+
+msgid "Search for an unlimited number of products"
+msgstr ""
+
+msgid "There are no limits in the number of products that you can search for."
+msgstr ""
+
+msgid "Search by title, content, SKU, category, tag, ID"
+msgstr ""
+
+msgid "Search for WooCommerce products by title, content, SKU, category, tag and ID."
+msgstr ""
+
+msgid "Categories & tags pages search"
+msgstr ""
+
+msgid "Search and display categories and tags archive pages."
+msgstr ""
+
+msgid "Variable products search"
+msgstr ""
+
+msgid "Search and display WooCommerce variable products. Search for any child product to display its parent one."
+msgstr ""
+
+msgid "Multilingual support"
+msgstr ""
+
+msgid "Support for multilingual plugins like WPML, Polylang, qTranslate, WooCommerce Multilingual. Users will see only search results that are related to currently active language."
+msgstr ""
+
+msgid "Synonyms support"
+msgstr ""
+
+msgid "Option to set synonyms words. Those words will be equal during the search."
+msgstr ""
+
+msgid "Search results page"
+msgstr ""
+
+msgid "Display the plugin search results in both ways: inside ajax live results block and on a separate search results page. This page will inherit all your current theme styles and layout."
+msgstr ""
+
+msgid "Search by product attributes"
+msgstr ""
+
+msgid "Search for WooCommerce products by their attributes values."
+msgstr ""
+
+msgid "Search by product taxonomies"
+msgstr ""
+
+msgid "Search for all available custom taxonomies associated with your WooCommerce products. Choose to search for all of them or only for some. For example - search for products by Brand taxonomy value."
+msgstr ""
+
+msgid "Search by product custom fields"
+msgstr ""
+
+msgid "Search for WooCommerce products by their custom fields values. You can specify individually what exact custom field must be available for search. It is also possible to search for custom fields created by other plugins ( e.g. Advanced Custom Fields plugin )."
+msgstr ""
+
+msgid "Product variations search & display"
+msgstr ""
+
+msgid "Search for WooCommerce product variations. Display each variation separately inside the plugin search results list."
+msgstr ""
+
+msgid "GTIN, UPC, EAN, or ISBN search & display"
+msgstr ""
+
+msgid "Search for WooCommerce products by their GTIN, UPC, EAN, or ISBN unique numbers. Display these values inside the plugin search results list."
+msgstr ""
+
+msgid "Product Brands search & display"
+msgstr ""
+
+msgid "Search for WooCommerce products by their brands names. Display these brands inside the plugin search results list."
+msgstr ""
+
+msgid "Attributes, taxonomies archive pages search"
+msgstr ""
+
+msgid "Search and display attributes and taxonomies archive pages."
+msgstr ""
+
+msgid "Search suggestions"
+msgstr ""
+
+msgid "Show search suggestions ( search autocomplete, search recommendations ). They are automatically generated depending on current search query and existing store products."
+msgstr ""
+
+msgid "Users search & display"
+msgstr ""
+
+msgid "Search for any user of your website. Display them inside the plugin search results list. Search for all users or only for certain user roles."
+msgstr ""
+
+msgid "Search form instances"
+msgstr ""
+
+msgid "Create an unlimited number of search form instances. Each instance is a fully independent search form with its own unique set of settings."
+msgstr ""
+
+msgid "Search form filtering buttons"
+msgstr ""
+
+msgid "Create and display a special filter button for each of your search forms. Such a button gives the option to switch between several pre-defined search settings. For example - create different filters based on product categories."
+msgstr ""
+
+msgid "Search results filters"
+msgstr ""
+
+msgid "Exclude or include certain products, archive pages or users search results based on different parameters."
+msgstr ""
+
+msgid "Search results layouts"
+msgstr ""
+
+msgid "Choose between several pre-defined search results layouts. Select from the following layouts: inline, grid, large grid."
+msgstr ""
+
+msgid "Search form layouts"
+msgstr ""
+
+msgid "Choose from different search form layouts – with or without search button or search filters button. Also you can align them to the left or right side of the search form."
+msgstr ""
+
+msgid "AND search logic"
+msgstr ""
+
+msgid "Choose between AND or OR search logic. AND logic will show only products that contain all search words from the query."
+msgstr ""
+
+msgid "\"Add to Cart\" button"
+msgstr ""
+
+msgid "Show the 'Add to Cart' button right inside plugin search results for every product. Users will get the option to add products to their cart without leaving the current page."
+msgstr ""
+
+msgid "Customize search results view"
+msgstr ""
+
+msgid "Show/hide product title, description, tags, categories, attributes, SKU, ID, custom fields and taxonomies."
+msgstr ""
+
+msgid "Visibility & stock status options"
+msgstr ""
+
+msgid "Choose what product visibility ( catalog/search, catalog, search or hidden ) and stock status ( in-stock, out-of-stock or both ) products must have to appear in search results."
+msgstr ""
+
+msgid "Image source options"
+msgstr ""
+
+msgid "Set image source for search results: featured image, gallery, product content, product short description and set default image if there are no other images."
+msgstr ""
+
+msgid "Integration with 30+ plugins"
+msgstr ""
+
+msgid "Advanced integration with such plugins like Advanced Custom Fields, WCFM, Dokan, WPML, MultiVendorX, WC Vendors and many more."
+msgstr ""
+
+msgid "Feature"
+msgstr ""
+
+msgid "Free"
+msgstr ""
+
+msgid "Pro"
+msgstr ""
+
+msgid "Get Pro Version"
+msgstr ""
+
+msgid "30-day money-back guarantee, no questions asked"
+msgstr ""
+
+msgid "Checkout is powered by FastSpring. It supports major credit and debit cards, PayPal, and a variety of other mainstream payment methods, so there’s plenty to pick from."
 msgstr ""

@@ -362,4 +362,55 @@ jQuery(document).ready(function ($) {
 
     });
 
+
+    // Black Friday banner countdown and hide button
+
+    $('.aws-promo-banner').each( function() {
+
+        var $promoBanner = $(this);
+
+        var promoEnds = parseInt( $promoBanner.data('ends'), 10 ) * 1000;
+
+        var promoTimer = setInterval( function() {
+
+            var left = Math.floor( ( promoEnds - Date.now() ) / 1000 );
+
+            if ( left <= 0 ) {
+                clearInterval( promoTimer );
+                $promoBanner.hide();
+                return;
+            }
+
+            var counters = {
+                days: Math.floor( left / 86400 ),
+                hours: Math.floor( left % 86400 / 3600 ),
+                minutes: Math.floor( left % 3600 / 60 ),
+                seconds: left % 60
+            };
+
+            $.each( counters, function( name, value ) {
+                $promoBanner.find( '[data-countdown="' + name + '"]' ).text( name === 'days' ? value : ( '0' + value ).slice( -2 ) );
+            });
+
+        }, 1000 );
+
+        $promoBanner.on( 'click', '.aws-promo-close', function() {
+
+            clearInterval( promoTimer );
+            $promoBanner.remove();
+
+            $.ajax({
+                type: 'POST',
+                url: aws_vars.ajaxurl,
+                data: {
+                    action: 'aws-hidePromoBanner',
+                    _ajax_nonce: aws_vars.ajax_nonce
+                },
+                dataType: "json"
+            });
+
+        });
+
+    });
+
 });

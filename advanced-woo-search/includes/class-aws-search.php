@@ -452,6 +452,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                  */
                 $relevance_params = apply_filters( 'aws_relevance_parameters', $relevance_params, $relevance_scores, $search_term, $this->data );
 
+                $search_term_typed = $search_term;
                 $search_term_norm = AWS_Helpers::singularize( $search_term );
 
                 if ( $search_term_norm && $search_term_len > 3 && strlen( $search_term_norm ) > 2 ) {
@@ -464,8 +465,17 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                     $like = '%' . $wpdb->esc_like( $search_term ) . '%';
                 }
 
+                $like_sql = $wpdb->prepare( 'term LIKE %s', $like );
+
+                // singular form that changes word letters ( glice -> glouse ) misses words that start with typed term ( glicerina ), so typed term is searched too
+                // not needed when singular form is the start of typed term ( cars -> car ): it already finds all the same words
+                if ( $search_term !== $search_term_typed && strpos( (string) $search_term_typed, (string) $search_term ) !== 0 ) {
+                    $like_typed = $search_rule === 'begins' ? $wpdb->esc_like( $search_term_typed ) . '%' : '%' . $wpdb->esc_like( $search_term_typed ) . '%';
+                    $like_sql = '( ' . $like_sql . ' OR ' . $wpdb->prepare( 'term LIKE %s', $like_typed ) . ' )';
+                }
+
                 if ( $is_normal_term ) {
-                    $search_array[] = $wpdb->prepare( '( term LIKE %s )', $like );
+                    $search_array[] = '( ' . $like_sql . ' )';
                 } else {
                     $search_array[] = $wpdb->prepare( "( term = '%s' )", $search_term );
                 }
@@ -480,7 +490,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                         $relevance_array[$search_in_term][] = $wpdb->prepare( "( case when ( term_source = '%s' AND term = '%s' ) then {$relevance} * ( {$count_multiplier} ) else 0 end )", $search_in_term, $search_term );
 
                         if ( $is_normal_term ) {
-                            $relevance_array[$search_in_term][] = $wpdb->prepare( "( case when ( term_source = '%s' AND term LIKE %s ) then {$relevance_like} * ( {$count_multiplier} ) else 0 end )", $search_in_term, $like );
+                            $relevance_array[$search_in_term][] = $wpdb->prepare( "( case when ( term_source = '%s' AND ", $search_in_term ) . $like_sql . " ) then {$relevance_like} * ( {$count_multiplier} ) else 0 end )";
                         }
 
                     }

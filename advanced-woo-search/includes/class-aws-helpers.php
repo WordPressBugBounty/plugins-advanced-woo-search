@@ -212,6 +212,10 @@ if ( ! class_exists( 'AWS_Helpers' ) ) :
                             if ( $source === 'sku' ) {
                                 $str_new_array[$str_item_term] = $str_item_num;
                             }
+                            // singular form that changes word letters ( slice -> slouse, bota -> botum ) is not found by word first letters ( slic ) or by search of word plural form ( botas -> bota ), so original word is kept too
+                            if ( ! isset( $str_new_array[$str_item_term] ) && strpos( (string) $str_item_term, (string) $new_array_key ) !== 0 ) {
+                                $str_new_array[$str_item_term] = $str_item_num;
+                            }
                         } else {
                             if ( ! isset( $str_new_array[$str_item_term] ) ) {
                                 $str_new_array[$str_item_term] = $str_item_num;
@@ -242,7 +246,8 @@ if ( ! class_exists( 'AWS_Helpers' ) ) :
                 }
 
                 if ( ! empty( $synonyms_phrases ) ) {
-                    $str_new_array = array_merge( $str_new_array, $synonyms_phrases );
+                    // not array_merge(): it renumbers numeric terms ( part numbers, years ) to 0, 1, 2...
+                    $str_new_array = $str_new_array + $synonyms_phrases;
                 }
 
             }

@@ -67,6 +67,10 @@ if ( ! class_exists( 'AWS_Markup' ) ) :
             $form_action = AWS_Helpers::get_search_url();
             $input_id = uniqid();
 
+            // taxonomy query var is public, any visitor can set it with ?taxonomy= in page url
+            $current_tax = get_query_var( 'taxonomy' );
+            $current_tax = is_string( $current_tax ) && taxonomy_exists( $current_tax ) ? $current_tax : '';
+
             $params_string = '';
 
             $params = array(
@@ -85,7 +89,7 @@ if ( ! class_exists( 'AWS_Markup' ) ) :
                 'data-timeout'       => $search_timeout,
                 'data-is-mobile'     => wp_is_mobile() ? 'true' : 'false',
                 'data-page-id'       => AWS_Helpers::get_current_page_id(),
-                'data-tax'           => get_query_var('taxonomy')
+                'data-tax'           => $current_tax
             );
 
 
@@ -96,19 +100,23 @@ if ( ! class_exists( 'AWS_Markup' ) ) :
              */
             $params = apply_filters( 'aws_front_data_parameters', $params );
 
+            // search form block markup goes through do_shortcode() of post content and block widgets, so shortcodes from request values ( search query, taxonomy ) must not run there
+            // &#091; is not decoded back to [ by do_shortcode() itself ( unlike &#91; ), so it is also kept when form shortcode output goes through do_shortcode() one more time
+            $shortcode_brackets = array( '[' => '&#091;', ']' => '&#093;' );
+            $search_query = strtr( get_search_query(), $shortcode_brackets );
 
             foreach( $params as $key => $value ) {
-                $params_string .= $key . '="' . esc_attr( $value ) . '" ';
+                $params_string .= $key . '="' . strtr( esc_attr( $value ), $shortcode_brackets ) . '" ';
             }
 
             $markup = '';
             $markup .= '<div class="aws-container" ' . $params_string . '>';
-            $markup .= '<form class="aws-search-form" action="' . $form_action . '" method="get" role="search" >';
+            $markup .= '<form class="aws-search-form" action="' . esc_url( $form_action ) . '" method="get" role="search" >';
 
             $markup .= '<div class="aws-wrapper">';
 
                 $markup .= '<label class="aws-search-label" for="' . esc_attr( $input_id ) . '">' . esc_attr( $placeholder ) . '</label>';
-                $markup .= '<input type="search" name="s" id="' . esc_attr( $input_id ) . '" value="' . get_search_query() . '" class="aws-search-field" placeholder="' . esc_attr( $placeholder ) . '" autocomplete="off" />';
+                $markup .= '<input type="search" name="s" id="' . esc_attr( $input_id ) . '" value="' . $search_query . '" class="aws-search-field" placeholder="' . esc_attr( $placeholder ) . '" autocomplete="off" />';
                 $markup .= '<input type="hidden" name="post_type" value="product">';
                 $markup .= '<input type="hidden" name="type_aws" value="true">';
 

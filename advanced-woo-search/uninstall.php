@@ -34,6 +34,10 @@ delete_option( 'aws_activation_time' );
 delete_option( 'aws_cron_job' );
 delete_option( 'aws_hide_welcome_notice' );
 delete_option( 'aws_hide_int_notices' );
+delete_option( 'aws_bf2026_offer' );
+
+delete_metadata( 'user', 0, 'aws_hide_bf2026_banner', '', true );
+delete_metadata( 'user', 0, 'aws_bf2026_page_seen', '', true );
 
 if ( ! aws_is_plugin_installed( 'advanced-woo-search-pro/advanced-woo-search-pro.php' ) ) {
     $wpdb->query( "DROP TABLE IF EXISTS " . $wpdb->prefix . "aws_index" );

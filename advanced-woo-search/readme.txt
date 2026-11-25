@@ -5,7 +5,7 @@ Tags: woocommerce, search, product search, woocommerce search, live search
 Requires at least: 4.0
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 3.74
+Stable tag: 3.75
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -287,6 +287,14 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 [View full changelog](https://kramakit.com/guide/free-version/?utm_source=wp-repo&utm_medium=listing&utm_campaign=aws-repo)
 
+= 3.75 ( 2026-11-25 ) =
+* Update - Admin page notices
+* Update - Admin Premium page content
+* Update - Tested with WC 11.3
+* Fix - Shortcodes execution via search form taxonomy and search query values
+* Fix - Search and index of words that are changed by plural forms rules
+* Fix - Synonyms with numeric terms bug
+
 = 3.74 ( 2026-11-02 ) =
 * Fix - Cache names and its work with third-party plugins
 * Fix - Links inside admin notices
@@ -470,13 +478,3 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 3.32 ( 2025-04-28 ) =
 * Dev - Add awsNoResults js event
-
-= 3.31 ( 2025-04-14 ) =
-* Add - New widget for block editor to show current taxonomy terms results
-* Add - New widget for Elementor to show current taxonomy terms results
-* Add - New integration for Elementor WC Categories widget to show current terms results
-* Add - aws_taxonomy_terms_results shortcode to display taxonomies archive pages results
-* Update - Tested with WC 9.8
-* Fix - Bug with running index multiply times for one product
-* Fix - Integration issue with Divi BodyCommerce plugin mini cart widget
-* Dev - Add aws_tax_search_array and aws_tax_search_relevance_array hooks

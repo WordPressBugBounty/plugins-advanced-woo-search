@@ -85,9 +85,17 @@ class AWS_Admin {
 
         echo AWS_Admin_Meta_Boxes::get_header();
 
+        // sale banner is shown in the right column of settings pages
+        $promo_banner = AWS_Admin_Black_Friday::get_banner( $current_page );
+
         echo '<div class="wrap">';
 
         echo '<h1></h1>';
+
+        if ( $promo_banner ) {
+            echo '<div class="aws-admin-columns">';
+            echo '<div class="aws-admin-main">';
+        }
 
         echo '<form data-current-tab="' . esc_attr( $current_tab ) . '" action="" name="aws_form" id="aws_form" method="post">';
 
@@ -113,6 +121,12 @@ class AWS_Admin {
         echo '<input type="hidden" name="_wpnonce" value="' . esc_attr( $nonce ) . '">';
 
         echo '</form>';
+
+        if ( $promo_banner ) {
+            echo '</div>';
+            echo $promo_banner;
+            echo '</div>';
+        }
 
         echo '</div>';
 
